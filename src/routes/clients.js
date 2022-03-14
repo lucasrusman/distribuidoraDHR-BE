@@ -25,19 +25,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  
+  console.log(req.body)
   const { name, phone_number, zone, adress, email } = req.body;
-  mysqlConnection.query(
-    'INSERT INTO clients (name, phone_number, zone, adress, email) VALUES (?, ?, ?, ?, ?); ',
-    [name, phone_number, zone, adress, email],
-    (err, rows, fields) => {
-      if (!err) {
-        res.json(rows[0]);
-      } else {
-        console.log(err);
-      }
+  console.log( name, phone_number, zone, adress, email );
+  mysqlConnection.query('INSERT INTO clients (name, phone_number, zone, adress, email) VALUES (?, ?, ?, ?, ?); ',[name, phone_number, zone, adress, email ] ,  (err, rows, fields) => {
+    if (!err) {
+      res.json(rows[0]);
+    } else {
+      console.log(err);
     }
-  );
+  });
 });
 
 router.put('/:id', (req, res) => {
