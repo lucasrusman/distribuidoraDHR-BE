@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
   mysqlConnection.query(
     'INSERT INTO products (description, price) VALUES (?, ?); ',
     [description, price],
-    (err, rows, fields) => {
+    (err, rows, fields) => {  
       if (!err) {
         res.json(rows[0]);
       } else {
