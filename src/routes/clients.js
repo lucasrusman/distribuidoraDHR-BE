@@ -25,6 +25,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  
   const { name, phone_number, zone, adress, email } = req.body;
   mysqlConnection.query(
     'INSERT INTO clients (name, phone_number, zone, adress, email) VALUES (?, ?, ?, ?, ?); ',
@@ -42,12 +43,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const { name, phone_number, zone, adress, email } = req.body;
   const { id } = req.params;
-  const query = `
-        CALL popularEdit(?, ?, ?, ?, ?, ?)
-    `;
   mysqlConnection.query(
-    query,
-    [id, name, phone_number, zone, adress, email],
+    'UPDATE INTO clients (name, phone_number, zone, adress, email) VALUES (?, ?, ?, ?, ?); WHERE id = ?',
+    [name, phone_number, zone, adress, email, id],
     (err, rows, fields) => {
       if (!err) {
         res.json({ Status: 'Client update' });
