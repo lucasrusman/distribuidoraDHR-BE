@@ -36,6 +36,8 @@ class Servidor{
 
     rutas(){
         this.app.use('/clientes', require('../routes/clients'))
+        this.app.use('/productos', require('../routes/products'))
+        this.app.use('/ventas', require('../routes/sales'))
     }
 
     listen(){
