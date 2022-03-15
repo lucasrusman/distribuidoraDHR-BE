@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const { name, total, date } = req.body;
   mysqlConnection.query(
-    'INSERT INTO clients (name, total, date) VALUES (?, ?, ?); ',
+    'INSERT INTO sales (name, total, date) VALUES (?, ?, ?); ',
     [name, total, date],
     (err, rows, fields) => {
       if (!err) {
