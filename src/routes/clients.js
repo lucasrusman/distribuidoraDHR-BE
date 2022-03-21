@@ -8,8 +8,7 @@ const {
     validarCampos,
     validarJWT,
 } = require('../middlewars/');
-const {     getClients,
-  getClient,
+const {     getClients,getClient,
   postClient } = require('../controllers/clients');
 
 
