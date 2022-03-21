@@ -1,7 +1,7 @@
 
 
-const validarCampos  = require('../middlewars/validar-campos')
-const validarJWT  = require('../middlewars/validar-jwt')
+const validarCampos  = require('../middlewares/validar-campos')
+const validarJWT  = require('../middlewares/validar-jwt')
 
 
 module.exports = {

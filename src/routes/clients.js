@@ -7,7 +7,7 @@ const { check } = require("express-validator")
 const {
     validarCampos,
     validarJWT,
-} = require('../middlewars/');
+} = require('../middlewares');
 const {     getClients,getClient,
   postClient } = require('../controllers/clients');
 
