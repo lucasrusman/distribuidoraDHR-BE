@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
   const { id } = req.params;
   const { descripcion, precio_base } = req.body;
   conexion.query(
-    'UPDATE clientes SET descripcion = ?, precio_base = ? WHERE id = ?',
+    'UPDATE productos SET descripcion = ?, precio_base = ? WHERE id = ?',
     [descripcion, precio_base, id],
     (err, rows, fields) => {
       if (!err) {
