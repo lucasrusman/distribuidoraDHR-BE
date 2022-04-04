@@ -1,7 +1,7 @@
 const express = require('express');
-
+const PDFDocument =  require('pdfkit');
 const conexion = require('../database');
-
+var fs=require('fs');
 const router = express.Router();
 
 router.post('/crear', async (req, res, next) => {
@@ -17,6 +17,14 @@ router.post('/crear', async (req, res, next) => {
     }
   );
 });
+
+router.post('/crearPDF', async (req, res, next) => {
+  doc = new PDFDocument();
+  doc.pipe( fs.createWriteStream('out.pdf') );
+  doc.end();
+  res.send(200);
+  
+  });
 
 router.get('/:id', (req, res, next) => {
   console.log("asdasd")
