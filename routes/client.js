@@ -31,7 +31,6 @@ router.get('/:id', (req, res, next) => {
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM clientes', (err, rows, fields) => {
     if (!err) {
-      console.log(rows)
       res.json(rows);
     } else {
       console.log(err);

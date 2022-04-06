@@ -70,10 +70,12 @@ router.post('/crearPDF', async (req, res, next) => {
 
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/byClient/:id', (req, res, next) => {
   console.log("asdasd")
   const { id } = req.params;
-  conexion.query('Select p.id, p.precio_base, p.descripcion, pec.precio, pec.idCliente from productos p left join precio_espeicla_cliente pec on p.id = pec.idProducto and pec.idCliente = 2', (err, rows, fields) => {
+  conexion.query('Select p.id, p.precio_base, p.descripcion, pec.precio, pec.idCliente from productos p left join precio_espeicla_cliente pec on p.id = pec.idProducto and pec.idCliente = ?', 
+    [id]
+    , (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
