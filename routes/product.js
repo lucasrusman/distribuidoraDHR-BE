@@ -130,6 +130,17 @@ router.get('', (req, res, next) => {
   });
 });
 
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  conexion.query('SELECT * FROM productos WHERE id = ?', [id] , (err, rows, fields) => {
+    if (!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const { descripcion, precio_base } = req.body;

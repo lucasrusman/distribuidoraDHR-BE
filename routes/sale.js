@@ -64,4 +64,16 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+
+router.post('', (req, res, next) => {
+  const {fecha_inicial, fecha_final} = req.body
+  conexion.query('SELECT * FROM ventas WHERE fecha BETWEEN fecha = ? AND fecha = ?;', [fecha_inicial, fecha_final] , (err, rows, fields) => {
+    if (!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 module.exports = router;
