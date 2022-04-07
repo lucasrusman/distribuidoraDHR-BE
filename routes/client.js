@@ -21,7 +21,10 @@ router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   conexion.query('SELECT * FROM clientes WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 58e5b0ffaf8befbc0b8a624bc237772e25b94bfd
       res.json(rows);
     } else {
       console.log(err);
@@ -37,6 +40,7 @@ router.get('', (req, res, next) => {
     }
   });
 });
+
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
