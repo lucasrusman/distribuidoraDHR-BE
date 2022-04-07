@@ -5,22 +5,25 @@ const conexion = require('../database');
 const router = express.Router();
 
 router.post('/crear', async (req, res, next) => {
-  const { idCliente, fecha } = req.body;
+  const { idCliente, fecha, total } = req.body;
   conexion.query(
-    'INSERT INTO ventas (idCliente, fecha) VALUES (?, ?); ',
-    [idCliente, fecha],
+    'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?); ',
+    [idCliente, fecha, total],
     (error, rows) => {
       if (error) {
         console.log(error);
       }
+      console.log("soy la venta")
       res.json({ Status: 'Venta creada' });
     }
   );
 });
+//get sales by client
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  conexion.query('SELECT * FROM ventas WHERE id = ?', [id], (err, rows, fields) => {
+  conexion.query('SELECT * FROM ventas WHERE idCliente = ?', [id], (err, rows, fields) => {
     if (!err) {
+      console.log(rows);
       res.json(rows);
     } else {
       console.log(err);
@@ -30,6 +33,7 @@ router.get('/:id', (req, res, next) => {
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM ventas', (err, rows, fields) => {
     if (!err) {
+      console.log(rows);
       res.json(rows);
     } else {
       console.log(err);
