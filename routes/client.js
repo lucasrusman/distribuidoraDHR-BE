@@ -21,7 +21,7 @@ router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   conexion.query('SELECT * FROM clientes WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
-      
+
       res.json(rows);
     } else {
       console.log(err);
