@@ -13,14 +13,17 @@ router.post('/crear', async (req, res, next) => {
       if (error) {
         console.log(error);
       }
+      console.log("soy la venta")
       res.json({ Status: 'Venta creada' });
     }
   );
 });
+//get sales by client
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  conexion.query('SELECT * FROM ventas WHERE id = ?', [id], (err, rows, fields) => {
+  conexion.query('SELECT * FROM ventas WHERE idCliente = ?', [id], (err, rows, fields) => {
     if (!err) {
+      console.log(rows);
       res.json(rows);
     } else {
       console.log(err);
@@ -30,6 +33,7 @@ router.get('/:id', (req, res, next) => {
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM ventas', (err, rows, fields) => {
     if (!err) {
+      console.log(rows);
       res.json(rows);
     } else {
       console.log(err);
@@ -66,9 +70,8 @@ router.delete('/:id', (req, res) => {
 
 
 router.post('', (req, res, next) => {
-  const {fecha_inicial, fecha_final} = req.body
-  console.log(req.body);
-  conexion.query('SELECT * FROM ventas WHERE fecha BETWEEN ? AND ?;', [fecha_inicial, fecha_final] , (err, rows, fields) => {
+  const { fecha_inicial, fecha_final } = req.body
+  conexion.query('SELECT * FROM ventas WHERE fecha BETWEEN fecha = ? AND fecha = ?;', [fecha_inicial, fecha_final], (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {

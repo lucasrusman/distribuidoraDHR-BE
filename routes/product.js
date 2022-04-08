@@ -55,7 +55,7 @@ function createTable(doc, data, width = 500) {
 router.post('/crearPDF', async (req, res, next) => {
   doc = new PDFDocument();
   createTable(doc, [["Producto 1", 123123], ["Producto 1", 123123], ["Producto 1", 123123]], 500);
-  
+
   var finalString = ''; // contains the base64 string
   var stream = doc.pipe(new Base64Encode());
   doc.end();
@@ -71,10 +71,10 @@ router.post('/crearPDF', async (req, res, next) => {
 });
 
 router.post('/editarPrecioPorCliente', (req, res, next) => {
-  const { idCliente, productos  } = req.body;
+  const { idCliente, productos } = req.body;
   productos.forEach(producto => {
-    conexion.query('SELECT * FROM precio_espeicla_cliente where idCliente= ? and idProducto=?',[idCliente, producto.id], (err, rows, fields) => {
-      if(rows.length != 0){
+    conexion.query('SELECT * FROM precio_espeicla_cliente where idCliente= ? and idProducto=?', [idCliente, producto.id], (err, rows, fields) => {
+      if (rows.length != 0) {
         //tengo que actualizar
 
 
@@ -89,7 +89,7 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
 
 
 
-      }else{
+      } else {
         //tengo que insertar
         conexion.query(
           'INSERT INTO precio_espeicla_cliente(idProducto,idCliente,precio) VALUES (?, ?, ?);',
@@ -102,22 +102,22 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
         );
       }
     });
-    
+
   });
 });
 
 router.get('/byClient/:id', (req, res, next) => {
   console.log("asdasd")
   const { id } = req.params;
-  conexion.query('Select p.id, p.precio_base, p.descripcion, pec.precio, pec.idCliente from productos p left join precio_espeicla_cliente pec on p.id = pec.idProducto and pec.idCliente = ?', 
+  conexion.query('Select p.id, p.precio_base, p.descripcion, pec.precio, pec.idCliente from productos p left join precio_espeicla_cliente pec on p.id = pec.idProducto and pec.idCliente = ?',
     [id]
     , (err, rows, fields) => {
-    if (!err) {
-      res.json(rows);
-    } else {
-      console.log(err);
-    }
-  });
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    });
 });
 
 router.get('', (req, res, next) => {
@@ -132,7 +132,7 @@ router.get('', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  conexion.query('SELECT * FROM productos WHERE id = ?', [id] , (err, rows, fields) => {
+  conexion.query('SELECT * FROM productos WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
@@ -160,7 +160,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
   conexion.query('DELETE FROM productos WHERE id = ?', [id], (err, rows, fields) => {
-    conexion.query('DELETE FROM precio_espeicla_cliente WHERE idProducto = ?', [id], (err, rows, fields) => {});
+    conexion.query('DELETE FROM precio_espeicla_cliente WHERE idProducto = ?', [id], (err, rows, fields) => { });
     if (!err) {
       res.json({ Status: 'Producto eliminado' });
     } else {
