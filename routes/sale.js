@@ -5,10 +5,10 @@ const conexion = require('../database');
 const router = express.Router();
 
 router.post('/crear', async (req, res, next) => {
-  const { idCliente, fecha } = req.body;
+  const { idCliente, fecha, total } = req.body;
   conexion.query(
-    'INSERT INTO ventas (idCliente, fecha) VALUES (?, ?); ',
-    [idCliente, fecha],
+    'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?); ',
+    [idCliente, fecha, total],
     (error, rows) => {
       if (error) {
         console.log(error);
@@ -67,7 +67,8 @@ router.delete('/:id', (req, res) => {
 
 router.post('', (req, res, next) => {
   const {fecha_inicial, fecha_final} = req.body
-  conexion.query('SELECT * FROM ventas WHERE fecha BETWEEN fecha = ? AND fecha = ?;', [fecha_inicial, fecha_final] , (err, rows, fields) => {
+  console.log(req.body);
+  conexion.query('SELECT * FROM ventas WHERE fecha BETWEEN ? AND ?;', [fecha_inicial, fecha_final] , (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
