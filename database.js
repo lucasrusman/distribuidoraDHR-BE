@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 
 const conexion = mysql.createConnection({
-    host : "localhost",
-    user : "root",
-    password : '',
-    database : "DistribuidoraDHR",
+    host : "us-cdbr-east-05.cleardb.net",
+    user : "ba72e0398c8525",
+    password : 'abff3d1f',
+    database : "heroku_9fa1aeaa118cff5",
     port: 3306
 })
 
