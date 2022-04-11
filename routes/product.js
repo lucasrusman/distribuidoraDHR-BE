@@ -28,13 +28,14 @@ function createTable(doc, data, width = 500) {
   doc.fontSize(10);
 
   let currentY = startY;
-
+  let i = 1;
   data.forEach(value => {
+    
     let currentX = startX,
       size = value.length;
-
+      console.log(currentX + distanceX, currentY)
     let blockSize = width / size;
-
+    
     value.forEach(text => {
       //Write text
       doc.text(text, currentX + distanceX, currentY);
@@ -44,15 +45,20 @@ function createTable(doc, data, width = 500) {
 
       currentX += blockSize;
     });
-
+    console.log(i)
+    if(i % 40 == 0){
+      currentY = startY
+      doc.addPage();
+    }
     currentY += distanceY;
+    i++;
   });
 }
 
 router.post('/crearPDF', async (req, res, next) => {
   const arrayProduct = []
   productos = []
-  productos = conexion.query('SELECT * FROM productos', function (err, rows, fields) {
+  productos = conexion.query('SELECT * FROM productos limit 90', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
         allProducts = [row.descripcion, row.precio_base]
@@ -68,6 +74,7 @@ router.post('/crearPDF', async (req, res, next) => {
 
       var finalString = ''; // contains the base64 string
       var stream = doc.pipe(new Base64Encode());
+
       doc.end();
 
       stream.on('data', function (chunk) {
