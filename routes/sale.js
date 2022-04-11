@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
       if (!err) {
         res.json({ Status: 'Venta Actualizada' });
       } else {
-        console.log(err);
+        console.log(err); 
       }
     }
   );
