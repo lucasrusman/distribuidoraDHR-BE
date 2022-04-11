@@ -133,7 +133,7 @@ router.delete('/:id', (req, res) => {
 router.post('', (req, res, next) => {
   const { fecha_inicial, fecha_final } = req.body;
   conexion.query(
-    'SELECT * FROM ventas WHERE fecha BETWEEN fecha = ? AND fecha = ?;',
+    'SELECT * FROM ventas WHERE fecha BETWEEN ? AND ?;',
     [fecha_inicial, fecha_final],
     (err, rows, fields) => {
       if (!err) {
