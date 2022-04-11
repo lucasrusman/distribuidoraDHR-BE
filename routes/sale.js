@@ -93,6 +93,7 @@ router.get('/:id', (req, res, next) => {
 });
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM ventas', (err, rows, fields) => {
+    console.log("ascaasdasdasdas")
     if (!err) {
       console.log(rows);
       res.json(rows);
