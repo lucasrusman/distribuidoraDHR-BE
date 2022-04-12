@@ -30,12 +30,11 @@ function createTable(doc, data, width = 500) {
   let currentY = startY;
   let i = 1;
   data.forEach(value => {
-    
     let currentX = startX,
       size = value.length;
-      console.log(currentX + distanceX, currentY)
+    console.log(currentX + distanceX, currentY);
     let blockSize = width / size;
-    
+
     value.forEach(text => {
       //Write text
       doc.text(text, currentX + distanceX, currentY);
@@ -45,9 +44,9 @@ function createTable(doc, data, width = 500) {
 
       currentX += blockSize;
     });
-    console.log(i)
-    if(i % 40 == 0){
-      currentY = startY
+    console.log(i);
+    if (i % 40 == 0) {
+      currentY = startY;
       doc.addPage();
     }
     currentY += distanceY;
@@ -56,21 +55,16 @@ function createTable(doc, data, width = 500) {
 }
 
 router.post('/crearPDF', async (req, res, next) => {
-  const arrayProduct = []
-  productos = []
+  const arrayProduct = [];
+  productos = [];
   productos = conexion.query('SELECT * FROM productos limit 90', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
-        allProducts = [row.descripcion, row.precio_base]
-        arrayProduct.push(allProducts)
+        allProducts = [row.descripcion, row.precio_base];
+        arrayProduct.push(allProducts);
       });
       doc = new PDFDocument();
-      createTable(
-        doc,
-        arrayProduct
-        ,
-        500
-      );
+      createTable(doc, arrayProduct, 500);
 
       var finalString = ''; // contains the base64 string
       var stream = doc.pipe(new Base64Encode());
@@ -88,9 +82,7 @@ router.post('/crearPDF', async (req, res, next) => {
       console.log(err);
     }
   });
-})
-
-
+});
 
 router.post('/editarPrecioPorCliente', (req, res, next) => {
   const { idCliente, productos } = req.body;
@@ -128,6 +120,47 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
   });
 });
 
+router.put('/aumentarPrecios', (req, res, next) => {
+  // const { valor } = req.body;
+  // conexion.query('SELECT precio_base FROM productos', (err, rows, fields) => {
+  //   if (!err) {
+  //     rows.map(value => {
+  //       valor + 1;
+  //       console.log(value);
+  //     });
+  //     conexion.query('UPDATE productos SET precio_base = ?', [], (err, rows, fields) => {
+  //       if (!err) {
+  //         res.json({ Status: 'Todos los productos fueron actualizados correctametne' });
+  //       } else {
+  //         console.log(err);
+  //       }
+  //     });
+  //   }
+  // });
+
+  const { valor, productos } = req.body;
+  console.log(productos);
+  productos.forEach(producto => {
+    conexion.query(
+      'SELECT precio_base FROM productos where id = ?',
+      [producto.id],
+      (err, rows, fields) => {
+      
+        conexion.query(
+          'UPDATE productos SET precio_base = ? WHERE id = ?',
+          [valor, producto.id],
+          (error, rows) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log({ Status: "Precio de los productos actualizados correctamente" });
+            }
+          }
+        );
+      }
+    );
+  });
+});
 router.get('/byClient/:id', (req, res, next) => {
   console.log('asdasd');
   const { id } = req.params;

@@ -1,8 +1,9 @@
 const express = require('express');
-
+const PDFDocument = require('pdfkit');
 const conexion = require('../database');
-
+var fs = require('fs');
 const router = express.Router();
+const { Base64Encode } = require('base64-stream');
 
 router.post('/crear', async (req, res, next) => {
   const { nombre, telefono, email, zona, direccion, detalle } = req.body;
