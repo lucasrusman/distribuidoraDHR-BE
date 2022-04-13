@@ -59,7 +59,7 @@ router.post('/crearPDF', async (req, res, next) => {
   clientes = conexion.query('SELECT * FROM clientes limit 90', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
-        allClients = [row.nombre, row.telefono, row.email, row.zona, row.direccion, row.detalle];
+        allClients = [row.nombre, row.telefono, row.email];
         arrayClientes.push(allClients);
       });
       doc = new PDFDocument();

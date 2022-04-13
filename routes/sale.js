@@ -78,6 +78,43 @@ router.post('/crearPDF', async (req, res, next) => {
     }
   });
 });
+//TODO
+router.post('/crearPDF/exportarClientes', async (req, res, next) => {
+  const { sales } = req.body;
+  console.log(sales);
+  sales.forEach(venta => {
+    const arraySale = [];
+    ventas = [];
+    ventas = conexion.query(
+      'SELECT * FROM ventas WHERE idCliente = ?',
+      [venta.idCliente],
+      function (err, rows, fields) {
+        if (!err) {
+          rows.forEach(row => {
+            allSales = [row.idCliente, row.fecha, row.total];
+            arraySale.push(allSales);
+          });
+          doc = new PDFDocument();
+          createTable(doc, arraySale, 500);
+
+          var finalString = ''; // contains the base64 string
+          var stream = doc.pipe(new Base64Encode());
+          doc.end();
+
+          stream.on('data', function (chunk) {
+            finalString += chunk;
+          });
+
+          stream.on('end', function () {
+            res.json({ finalString });
+          });
+        } else {
+          console.log(err);
+        }
+      }
+    );
+  });
+});
 
 //get sales by client
 router.get('/:id', (req, res, next) => {
@@ -93,7 +130,7 @@ router.get('/:id', (req, res, next) => {
 });
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM ventas', (err, rows, fields) => {
-    console.log("ascaasdasdasdas")
+    console.log('ascaasdasdasdas');
     if (!err) {
       console.log(rows);
       res.json(rows);
