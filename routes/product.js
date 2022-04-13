@@ -162,7 +162,6 @@ router.put('/aumentarPrecios', (req, res, next) => {
   });
 });
 router.get('/byClient/:id', (req, res, next) => {
-  console.log('asdasd');
   const { id } = req.params;
   conexion.query(
     'Select p.id, p.precio_base, p.descripcion, pec.precio, pec.idCliente from productos p left join precio_espeicla_cliente pec on p.id = pec.idProducto and pec.idCliente = ?',

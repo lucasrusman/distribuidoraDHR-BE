@@ -6,18 +6,58 @@ const router = express.Router();
 const { Base64Encode } = require('base64-stream');
 
 router.post('/crear', async (req, res, next) => {
-  const { idCliente, fecha, total } = req.body;
+  // TODO save sale on 'productos_por_venta' table
   conexion.query(
     'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?); ',
-    [idCliente, fecha, total],
+    [req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total],
     (error, rows) => {
       if (error) {
-        console.log(error);
+        //console.log(error);
+      } else {
+        console.log('hicimos bien la venta');
       }
-      console.log('soy la venta');
-      res.json({ Status: 'Venta creada' });
     }
   );
+  console.log(req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total);
+  conexion.query(
+    'SELECT id FROM ventas WHERE idCliente = ?, fecha = ?, total = ?',
+    // TODO tenemos un error en que la fecha no tiene el formato correcto
+    [req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total],
+    (error, rows) => {
+      if (error) {
+        //console.log(error);
+      } else {
+        console.log('sos un capo');
+        console.log(rows);
+        idVenta = rows.id
+        //ACA DEBERIA RETORNAR EL ID DE LA VENTA
+      }
+    });
+  listaProductosVentaAPushear = [];
+  req.body.productos.forEach(productoVendido => {
+    if (productoVendido.precio) {
+      listaProductosVentaAPushear.push([idVenta, productoVendido.id, productoVendido.precio]);
+    } else {
+      listaProductosVentaAPushear.push([idVenta, productoVendido.id, productoVendido.precio_base]);
+    }
+    return listaProductosVentaAPushear;
+  });
+  productoPorVenta = listaProductosVentaAPushear.forEach(producto => {
+    console.log(producto);
+    conexion.query(
+      'INSERT INTO productos_por_venta (idVenta, idProducto, precio) VALUES (?, ?,?);',
+      [producto[0], producto[1], producto[2]],
+      (error, rows) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('hicimos bien productos por venta');
+        }
+      }
+    );
+  });
+
+  //console.log(req.body.productos);
 });
 
 function createTable(doc, data, width = 500) {
@@ -128,11 +168,10 @@ router.get('/:id', (req, res, next) => {
     }
   });
 });
+
 router.get('', (req, res, next) => {
   conexion.query('SELECT * FROM ventas', (err, rows, fields) => {
-    console.log('ascaasdasdasdas');
     if (!err) {
-      console.log(rows);
       res.json(rows);
     } else {
       console.log(err);
