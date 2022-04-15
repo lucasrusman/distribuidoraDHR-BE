@@ -1,5 +1,6 @@
 const express = require('express');
 const PDFDocument = require('pdfkit');
+const { format } = require('date-fns');
 const conexion = require('../database');
 var fs = require('fs');
 const router = express.Router();
@@ -7,9 +8,10 @@ const { Base64Encode } = require('base64-stream');
 
 router.post('/crear', async (req, res, next) => {
   // TODO save sale on 'productos_por_venta' table
+  const { idCliente, total } = req.body.sale;
   conexion.query(
     'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?); ',
-    [req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total],
+    [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
     (error, rows) => {
       if (error) {
         //console.log(error);
@@ -20,25 +22,25 @@ router.post('/crear', async (req, res, next) => {
   );
   console.log(req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total);
   conexion.query(
-    'SELECT id FROM ventas WHERE idCliente = ?, fecha = ?, total = ?',
-    // TODO tenemos un error en que la fecha no tiene el formato correcto
-    [req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total],
+    'SELECT id FROM ventas WHERE idCliente = ?, fecha = ?, total = ?;',
+    [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
     (error, rows) => {
       if (error) {
-        //console.log(error);
+        console.log(error);
       } else {
         console.log('sos un capo');
         console.log(rows);
-        idVenta = rows.id
+        //idVenta = rows.id;
         //ACA DEBERIA RETORNAR EL ID DE LA VENTA
       }
-    });
+    }
+  );
   listaProductosVentaAPushear = [];
   req.body.productos.forEach(productoVendido => {
     if (productoVendido.precio) {
-      listaProductosVentaAPushear.push([idVenta, productoVendido.id, productoVendido.precio]);
+      listaProductosVentaAPushear.push([1, productoVendido.id, productoVendido.precio]);
     } else {
-      listaProductosVentaAPushear.push([idVenta, productoVendido.id, productoVendido.precio_base]);
+      listaProductosVentaAPushear.push([1, productoVendido.id, productoVendido.precio_base]);
     }
     return listaProductosVentaAPushear;
   });
@@ -49,7 +51,7 @@ router.post('/crear', async (req, res, next) => {
       [producto[0], producto[1], producto[2]],
       (error, rows) => {
         if (error) {
-          console.log(error);
+          //console.log(error);
         } else {
           console.log('hicimos bien productos por venta');
         }
