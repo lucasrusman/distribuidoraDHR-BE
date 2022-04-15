@@ -14,52 +14,25 @@ router.post('/crear', async (req, res, next) => {
     [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
     (error, rows) => {
       if (error) {
-        //console.log(error);
-      } else {
-        console.log('hicimos bien la venta');
-      }
-    }
-  );
-  console.log(req.body.sale.idCliente, req.body.sale.fecha, req.body.sale.total);
-  conexion.query(
-    'SELECT id FROM ventas WHERE idCliente = ?, fecha = ?, total = ?;',
-    [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
-    (error, rows) => {
-      if (error) {
         console.log(error);
       } else {
-        console.log('sos un capo');
-        console.log(rows);
-        //idVenta = rows.id;
-        //ACA DEBERIA RETORNAR EL ID DE LA VENTA
+        req.body.productos.forEach(producto => {
+          producto.precio = producto.precio ? producto.precio : producto.precio_base
+          conexion.query(
+            'INSERT INTO productos_por_venta (idVenta, idProducto, precio) VALUES (?, ?,?);',
+            [rows.insertId, producto.id, producto.precio],
+            (error, rows) => {
+              if (error) {
+                console.log(error);
+              } else {
+                res.json({ Status: 'Venta OK' });
+              }
+            }
+          );
+        })
       }
     }
   );
-  listaProductosVentaAPushear = [];
-  req.body.productos.forEach(productoVendido => {
-    if (productoVendido.precio) {
-      listaProductosVentaAPushear.push([1, productoVendido.id, productoVendido.precio]);
-    } else {
-      listaProductosVentaAPushear.push([1, productoVendido.id, productoVendido.precio_base]);
-    }
-    return listaProductosVentaAPushear;
-  });
-  productoPorVenta = listaProductosVentaAPushear.forEach(producto => {
-    console.log(producto);
-    conexion.query(
-      'INSERT INTO productos_por_venta (idVenta, idProducto, precio) VALUES (?, ?,?);',
-      [producto[0], producto[1], producto[2]],
-      (error, rows) => {
-        if (error) {
-          //console.log(error);
-        } else {
-          console.log('hicimos bien productos por venta');
-        }
-      }
-    );
-  });
-
-  //console.log(req.body.productos);
 });
 
 function createTable(doc, data, width = 500) {
