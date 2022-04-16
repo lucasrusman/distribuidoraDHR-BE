@@ -120,47 +120,28 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
   });
 });
 
-router.put('/aumentarPrecios', (req, res, next) => {
-  // const { valor } = req.body;
-  // conexion.query('SELECT precio_base FROM productos', (err, rows, fields) => {
-  //   if (!err) {
-  //     rows.map(value => {
-  //       valor + 1;
-  //       console.log(value);
-  //     });
-  //     conexion.query('UPDATE productos SET precio_base = ?', [], (err, rows, fields) => {
-  //       if (!err) {
-  //         res.json({ Status: 'Todos los productos fueron actualizados correctametne' });
-  //       } else {
-  //         console.log(err);
-  //       }
-  //     });
-  //   }
-  // });
 
-  const { valor, productos } = req.body;
-  console.log(productos);
+router.put('/aumentarPrecios', (req, res, next) => {
+  const { productos } = req.body;
+  let { valor } = req.body
   productos.forEach(producto => {
+    let precio = (producto.precio_base * valor) / 100
+    let precioFinal = producto.precio_base + precio
     conexion.query(
-      'SELECT precio_base FROM productos where id = ?',
-      [producto.id],
-      (err, rows, fields) => {
-      
-        conexion.query(
-          'UPDATE productos SET precio_base = ? WHERE id = ?',
-          [valor, producto.id],
-          (error, rows) => {
-            if (error) {
-              console.log(error);
-            } else {
-              console.log({ Status: "Precio de los productos actualizados correctamente" });
-            }
-          }
-        );
+      'UPDATE productos SET precio_base = ? WHERE id = ?',
+      [precioFinal, producto.id],
+      (error, rows) => {
+        if (error) {
+          console.log(error);
+        } else {
+          res.json({ Status: "Precio de los productos actualizados correctamente" });
+        }
       }
     );
-  });
+  }
+  );
 });
+
 router.get('/byClient/:id', (req, res, next) => {
   const { id } = req.params;
   conexion.query(
@@ -219,7 +200,7 @@ router.delete('/:id', (req, res) => {
     conexion.query(
       'DELETE FROM precio_espeicla_cliente WHERE idProducto = ?',
       [id],
-      (err, rows, fields) => {}
+      (err, rows, fields) => { }
     );
     if (!err) {
       res.json({ Status: 'Producto eliminado' });
