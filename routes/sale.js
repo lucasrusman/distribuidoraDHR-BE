@@ -196,4 +196,15 @@ router.post('', (req, res, next) => {
   );
 });
 
+router.get('/propiedades/:id', (req, res, next) => {
+  const {id} = req.params
+  conexion.query('SELECT nombre, telefono, direccion, zona FROM clientes WHERE id = ?', [id] ,(err, rows, fields) => {
+    if (!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 module.exports = router;
