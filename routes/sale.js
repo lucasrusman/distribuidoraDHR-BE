@@ -196,15 +196,53 @@ router.post('', (req, res, next) => {
   );
 });
 
-router.get('/propiedades/:id', (req, res, next) => {
-  const {id} = req.params
-  conexion.query('SELECT nombre, telefono, direccion, zona FROM clientes WHERE id = ?', [id] ,(err, rows, fields) => {
+
+router.post('/propiedades', (req, res, next) => {
+  const { idCliente, idVenta } = req.body
+  let exportSale = []
+  let array = []
+  conexion.query('SELECT nombre, telefono, direccion, zona FROM clientes WHERE id = ?', [idCliente], (err, rows, fields) => {
     if (!err) {
-      res.json(rows);
+      rows.forEach(element => {
+        exportSale.push(element)
+      });
+      conexion.query('SELECT fecha, total FROM ventas WHERE id = ? and idCliente = ?', [idVenta, idCliente], (err, rows, fields) => {
+        if (!err) {
+          rows.forEach(row => {
+            exportSale.push(row)
+            array.push(exportSale[0].nombre)
+            array.push(exportSale[0].telefono)
+            array.push(exportSale[0].direccion)
+            array.push(exportSale[0].zona)
+            array.push(exportSale[1].fecha)
+            array.push(exportSale[1].total)
+
+            doc = new PDFDocument();
+            createTable(doc, [array], 500);
+
+            var finalString = ''; // contains the base64 string
+            var stream = doc.pipe(new Base64Encode());
+
+            doc.end();
+
+            stream.on('data', function (chunk) {
+              finalString += chunk;
+            });
+
+            stream.on('end', function () {
+              res.json({ finalString });
+            });
+
+            res.json([array]);
+          });
+        } else {
+          console.log(err);
+        }
+      })
     } else {
       console.log(err);
     }
-  });
+  })
 });
 
 module.exports = router;
