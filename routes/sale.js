@@ -2,17 +2,13 @@ const express = require('express');
 const PDFDocument = require('pdfkit');
 const { format } = require('date-fns');
 const conexion = require('../database');
-const { jsPDF } = require("jspdf");
+const { jsPDF } = require('jspdf');
 var fs = require('fs');
 const router = express.Router();
 const { Base64Encode } = require('base64-stream');
 const pdf2base64 = require('pdf-to-base64');
 
-
 var pdf = require('html-pdf');
-
-
-
 
 router.post('/crear', async (req, res, next) => {
   // TODO save sale on 'productos_por_venta' table
@@ -87,58 +83,232 @@ router.post('/crearPDF', async (req, res, next) => {
         if (err) {
           console.log(err);
         } else {
-          pdf2base64("./listadoVentas.pdf")
-            .then(
-              (response) => {
-                res.json({ finalString: response });
-              }
-            )
-            .catch(
-              (error) => {
-                console.log(error);
-              }
-            )
-        };
+          pdf2base64('./listadoVentas.pdf')
+            .then(response => {
+              res.json({ finalString: response });
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
       });
     }
   });
 });
 
-function generarVentaHTML(datosCliente, datosVenta){
+function generarVentaHTML(datosCliente, datosVenta) {
 
   console.log(datosVenta)
+ 
+
+
   var html = `
-  <p>nombre cliente: `+datosCliente.nombre+` </p>
-  <p>telefono cliente: `+datosCliente.telefono+` </p>
-  <p>direccion cliente: `+datosCliente.direccion+` </p>
-  <p>zona cliente: `+datosCliente.zona+` </p>
-  `
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>A simple, clean, and responsive HTML invoice template</title>
+
+		<style>
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 30px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
+
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+			}
+
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
+
+			.invoice-box table tr td:nth-child(2) {
+				text-align: right;
+			}
+
+			.invoice-box table tr.top table td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.top table td.title {
+				font-size: 45px;
+				line-height: 45px;
+				color: #333;
+			}
+
+			.invoice-box table tr.information table td {
+				padding-bottom: 40px;
+			}
+
+			.invoice-box table tr.heading td {
+				background: #eee;
+				border-bottom: 1px solid #ddd;
+				font-weight: bold;
+			}
+
+			.invoice-box table tr.details td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.item td {
+				border-bottom: 1px solid #eee;
+			}
+
+			.invoice-box table tr.item.last td {
+				border-bottom: none;
+			}
+
+			.invoice-box table tr.total td:nth-child(2) {
+				border-top: 2px solid #eee;
+				font-weight: bold;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
+
+			/** RTL **/
+			.invoice-box.rtl {
+				direction: rtl;
+				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+			}
+
+			.invoice-box.rtl table {
+				text-align: right;
+			}
+
+			.invoice-box.rtl table tr td:nth-child(2) {
+				text-align: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="invoice-box">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td class="title">
+									<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
+								</td>
+
+								<td>
+									Fecha: [FECHA VENTA]<br />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									[datos distribuodra 1]<br />
+									[datos distribuodra 2]<br />
+									[datos distribuodra 3]<br />
+								</td>
+
+								<td>
+                `+ datosCliente.nombre + `<br />
+                `+ datosCliente.telefono + `<br />
+                `+ datosCliente.direccion + `<br />
+                `+ datosCliente.zona + `
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+
+				<tr class="heading">
+					<td>Producto</td>
+
+					<td>Precio</td>
+				</tr>
+        `;
 
   datosVenta.forEach(producto => {
-    html = html + `<p>idProducto: ` + producto.descripcion + ` precio: `+ producto.precio+`</p>`
+    html = html + `
+          <tr class="item">
+					<td>` + producto.descripcion + `</td>
+
+					<td>$`+ producto.precio + `0</td>
+				</tr>
+          `
   });
+
+  html = html + `
+
+				
+				<tr class="total">
+					<td></td>
+
+					<td>Total: $385.00</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+`
+
   return html;
 }
 
 function generarListadoVentasHTML(sales) {
-  var html = `<table border="1">
+  var doc = new jsPDF();
+  var imgData = './logo-dygcombos.png';
+  doc.addImage(imgData, 'PNG', 15, 40, 180, 160);
+  var html = `<table border="1">  
   <tbody><tr>
+  <p>Hola</p>
   <td>Fecha</td>
   <td>Monto</td>
   </tr>`;
   sales.forEach(sale => {
-    html = html + `<tr>
-    <td>`+sale[1]+`</td>
-    <td>`+sale[2]+`</td>
-    </tr>`
+    html =
+      html +
+      `<tr>
+    <td>` +
+      sale[1] +
+      `</td>
+    <td>` +
+      sale[2] +
+      `</td>
+    </tr>`;
   });
-  html = html + `
+  html =
+    html +
+    `
   </tbody>
   </table>
-  `
+  `;
   return html;
 }
-
 
 router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   ventas = req.body.sales;
@@ -178,9 +348,6 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
       }
     );
   });
-
-
-
 });
 
 //get sales by client
@@ -249,7 +416,7 @@ router.post('', (req, res, next) => {
 
 router.post('/propiedades', async (req, res, next) => {
   const { idCliente, idVenta } = req.body;
-  
+
   let exportSale = [];
   let array = [];
   conexion.query(
@@ -259,30 +426,30 @@ router.post('/propiedades', async (req, res, next) => {
       if (!err) {
         let datosClientes = rows[0]
         conexion.query('SELECT * FROM productos_por_venta ppv  inner join productos p on ppv.idProducto = p.id where ppv.idVenta = ?',
-        [idVenta],
-        (err, rows, fields) => {
-          let productosVenta = rows
-          //aca debemos generar el pdf
-          ventaHTML = generarVentaHTML(datosClientes,productosVenta);
-          pdf.create(ventaHTML).toFile('./venta.pdf', function (err, res2) {
-            if (err) {
-              console.log(err);
-            } else {
-              pdf2base64("./venta.pdf")
-                .then(
-                  (response) => {
-                    res.json({ finalString: response });
-                  }
-                )
-                .catch(
-                  (error) => {
-                    console.log(error);
-                  }
-                )
-            };
+          [idVenta],
+          (err, rows, fields) => {
+            let productosVenta = rows
+            //aca debemos generar el pdf
+            ventaHTML = generarVentaHTML(datosClientes, productosVenta);
+            pdf.create(ventaHTML).toFile('./venta.pdf', function (err, res2) {
+              if (err) {
+                console.log(err);
+              } else {
+                pdf2base64("./venta.pdf")
+                  .then(
+                    (response) => {
+                      res.json({ finalString: response });
+                    }
+                  )
+                  .catch(
+                    (error) => {
+                      console.log(error);
+                    }
+                  )
+              };
+            });
           });
-        });
-        
+
       } else {
         console.log(err);
       }
