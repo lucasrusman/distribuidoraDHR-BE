@@ -2,9 +2,17 @@ const express = require('express');
 const PDFDocument = require('pdfkit');
 const { format } = require('date-fns');
 const conexion = require('../database');
+const { jsPDF } = require("jspdf");
 var fs = require('fs');
 const router = express.Router();
 const { Base64Encode } = require('base64-stream');
+const pdf2base64 = require('pdf-to-base64');
+
+
+var pdf = require('html-pdf');
+
+
+
 
 router.post('/crear', async (req, res, next) => {
   // TODO save sale on 'productos_por_venta' table
@@ -74,27 +82,49 @@ router.post('/crearPDF', async (req, res, next) => {
         allSales = [row.idCliente, row.fecha, row.total];
         arraySale.push(allSales);
       });
-      doc = new PDFDocument();
-      createTable(doc, arraySale, 500);
-
-      var finalString = ''; // contains the base64 string
-      var stream = doc.pipe(new Base64Encode());
-      doc.end();
-
-      stream.on('data', function (chunk) {
-        finalString += chunk;
+      listadoVentasHTML = generarListadoVentasHTML(arraySale);
+      pdf.create(listadoVentasHTML).toFile('./listadoVentas.pdf', function (err, res2) {
+        if (err) {
+          console.log(err);
+        } else {
+          pdf2base64("./listadoVentas.pdf")
+            .then(
+              (response) => {
+                res.json({ finalString: response });
+              }
+            )
+            .catch(
+              (error) => {
+                console.log(error);
+              }
+            )
+        };
       });
-
-      stream.on('end', function () {
-        res.json({ finalString });
-      });
-    } else {
-      console.log(err);
     }
   });
 });
+
+function generarListadoVentasHTML(sales) {
+  var html = `<table border="1">
+  <tbody><tr>
+  <td>Fecha</td>
+  <td>Monto</td>
+  </tr>`;
+  sales.forEach(sale => {
+    html = html + `<tr>
+    <td>`+sale[1]+`</td>
+    <td>`+sale[2]+`</td>
+    </tr>`
+  });
+  html = html + `
+  </tbody>
+  </table>
+  `
+  return html;
+}
+
+
 router.post('/crearPDF/exportarProductos', async (req, res, next) => {
-  //console.log(req.body.sales);
   ventas = req.body.sales;
   ventas.forEach(venta => {
     const arraySale = [];
@@ -132,6 +162,9 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
       }
     );
   });
+
+
+
 });
 
 //get sales by client
