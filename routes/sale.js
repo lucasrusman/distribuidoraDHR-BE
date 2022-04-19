@@ -2,17 +2,13 @@ const express = require('express');
 const PDFDocument = require('pdfkit');
 const { format } = require('date-fns');
 const conexion = require('../database');
-const { jsPDF } = require("jspdf");
+const { jsPDF } = require('jspdf');
 var fs = require('fs');
 const router = express.Router();
 const { Base64Encode } = require('base64-stream');
 const pdf2base64 = require('pdf-to-base64');
 
-
 var pdf = require('html-pdf');
-
-
-
 
 router.post('/crear', async (req, res, next) => {
   // TODO save sale on 'productos_por_venta' table
@@ -87,42 +83,49 @@ router.post('/crearPDF', async (req, res, next) => {
         if (err) {
           console.log(err);
         } else {
-          pdf2base64("./listadoVentas.pdf")
-            .then(
-              (response) => {
-                res.json({ finalString: response });
-              }
-            )
-            .catch(
-              (error) => {
-                console.log(error);
-              }
-            )
-        };
+          pdf2base64('./listadoVentas.pdf')
+            .then(response => {
+              res.json({ finalString: response });
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
       });
     }
   });
 });
 
 function generarListadoVentasHTML(sales) {
-  var html = `<table border="1">
+  var doc = new jsPDF();
+  var imgData = './logo-dygcombos.png';
+  doc.addImage(imgData, 'PNG', 15, 40, 180, 160);
+  var html = `<table border="1">  
   <tbody><tr>
+  <p>Hola</p>
   <td>Fecha</td>
   <td>Monto</td>
   </tr>`;
   sales.forEach(sale => {
-    html = html + `<tr>
-    <td>`+sale[1]+`</td>
-    <td>`+sale[2]+`</td>
-    </tr>`
+    html =
+      html +
+      `<tr>
+    <td>` +
+      sale[1] +
+      `</td>
+    <td>` +
+      sale[2] +
+      `</td>
+    </tr>`;
   });
-  html = html + `
+  html =
+    html +
+    `
   </tbody>
   </table>
-  `
+  `;
   return html;
 }
-
 
 router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   ventas = req.body.sales;
@@ -162,9 +165,6 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
       }
     );
   });
-
-
-
 });
 
 //get sales by client
