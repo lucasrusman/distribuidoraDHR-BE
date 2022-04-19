@@ -159,7 +159,7 @@ router.get('/byClient/:id', (req, res, next) => {
 });
 
 router.get('', (req, res, next) => {
-  conexion.query('SELECT * FROM productos', (err, rows, fields) => {
+  conexion.query('SELECT * FROM productos ORDER BY id DESC', (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
