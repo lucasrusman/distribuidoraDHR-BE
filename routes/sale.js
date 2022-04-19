@@ -104,6 +104,22 @@ router.post('/crearPDF', async (req, res, next) => {
   });
 });
 
+function generarVentaHTML(datosCliente, datosVenta){
+
+  console.log(datosVenta)
+  var html = `
+  <p>nombre cliente: `+datosCliente.nombre+` </p>
+  <p>telefono cliente: `+datosCliente.telefono+` </p>
+  <p>direccion cliente: `+datosCliente.direccion+` </p>
+  <p>zona cliente: `+datosCliente.zona+` </p>
+  `
+
+  datosVenta.forEach(producto => {
+    html = html + `<p>idProducto: ` + producto.descripcion + ` precio: `+ producto.precio+`</p>`
+  });
+  return html;
+}
+
 function generarListadoVentasHTML(sales) {
   var html = `<table border="1">
   <tbody><tr>
@@ -231,8 +247,9 @@ router.post('', (req, res, next) => {
   );
 });
 
-router.post('/propiedades', (req, res, next) => {
+router.post('/propiedades', async (req, res, next) => {
   const { idCliente, idVenta } = req.body;
+  
   let exportSale = [];
   let array = [];
   conexion.query(
@@ -240,46 +257,32 @@ router.post('/propiedades', (req, res, next) => {
     [idCliente],
     (err, rows, fields) => {
       if (!err) {
-        rows.forEach(element => {
-          exportSale.push(element);
-        });
-        conexion.query(
-          'SELECT fecha, total FROM ventas WHERE id = ? and idCliente = ?',
-          [idVenta, idCliente],
-          (err, rows, fields) => {
-            if (!err) {
-              rows.forEach(row => {
-                exportSale.push(row);
-                array.push(exportSale[0].nombre);
-                array.push(exportSale[0].telefono);
-                array.push(exportSale[0].direccion);
-                array.push(exportSale[0].zona);
-                array.push(exportSale[1].fecha);
-                array.push(exportSale[1].total);
-
-                doc = new PDFDocument();
-                createTable(doc, [array], 500);
-
-                var finalString = ''; // contains the base64 string
-                var stream = doc.pipe(new Base64Encode());
-
-                doc.end();
-
-                stream.on('data', function (chunk) {
-                  finalString += chunk;
-                });
-
-                stream.on('end', function () {
-                  res.json({ finalString });
-                });
-
-                res.json([array]);
-              });
-            } else {
+        let datosClientes = rows[0]
+        conexion.query('SELECT * FROM productos_por_venta ppv  inner join productos p on ppv.idProducto = p.id where ppv.idVenta = ?',
+        [idVenta],
+        (err, rows, fields) => {
+          let productosVenta = rows
+          //aca debemos generar el pdf
+          ventaHTML = generarVentaHTML(datosClientes,productosVenta);
+          pdf.create(ventaHTML).toFile('./venta.pdf', function (err, res2) {
+            if (err) {
               console.log(err);
-            }
-          }
-        );
+            } else {
+              pdf2base64("./venta.pdf")
+                .then(
+                  (response) => {
+                    res.json({ finalString: response });
+                  }
+                )
+                .catch(
+                  (error) => {
+                    console.log(error);
+                  }
+                )
+            };
+          });
+        });
+        
       } else {
         console.log(err);
       }
