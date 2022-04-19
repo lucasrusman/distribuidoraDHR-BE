@@ -1,9 +1,8 @@
 const express = require('express');
-const PDFDocument = require('pdfkit');
 const conexion = require('../database');
-var fs = require('fs');
 const router = express.Router();
-const { Base64Encode } = require('base64-stream');
+var pdf = require('html-pdf');
+const pdf2base64 = require('pdf-to-base64');
 
 router.post('/crear', async (req, res, next) => {
   const { nombre, telefono, email, zona, direccion, detalle } = req.body;
@@ -18,65 +17,46 @@ router.post('/crear', async (req, res, next) => {
     }
   );
 });
-function createTable(doc, data, width = 500) {
-  const startY = doc.y,
-    startX = doc.x,
-    distanceY = 15,
-    distanceX = 10;
-
-  doc.fontSize(10);
-
-  let currentY = startY;
-  let i = 1;
-  data.forEach(value => {
-    let currentX = startX,
-      size = value.length;
-    console.log(currentX + distanceX, currentY);
-    let blockSize = width / size;
-
-    value.forEach(text => {
-      //Write text
-      doc.text(text, currentX + distanceX, currentY);
-
-      //Create rectangles
-      doc.lineJoin('miter').rect(currentX, currentY, blockSize, distanceY).stroke();
-
-      currentX += blockSize;
-    });
-    console.log(i);
-    if (i % 40 == 0) {
-      currentY = startY;
-      doc.addPage();
-    }
-    currentY += distanceY;
-    i++;
-  });
-}
 
 router.post('/crearPDF', async (req, res, next) => {
   const arrayClientes = [];
   clientes = [];
-  clientes = conexion.query('SELECT * FROM clientes limit 90', function (err, rows, fields) {
+  clientes = conexion.query('SELECT * FROM clientes', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
-        allClients = [row.nombre, row.telefono, row.email];
+        allClients = [row.nombre, row.telefono, row.direccion];
         arrayClientes.push(allClients);
       });
-      doc = new PDFDocument();
-      createTable(doc, arrayClientes, 500);
 
-      var finalString = ''; // contains the base64 string
-      var stream = doc.pipe(new Base64Encode());
 
-      doc.end();
 
-      stream.on('data', function (chunk) {
-        finalString += chunk;
+
+
+
+      listadoClientesHTML = generarClientesHTML(arrayClientes);
+      pdf.create(listadoClientesHTML).toFile('./clientes.pdf', function (err, res2) {
+        if (err) {
+          console.log(err);
+        } else {
+          pdf2base64("./clientes.pdf")
+            .then(
+              (response) => {
+                res.status(200).json({ finalString: response });
+              }
+            )
+            .catch(
+              (error) => {
+                console.log(error);
+              }
+            )
+        };
       });
 
-      stream.on('end', function () {
-        res.json({ finalString });
-      });
+
+
+
+
+
     } else {
       console.log(err);
     }
@@ -129,5 +109,169 @@ router.delete('/:id', (req, res) => {
     }
   });
 });
+
+
+
+/* 
+  Funciones auxiliares
+*/
+
+function generarClientesHTML(clientes) {
+  let date_ob = new Date();
+  let date = ("0" + date_ob.getDate()).slice(-2);
+  let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+  let year = date_ob.getFullYear();
+  console.log(clientes.length)
+
+  var html = `
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>A simple, clean, and responsive HTML invoice template</title>
+
+		<style>
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 30px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
+
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+			}
+
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
+
+			.invoice-box table tr td:nth-child(2) {
+				text-align: right;
+			}
+
+			.invoice-box table tr.top table td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.top table td.title {
+				font-size: 45px;
+				line-height: 45px;
+				color: #333;
+			}
+
+			.invoice-box table tr.information table td {
+				padding-bottom: 40px;
+			}
+
+			.invoice-box table tr.heading td {
+				background: #eee;
+				border-bottom: 1px solid #ddd;
+				font-weight: bold;
+			}
+
+			.invoice-box table tr.details td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.item td {
+				border-bottom: 1px solid #eee;
+			}
+
+			.invoice-box table tr.item.last td {
+				border-bottom: none;
+			}
+
+			.invoice-box table tr.total td:nth-child(2) {
+				border-top: 2px solid #eee;
+				font-weight: bold;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
+			.invoice-box.rtl {
+				direction: rtl;
+				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+			}
+
+			.invoice-box.rtl table {
+				text-align: right;
+			}
+
+			.invoice-box.rtl table tr td:nth-child(2) {
+				text-align: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="invoice-box">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="3">
+						<table>
+							<tr>
+								<td class="title" colspan="2">
+                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 200px" />
+								</td>
+              
+								<td>
+									Fecha: `+ date + "-" + month + "-" + year + ` <br />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr class="heading">
+					<td>Nombre</td>
+          <td>Telefono</td>
+					<td>Direccion</td>
+				</tr>
+
+          <tr class="item">
+          `;
+  clientes.forEach(cliente => {
+    html =
+      html +
+      `<tr>
+                  <td>` +
+      cliente[0] +
+      `</td>
+                  <td>` +
+      cliente[1] +
+      `</td>
+      <td>` +
+      cliente[2] +
+      `</td>
+                  </tr>`;
+  });
+  html = html + `</tr>
+			</table>
+		</div>
+	</body>
+</html>
+`
+  return html;
+}
+
 
 module.exports = router;
