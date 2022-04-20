@@ -34,7 +34,9 @@ router.post('/login', (req, res, next) => {
         } else {
           //inicio de sesión OK
           const email = rows[0].email;
-          const password = rows[0].password;
+          const password = rows[0].password
+          const rol = rows[0].rol;
+          console.log(rol);
           // se crea el token
           const token = jwt.sign({ email, password }, 'secret_this_should_be_longer', {
             expiresIn: '1h'
@@ -42,6 +44,7 @@ router.post('/login', (req, res, next) => {
           res.status(200).json({
             token,
             expiresIn: 3600,
+            rol,
             Status: 'Login correcto'
           });
         }
