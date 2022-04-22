@@ -9,6 +9,7 @@ router.post('/signup', async (req, res, next) => {
   const { email, password } = req.body;
   const passHash = await bcryptjs.hash(password, 10);
   const rol = 2;
+  
   conexion.query(
     'INSERT INTO users (email, password, rol) VALUES (?, ?, ?); ',
     [email, passHash, rol],

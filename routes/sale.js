@@ -78,7 +78,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('', (req, res, next) => {
-	conexion.query('SELECT * FROM ventas v inner join clientes c on v.idCliente = c.id ORDER BY v.id DESC', (err, rows, fields) => {
+	conexion.query('SELECT *, v.id FROM ventas v inner join clientes c on v.idCliente = c.id ORDER BY v.id DESC', (err, rows, fields) => {
 		if (!err) {
 			res.json(rows);
 		} else {
@@ -117,7 +117,7 @@ router.delete('/:id', (req, res) => {
 router.post('', (req, res, next) => {
 	const { fecha_inicial, fecha_final } = req.body;
 	conexion.query(
-		'SELECT * FROM ventas WHERE fecha BETWEEN ? AND ?;',
+		'SELECT *, v.id FROM ventas v inner join clientes c on v.idCliente = c.id WHERE fecha BETWEEN ? and ? ORDER BY v.id DESC ',
 		[fecha_inicial, fecha_final],
 		(err, rows, fields) => {
 			if (!err) {
