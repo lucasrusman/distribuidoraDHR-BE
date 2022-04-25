@@ -551,8 +551,14 @@ router.post('/propiedades', async (req, res, next) => {
           (err, rows, fields) => {
             let productosVenta = rows;
             //aca debemos generar el pdf
+
+			var options = {
+				timeout: "3000"
+			};
+
+
             ventaHTML = generarVentaHTML(datosClientes, productosVenta);
-            pdf.create(ventaHTML).toFile('./venta.pdf', function (err, res2) {
+            pdf.create(ventaHTML,options).toFile('./venta.pdf', function (err, res2) {
               if (err) {
                 console.log(err);
               } else {
