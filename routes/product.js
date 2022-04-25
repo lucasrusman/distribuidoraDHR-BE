@@ -21,7 +21,7 @@ router.post('/crear', async (req, res, next) => {
 router.post('/crearPDF', async (req, res, next) => {
   const arrayProduct = [];
   productos = [];
-  productos = conexion.query('SELECT * FROM productos limit 90', function (err, rows, fields) {
+  productos = conexion.query('SELECT * FROM productos', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
         allProducts = [row.descripcion, row.precio_base];
@@ -203,7 +203,7 @@ function generarProductosHTML(productos) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
+				font-size: 10px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -291,13 +291,13 @@ function generarProductosHTML(productos) {
 
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
 					<td colspan="2">
 						<table>
 							<tr>
 								<td class="title">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 200px" />
+                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
 								</td>
 
 								<td>

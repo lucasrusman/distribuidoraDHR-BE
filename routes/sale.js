@@ -378,6 +378,9 @@ Funciones auxiliares
 */
 
 function generarVentaHTML(datosCliente, datosVenta) {
+	console.log(datosVenta)
+
+	//ESTE
   var html =
     `
   <!DOCTYPE html>
@@ -393,8 +396,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
-				line-height: 24px;
+				font-size: 10px;
+				line-height: 14px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
 			}
@@ -415,7 +418,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -425,7 +428,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			}
 
 			.invoice-box table tr.information table td {
-				padding-bottom: 40px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.heading td {
@@ -435,7 +438,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			}
 
 			.invoice-box table tr.details td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.item td {
@@ -481,17 +484,18 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
 					<td colspan="2">
 						<table>
 							<tr>
 								<td class="title">
-									<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
+									<img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
 								</td>
 
 								<td>
-									Fecha: [FECHA VENTA]<br />
+								info@dygcombos.com.ar<br />
+								11 5461-9635<br />
 								</td>
 							</tr>
 						</table>
@@ -503,23 +507,16 @@ function generarVentaHTML(datosCliente, datosVenta) {
 						<table>
 							<tr>
 								<td>
-									[datos distribuodra 1]<br />
-									[datos distribuodra 2]<br />
-									[datos distribuodra 3]<br />
+								Cliente: `+datosCliente.nombre+`<br />
+								Telefono: `+datosCliente.telefono+`<br />
 								</td>
 
 								<td>
                 ` +
-    datosCliente.nombre +
+				`Direccion: `+datosCliente.direccion +
     `<br />
                 ` +
-    datosCliente.telefono +
-    `<br />
-                ` +
-    datosCliente.direccion +
-    `<br />
-                ` +
-    datosCliente.zona +
+				`Zona: `+ datosCliente.zona +
     `
 								</td>
 							</tr>
@@ -566,6 +563,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
 	</body>
 </html>
 `;
+
+  html = html + html;
+
   return html;
 }
 
@@ -584,7 +584,7 @@ function generarListadoVentasHTML(sales) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
+				font-size: 14px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -641,20 +641,6 @@ function generarListadoVentasHTML(sales) {
 				border-top: 2px solid #eee;
 				font-weight: bold;
 			}
-
-			@media only screen and (max-width: 600px) {
-				.invoice-box table tr.top table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
-
-				.invoice-box table tr.information table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
-			}
 			.invoice-box.rtl {
 				direction: rtl;
 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -672,13 +658,13 @@ function generarListadoVentasHTML(sales) {
 
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
 					<td colspan="2">
 						<table>
 							<tr>
 								<td class="title">
-									<img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 200px" />
+									<img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
 								</td>
 
 						
