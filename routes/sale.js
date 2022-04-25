@@ -230,8 +230,8 @@ router.post('/crearPDF/exportarClientes', async (req, res, next) => {
   const arraySale = [];
   let query =
     'SELECT DISTINCT c.nombre FROM ventas v inner join clientes c on v.idCliente = c.id where v.id in (';
-	ventas.forEach(venta => {
-	console.log(venta.idCliente);
+  ventas.forEach(venta => {
+    console.log(venta.idCliente);
     query = query + ' ' + venta.id + ',';
   });
   query = query.slice(0, -1);
@@ -552,13 +552,10 @@ router.post('/propiedades', async (req, res, next) => {
             let productosVenta = rows;
             //aca debemos generar el pdf
 
-			var options = {
-				timeout: "3000"
-			};
-
+            var options = { type: 'pdf', timeout: '100000' };
 
             ventaHTML = generarVentaHTML(datosClientes, productosVenta);
-            pdf.create(ventaHTML,options).toFile('./venta.pdf', function (err, res2) {
+            pdf.create(ventaHTML, options).toFile('./venta.pdf', function (err, res2) {
               if (err) {
                 console.log(err);
               } else {
