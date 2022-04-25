@@ -6,10 +6,8 @@ const conexion = require('../database');
 
 const router = express.Router();
 router.post('/signup', async (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password, rol } = req.body.user;
   const passHash = await bcryptjs.hash(password, 10);
-  const rol = 2;
-  
   conexion.query(
     'INSERT INTO users (email, password, rol) VALUES (?, ?, ?); ',
     [email, passHash, rol],
@@ -70,6 +68,55 @@ router.post('/logout', (req, res, next) => {
   res.status(200).json({
     Status: 'Logout correcto'
   });
+});
+
+
+router.get('', (req, res, next) => {
+  conexion.query('SELECT * FROM users ORDER BY id DESC', (err, rows, fields) => {
+    if (!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  conexion.query('SELECT * FROM users WHERE id = ?', [id], (err, rows, fields) => {
+    if (!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  conexion.query('DELETE FROM users WHERE id = ?', [id], (err, rows, fields) => {
+    if (!err) {
+      res.json({ Status: 'Usuario eliminado' });
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+router.put('/:id', (req, res) => {
+  const { id } = req.params;
+  const { email, rol } = req.body;
+  conexion.query(
+    'UPDATE users SET email = ?, rol = ? WHERE id = ?',
+    [email, rol, id],
+    (err, rows, fields) => {
+      if (!err) {
+        res.json({ Status: 'Usuario Actualizado' });
+      } else {
+        console.log(err);
+      }
+    }
+  );
 });
 
 module.exports = router;
