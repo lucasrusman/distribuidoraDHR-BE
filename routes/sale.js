@@ -19,10 +19,13 @@ router.post('/crear', async (req, res, next) => {
         console.log(error);
       } else {
         req.body.productos.forEach(producto => {
+          if(!producto.cantidad) {
+            producto.cantidad = '1';
+		}
           producto.precio = producto.precio ? producto.precio : producto.precio_base;
           conexion.query(
-            'INSERT INTO productos_por_venta (idVenta, idProducto, precio) VALUES (?, ?,?);',
-            [rows.insertId, producto.id, producto.precio],
+            'INSERT INTO productos_por_venta (idVenta, idProducto, precio, cantidad) VALUES (?, ?,?, ?);',
+            [rows.insertId, producto.id, producto.precio, producto.cantidad],
             (error, rows) => {
               if (error) {
                 console.log(error);
@@ -223,7 +226,6 @@ function generarExportarClientesHTML(clientes) {
 	</body>
 </html>
 `;
-console.log(html)
   return html;
 }
 router.post('/crearPDF/exportarClientes', async (req, res, next) => {
@@ -585,8 +587,6 @@ Funciones auxiliares
 */
 
 function generarVentaHTML(datosCliente, datosVenta) {
-  console.log(datosVenta);
-
   //ESTE
   var html =
     `
@@ -788,7 +788,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
   html = html + html;
 
-  console.log(html)
   return html;
 }
 
