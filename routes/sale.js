@@ -85,7 +85,7 @@ function generarExportarClientesHTML(clientes) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
+				font-size: 12px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -100,6 +100,7 @@ function generarExportarClientesHTML(clientes) {
 			.invoice-box table td {
 				padding: 5px;
 				vertical-align: top;
+				width: 33%;
 			}
 
 			.invoice-box table tr td:nth-child(2) {
@@ -173,13 +174,13 @@ function generarExportarClientesHTML(clientes) {
 
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
 					<td colspan="3">
 						<table>
 							<tr>
 								<td class="title" colspan="2">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 200px" />
+                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
 								</td>
               
 								<td>
@@ -210,8 +211,8 @@ function generarExportarClientesHTML(clientes) {
       <td>` +
       cliente[0] +
       `</td>
-	  <td>-</td>
-	  <td>-</td>
+	  <td></td>
+	  <td></td>
                   </tr>`;
   });
   html =
@@ -222,6 +223,7 @@ function generarExportarClientesHTML(clientes) {
 	</body>
 </html>
 `;
+console.log(html)
   return html;
 }
 router.post('/crearPDF/exportarClientes', async (req, res, next) => {
@@ -287,7 +289,7 @@ function generarExportarProductosHTML(productos_por_venta) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
+				font-size: 12px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -375,13 +377,13 @@ function generarExportarProductosHTML(productos_por_venta) {
 
 	<body>
 		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
+			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
 					<td colspan="3">
 						<table>
 							<tr>
 								<td class="title" colspan="2">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 200px" />
+                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
 								</td>
               
 								<td>
@@ -657,6 +659,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			.invoice-box table tr.total td:nth-child(2) {
 				border-top: 2px solid #eee;
 				font-weight: bold;
+				font-size: 14px;
 			}
 
 			@media only screen and (max-width: 600px) {
@@ -769,6 +772,14 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
 					<td>Total: $385.00</td>
 				</tr>
+
+				<tr class="total">
+				<td>Deuda: </td>
+
+				<td></td>
+				
+		</tr>
+		
 			</table>
 		</div>
 	</body>
@@ -777,6 +788,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
   html = html + html;
 
+  console.log(html)
   return html;
 }
 
