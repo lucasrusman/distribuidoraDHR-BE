@@ -694,7 +694,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td class="title">
@@ -711,7 +711,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				</tr>
 
 				<tr class="information">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td>
@@ -742,7 +742,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				<tr class="heading">
 					<td>Producto</td>
 
-					<td>Precio</td>
+					<td>Precio unit.</td>
+					<td>Cantidad</td>
+					<td>Precio Total</td>
 				</tr>
         `;
 
@@ -757,7 +759,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
 					<td>$` +
       producto.precio +
-      `0</td>
+      `</td>
+	  <td>$` +
+      producto.precio +
+      `</td>
+	  <td>$` +
+      producto.precio +
+      `</td>
 				</tr>
           `;
   });
@@ -769,13 +777,15 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				
 				<tr class="total">
 					<td></td>
-
+					<td></td>
+					<td></td>
 					<td>Total: $385.00</td>
 				</tr>
 
 				<tr class="total">
 				<td>Deuda: </td>
-
+				<td></td>
+				<td></td>
 				<td></td>
 				
 		</tr>
