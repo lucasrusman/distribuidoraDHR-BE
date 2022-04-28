@@ -35,7 +35,6 @@ router.post('/login', (req, res, next) => {
           const email = rows[0].email;
           const password = rows[0].password
           const rol = rows[0].rol;
-          console.log(rol);
           // se crea el token
           const token = jwt.sign({ email, password }, 'secret_this_should_be_longer', {
             expiresIn: '1h'
@@ -103,12 +102,13 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
-  const { email, rol } = req.body;
+  const { email, password, rol } = req.body;
+  const passHash = await bcryptjs.hash(password, 10);
   conexion.query(
-    'UPDATE users SET email = ?, rol = ? WHERE id = ?',
-    [email, rol, id],
+    'UPDATE users SET email = ?, rol = ?, password=? WHERE id = ?',
+    [email, rol, passHash, id],
     (err, rows, fields) => {
       if (!err) {
         res.json({ Status: 'Usuario Actualizado' });

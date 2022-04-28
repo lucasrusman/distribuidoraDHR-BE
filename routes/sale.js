@@ -8,9 +8,8 @@ var pdf = require('html-pdf');
 const { query } = require('express');
 
 router.post('/crear', async (req, res, next) => {
-  // TODO save sale on 'productos_por_venta' table
   const { idCliente, total } = req.body.sale;
-  console.log(req.body.productos);
+  let ventaCreada;
   conexion.query(
     'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?);',
     [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
@@ -18,6 +17,7 @@ router.post('/crear', async (req, res, next) => {
       if (error) {
         console.log(error);
       } else {
+		ventaCreada = rows.insertId;
         req.body.productos.forEach(producto => {
           if(!producto.cantidad) {
             producto.cantidad = '1';
@@ -36,6 +36,7 @@ router.post('/crear', async (req, res, next) => {
           );
         });
       }
+	  res.json({ idVentaCreada: ventaCreada });
     }
   );
 });
@@ -71,7 +72,6 @@ function generarExportarClientesHTML(clientes) {
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
-  console.log(clientes.length);
 
   var html =
     `
@@ -230,21 +230,17 @@ function generarExportarClientesHTML(clientes) {
 }
 router.post('/crearPDF/exportarClientes', async (req, res, next) => {
   ventas = req.body.sales;
-  console.log(ventas);
   const arraySale = [];
   let query =
     'SELECT DISTINCT c.nombre FROM ventas v inner join clientes c on v.idCliente = c.id where v.id in (';
   ventas.forEach(venta => {
-    console.log(venta.idCliente);
     query = query + ' ' + venta.id + ',';
   });
   query = query.slice(0, -1);
   query = query + ')';
-  console.log(query);
   conexion.query(query, function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
-        console.log(row.nombre);
         allSales = [row.nombre];
         arraySale.push(allSales);
       });
@@ -274,7 +270,7 @@ function generarExportarProductosHTML(productos_por_venta) {
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
-  console.log(productos_por_venta.length);
+
 
   var html =
     `
@@ -441,9 +437,7 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   });
   query = query.slice(0, -1);
   query = query + ') GROUP BY ppv.idProducto;';
-  console.log(query);
   conexion.query(query, function (err, rows, fields) {
-    console.log(rows);
     if (!err) {
       rows.forEach(row => {
         allSales = [row.descripcion, row.cantidad];
@@ -550,7 +544,7 @@ router.post('/propiedades', async (req, res, next) => {
       if (!err) {
         let datosClientes = rows[0];
         conexion.query(
-          'SELECT * FROM productos_por_venta ppv  inner join productos p on ppv.idProducto = p.id where ppv.idVenta = ?',
+          'SELECT * FROM productos_por_venta ppv  inner join productos p on ppv.idProducto = p.id inner join ventas v on ppv.idVenta = v.id where ppv.idVenta = ?',
           [idVenta],
           (err, rows, fields) => {
             let productosVenta = rows;
@@ -587,7 +581,6 @@ Funciones auxiliares
 */
 
 function generarVentaHTML(datosCliente, datosVenta) {
-  //ESTE
   var html =
     `
   <!DOCTYPE html>
@@ -758,13 +751,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
       `</td>
 
 					<td>$` +
-      producto.precio +
+					producto.precio +
+      `</td>
+	  <td>` +
+      producto.cantidad + 
       `</td>
 	  <td>$` +
-      producto.precio +
-      `</td>
-	  <td>$` +
-      producto.precio +
+      producto.precio*producto.cantidad +
       `</td>
 				</tr>
           `;
@@ -779,7 +772,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 					<td></td>
 					<td></td>
 					<td></td>
-					<td>Total: $385.00</td>
+					<td>Total: $`+datosVenta[0].total+`</td>
 				</tr>
 
 				<tr class="total">

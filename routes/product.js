@@ -91,7 +91,6 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
 router.put('/aumentarPrecios', (req, res, next) => {
   const { productos } = req.body;
   let { valor } = req.body
-  console.log(req.body)
   productos.forEach(producto => {
     let precio = Number((producto.precio_base * valor) / 100)
     let precioFinal = Number(producto.precio_base) + precio
