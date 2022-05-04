@@ -183,7 +183,7 @@ function generarExportarClientesHTML(clientes) {
 						<table>
 							<tr>
 								<td class="title" colspan="2">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
               
 								<td>
@@ -381,7 +381,7 @@ function generarExportarProductosHTML(productos_por_venta) {
 						<table>
 							<tr>
 								<td class="title" colspan="2">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
               
 								<td>
@@ -691,7 +691,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 						<table>
 							<tr>
 								<td class="title">
-									<img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+									<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
 
 								<td>
@@ -889,7 +889,7 @@ function generarListadoVentasHTML(sales) {
 						<table>
 							<tr>
 								<td class="title">
-									<img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+									<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
 
 						

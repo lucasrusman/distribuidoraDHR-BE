@@ -296,7 +296,7 @@ function generarProductosHTML(productos) {
 						<table>
 							<tr>
 								<td class="title">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
 
 								<td>

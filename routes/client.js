@@ -218,7 +218,7 @@ function generarClientesHTML(clientes) {
 						<table>
 							<tr>
 								<td class="title" colspan="2">
-                  <img src="http://distribuidoradhr.com.ar/assets/img/logo.jpg" style="width: 100%; max-width: 100px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
 								</td>
               
 								<td>
