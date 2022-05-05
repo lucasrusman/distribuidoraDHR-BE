@@ -6,7 +6,8 @@ const conexion = require('../database');
 
 const router = express.Router();
 router.post('/signup', async (req, res, next) => {
-  const { email, password, rol } = req.body.user;
+  const { email, password } = req.body.user;
+  const rol = 2
   const passHash = await bcryptjs.hash(password, 10);
   conexion.query(
     'INSERT INTO users (email, password, rol) VALUES (?, ?, ?); ',

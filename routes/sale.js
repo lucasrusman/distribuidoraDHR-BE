@@ -467,6 +467,7 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
+	//trae las ventas por cliente
   const { id } = req.params;
   conexion.query('SELECT * FROM ventas WHERE idCliente = ?', [id], (err, rows, fields) => {
     if (!err) {
