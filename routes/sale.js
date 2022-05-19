@@ -905,13 +905,14 @@ function generarListadoVentasHTML(sales) {
         <td>Monto</td>
 				</tr>
         `;
-
   sales.forEach(sale => {
+	  let fecha = sale[1].toLocaleDateString('es-AR')
+	  console.log(fecha);
     html =
       html +
       `<tr>
           <td>` +
-      sale[1].substring(0, 10) +
+     fecha.slice(0,10) +
       `</td>
           <td>$` +
       sale[2] +
