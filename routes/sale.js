@@ -17,11 +17,11 @@ router.post('/crear', async (req, res, next) => {
       if (error) {
         console.log(error);
       } else {
-		ventaCreada = rows.insertId;
+        ventaCreada = rows.insertId;
         req.body.productos.forEach(producto => {
-          if(!producto.cantidad) {
+          if (!producto.cantidad) {
             producto.cantidad = '1';
-		}
+          }
           producto.precio = producto.precio ? producto.precio : producto.precio_base;
           conexion.query(
             'INSERT INTO productos_por_venta (idVenta, idProducto, precio, cantidad) VALUES (?, ?,?, ?);',
@@ -36,7 +36,7 @@ router.post('/crear', async (req, res, next) => {
           );
         });
       }
-	  res.json({ idVentaCreada: ventaCreada });
+      res.json({ idVentaCreada: ventaCreada });
     }
   );
 });
@@ -80,7 +80,6 @@ function generarExportarClientesHTML(clientes) {
 	<head>
 		<meta charset="utf-8" />
 		<title>A simple, clean, and responsive HTML invoice template</title>
-
 		<style>
 			.invoice-box {
 				max-width: 800px;
@@ -88,7 +87,7 @@ function generarExportarClientesHTML(clientes) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 12px;
+				font-size: 10px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -103,7 +102,6 @@ function generarExportarClientesHTML(clientes) {
 			.invoice-box table td {
 				padding: 5px;
 				vertical-align: top;
-				width: 33%;
 			}
 
 			.invoice-box table tr td:nth-child(2) {
@@ -111,7 +109,7 @@ function generarExportarClientesHTML(clientes) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -182,11 +180,10 @@ function generarExportarClientesHTML(clientes) {
 					<td colspan="3">
 						<table>
 							<tr>
-								<td class="title" colspan="2">
-                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+								<td class="title">
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-              
-								<td>
+							<td style="text-align: end;" >
 									Fecha: ` +
     date +
     '-' +
@@ -194,6 +191,7 @@ function generarExportarClientesHTML(clientes) {
     '-' +
     year +
     ` <br />
+                 					https://dyg-frontend.herokuapp.com/ <br />
 								</td>
 							</tr>
 						</table>
@@ -265,12 +263,12 @@ router.post('/crearPDF/exportarClientes', async (req, res, next) => {
     }
   });
 });
+//TODO falta hacer que la columna cantidad ocupe menos
 function generarExportarProductosHTML(productos_por_venta) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
-
 
   var html =
     `
@@ -287,7 +285,7 @@ function generarExportarProductosHTML(productos_por_venta) {
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 12px;
+				font-size: 10px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -309,7 +307,7 @@ function generarExportarProductosHTML(productos_por_venta) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -380,11 +378,10 @@ function generarExportarProductosHTML(productos_por_venta) {
 					<td colspan="3">
 						<table>
 							<tr>
-								<td class="title" colspan="2">
-                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+								<td class="title">
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-              
-								<td>
+							<td style="text-align: end;" >
 									Fecha: ` +
     date +
     '-' +
@@ -392,6 +389,7 @@ function generarExportarProductosHTML(productos_por_venta) {
     '-' +
     year +
     ` <br />
+                 					https://dyg-frontend.herokuapp.com/ <br />
 								</td>
 							</tr>
 						</table>
@@ -426,6 +424,7 @@ function generarExportarProductosHTML(productos_por_venta) {
 `;
   return html;
 }
+
 router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   ventas = req.body.sales;
   console.log(ventas);
@@ -467,7 +466,7 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-	//trae las ventas por cliente
+  //trae las ventas por cliente
   const { id } = req.params;
   conexion.query('SELECT * FROM ventas WHERE idCliente = ?', [id], (err, rows, fields) => {
     if (!err) {
@@ -582,6 +581,10 @@ Funciones auxiliares
 */
 
 function generarVentaHTML(datosCliente, datosVenta) {
+  let date_ob = new Date();
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+  let year = date_ob.getFullYear();
   var html =
     `
   <!DOCTYPE html>
@@ -590,7 +593,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 		<meta charset="utf-8" />
 		<title>A simple, clean, and responsive HTML invoice template</title>
 
-		<style>
+			<style>
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
@@ -598,7 +601,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 				font-size: 10px;
-				line-height: 14px;
+				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
 			}
@@ -639,7 +642,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			}
 
 			.invoice-box table tr.details td {
-				padding-bottom: 0px;
+				padding-bottom: 20px;
 			}
 
 			.invoice-box table tr.item td {
@@ -653,7 +656,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			.invoice-box table tr.total td:nth-child(2) {
 				border-top: 2px solid #eee;
 				font-weight: bold;
-				font-size: 14px;
 			}
 
 			@media only screen and (max-width: 600px) {
@@ -692,12 +694,17 @@ function generarVentaHTML(datosCliente, datosVenta) {
 						<table>
 							<tr>
 								<td class="title">
-									<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-
-								<td>
-								info@dygcombos.com.ar<br />
-								11 5461-9635<br />
+							<td style="text-align: end;" >
+									Fecha: ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    ` <br />
+                 					https://dyg-frontend.herokuapp.com/ <br />
 								</td>
 							</tr>
 						</table>
@@ -752,13 +759,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
       `</td>
 
 					<td>$` +
-					producto.precio +
+      producto.precio +
       `</td>
 	  <td>` +
-      producto.cantidad + 
+      producto.cantidad +
       `</td>
 	  <td>$` +
-      producto.precio*producto.cantidad +
+      producto.precio * producto.cantidad +
       `</td>
 				</tr>
           `;
@@ -773,7 +780,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
 					<td></td>
 					<td></td>
 					<td></td>
-					<td>Total: $`+datosVenta[0].total+`</td>
+					<td style="font-weight: bold;">Total: $` +
+    datosVenta[0].total +
+    `</td>
 				</tr>
 
 				<tr class="total">
@@ -796,21 +805,26 @@ function generarVentaHTML(datosCliente, datosVenta) {
 }
 
 function generarListadoVentasHTML(sales) {
-  var html = `
+  let date_ob = new Date();
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+  let year = date_ob.getFullYear();
+  var html =
+    `
   <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title>A simple, clean, and responsive HTML invoice template</title>
 
-		<style>
+			<style>
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
 				padding: 30px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 14px;
+				font-size: 10px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
@@ -832,7 +846,7 @@ function generarListadoVentasHTML(sales) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -867,6 +881,20 @@ function generarListadoVentasHTML(sales) {
 				border-top: 2px solid #eee;
 				font-weight: bold;
 			}
+
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
 			.invoice-box.rtl {
 				direction: rtl;
 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -886,35 +914,41 @@ function generarListadoVentasHTML(sales) {
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0" border="1">
 				<tr class="top">
-					<td colspan="2">
+					<td colspan="3">
 						<table>
 							<tr>
 								<td class="title">
-									<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-
-						
+							<td style="text-align: end;" >
+									Fecha: ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    ` <br />
+                 					https://dyg-frontend.herokuapp.com/ <br />
+								</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
-
-
 				<tr class="heading">
         <td>Fecha</td>
         <td>Monto</td>
 				</tr>
         `;
   sales.forEach(sale => {
-	  let fecha = sale[1].toLocaleDateString('es-AR')
-	  console.log(fecha);
+    let fecha = sale[1].toLocaleDateString('es-AR');
+    console.log(fecha);
     html =
       html +
       `<tr>
           <td>` +
-     fecha.slice(0,10) +
+      fecha.slice(0, 10) +
       `</td>
-          <td>$` +
+          <td style="font-weight: bold;">$` +
       sale[2] +
       `</td>
           </tr>`;

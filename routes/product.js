@@ -32,18 +32,14 @@ router.post('/crearPDF', async (req, res, next) => {
         if (err) {
           console.log(err);
         } else {
-          pdf2base64("./productos.pdf")
-            .then(
-              (response) => {
-                res.status(200).json({ finalString: response });
-              }
-            )
-            .catch(
-              (error) => {
-                console.log(error);
-              }
-            )
-        };
+          pdf2base64('./productos.pdf')
+            .then(response => {
+              res.status(200).json({ finalString: response });
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
       });
     } else {
       console.log(err);
@@ -87,13 +83,12 @@ router.post('/editarPrecioPorCliente', (req, res, next) => {
   });
 });
 
-
 router.put('/aumentarPrecios', (req, res, next) => {
   const { productos } = req.body;
-  let { valor } = req.body
+  let { valor } = req.body;
   productos.forEach(producto => {
-    let precio = Number((producto.precio_base * valor) / 100)
-    let precioFinal = Number(producto.precio_base) + precio
+    let precio = Number((producto.precio_base * valor) / 100);
+    let precioFinal = Number(producto.precio_base) + precio;
     conexion.query(
       'UPDATE productos SET precio_base = ? WHERE id = ?',
       [precioFinal, producto.id],
@@ -101,12 +96,11 @@ router.put('/aumentarPrecios', (req, res, next) => {
         if (error) {
           console.log(error);
         } else {
-          res.json({ Status: "Precio de los productos actualizados correctamente" });
+          res.json({ Status: 'Precio de los productos actualizados correctamente' });
         }
       }
     );
-  }
-  );
+  });
 });
 
 router.get('/byClient/:id', (req, res, next) => {
@@ -167,7 +161,7 @@ router.delete('/:id', (req, res) => {
     conexion.query(
       'DELETE FROM precio_espeicla_cliente WHERE idProducto = ?',
       [id],
-      (err, rows, fields) => { }
+      (err, rows, fields) => {}
     );
     if (!err) {
       res.json({ Status: 'Producto eliminado' });
@@ -177,18 +171,18 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-
 /* 
   Funciones auxiliares
 */
 
 function generarProductosHTML(productos) {
   let date_ob = new Date();
-  let date = ("0" + date_ob.getDate()).slice(-2);
-  let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
 
-  var html = `
+  var html =
+    `
   <!DOCTYPE html>
 <html>
 	<head>
@@ -224,7 +218,7 @@ function generarProductosHTML(productos) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -296,11 +290,17 @@ function generarProductosHTML(productos) {
 						<table>
 							<tr>
 								<td class="title">
-                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-
-								<td>
-									Fecha: `+ date + "-" + month + "-" + year + ` <br />
+							<td style="text-align: end;" >
+									Fecha: ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    ` <br />
+                 https://dyg-frontend.herokuapp.com/ <br />
 								</td>
 							</tr>
 						</table>
@@ -324,17 +324,19 @@ function generarProductosHTML(productos) {
                   <td>` +
       producto[0] +
       `</td>
-                  <td>$` +
+                  <td style="font-weight: bold;">$` +
       producto[1] +
       `</td>
                   </tr>`;
   });
-  html = html + `</tr>
+  html =
+    html +
+    `</tr>
 			</table>
 		</div>
 	</body>
 </html>
-`
+`;
 
   return html;
 }
