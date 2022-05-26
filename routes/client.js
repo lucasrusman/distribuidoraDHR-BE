@@ -28,35 +28,20 @@ router.post('/crearPDF', async (req, res, next) => {
         arrayClientes.push(allClients);
       });
 
-
-
-
-
-
       listadoClientesHTML = generarClientesHTML(arrayClientes);
       pdf.create(listadoClientesHTML).toFile('./clientes.pdf', function (err, res2) {
         if (err) {
           console.log(err);
         } else {
-          pdf2base64("./clientes.pdf")
-            .then(
-              (response) => {
-                res.status(200).json({ finalString: response });
-              }
-            )
-            .catch(
-              (error) => {
-                console.log(error);
-              }
-            )
-        };
+          pdf2base64('./clientes.pdf')
+            .then(response => {
+              res.status(200).json({ finalString: response });
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
       });
-
-
-
-
-
-
     } else {
       console.log(err);
     }
@@ -110,19 +95,18 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-
-
 /* 
   Funciones auxiliares
 */
 
 function generarClientesHTML(clientes) {
   let date_ob = new Date();
-  let date = ("0" + date_ob.getDate()).slice(-2);
-  let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
 
-  var html = `
+  var html =
+    `
   <!DOCTYPE html>
 <html>
 	<head>
@@ -158,7 +142,7 @@ function generarClientesHTML(clientes) {
 			}
 
 			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
+				padding-bottom: 0px;
 			}
 
 			.invoice-box table tr.top table td.title {
@@ -194,7 +178,19 @@ function generarClientesHTML(clientes) {
 				font-weight: bold;
 			}
 
-			
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
 			.invoice-box.rtl {
 				direction: rtl;
 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -217,12 +213,18 @@ function generarClientesHTML(clientes) {
 					<td colspan="3">
 						<table>
 							<tr>
-								<td class="title" colspan="2">
-                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 100px" />
+								<td class="title">
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
 								</td>
-              
-								<td>
-									Fecha: `+ date + "-" + month + "-" + year + ` <br />
+								<td style="text-align: end;" >
+									Fecha: ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    ` <br />
+                 https://dyg-frontend.herokuapp.com/ <br />
 								</td>
 							</tr>
 						</table>
@@ -251,15 +253,16 @@ function generarClientesHTML(clientes) {
       `</td>
                   </tr>`;
   });
-  html = html + `</tr>
+  html =
+    html +
+    `</tr>
 			</table>
 		</div>
 	</body>
 </html>
-` ;
-console.log(html)
+`;
+  console.log(html);
   return html;
 }
-
 
 module.exports = router;
