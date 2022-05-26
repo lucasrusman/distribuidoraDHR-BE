@@ -109,6 +109,26 @@ router.put('/aumentarPrecios', (req, res, next) => {
   );
 });
 
+router.put('/aumentarValor', (req, res, next) => {
+  const { productos } = req.body;
+  let { valorNum } = req.body
+  productos.forEach(producto => {
+    let precioFinal = Number(Number(producto.precio_base) + Number(valorNum))
+    conexion.query(
+      'UPDATE productos SET precio_base = ? WHERE id = ?',
+      [precioFinal, producto.id],
+      (error, rows) => {
+        if (error) {
+          console.log(error);
+        } else {
+          res.json({ Status: "Precio de los productos actualizados correctamente" });
+        }
+      }
+    );
+  }
+  );
+});
+
 router.get('/byClient/:id', (req, res, next) => {
   const { id } = req.params;
   conexion.query(
