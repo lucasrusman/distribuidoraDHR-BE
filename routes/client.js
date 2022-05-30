@@ -5,10 +5,10 @@ var pdf = require('html-pdf');
 const pdf2base64 = require('pdf-to-base64');
 
 router.post('/crear', async (req, res, next) => {
-  const { nombre, telefono, email, zona, direccion, detalle, deuda } = req.body;
+  const { nombre, telefono, email, zona, direccion, detalle} = req.body;
   conexion.query(
-    'INSERT INTO clientes (nombre, telefono, email, zona, direccion, detalle, deuda) VALUES (?, ?, ?, ?, ?, ?, ?); ',
-    [nombre, telefono, email, zona, direccion, detalle, deuda],
+    'INSERT INTO clientes (nombre, telefono, email, zona, direccion, detalle) VALUES (?, ?, ?, ?, ?, ?); ',
+    [nombre, telefono, email, zona, direccion, detalle],
     (error, rows) => {
       if (error) {
         console.log(error);
@@ -70,10 +70,10 @@ router.get('', (req, res, next) => {
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { nombre, telefono, email, zona, direccion, detalle, deuda } = req.body;
+  const { nombre, telefono, email, zona, direccion, detalle } = req.body;
   conexion.query(
-    'UPDATE clientes SET nombre = ?, telefono = ?, email = ?, zona = ?, direccion = ?, detalle = ?, deuda = ? WHERE id = ?',
-    [nombre, telefono, email, zona, direccion, detalle, deuda, id],
+    'UPDATE clientes SET nombre = ?, telefono = ?, email = ?, zona = ?, direccion = ?, detalle = ? WHERE id = ?',
+    [nombre, telefono, email, zona, direccion, detalle, id],
     (err, rows, fields) => {
       if (!err) {
         res.json({ Status: 'Cliente Actualizado' });

@@ -30,7 +30,11 @@ router.post('/crear', async (req, res, next) => {
               if (error) {
                 console.log(error);
               } else {
-                console.log('creamos la venta');
+                res.json(
+					function obtenerDeuda() {
+						return req.body.sale.deuda
+					}
+				)
               }
             }
           );
@@ -549,10 +553,10 @@ router.post('/propiedades', async (req, res, next) => {
           (err, rows, fields) => {
             let productosVenta = rows;
             //aca debemos generar el pdf
-
+			let datosDeuda = this.obtenerDeuda()
             var options = { type: 'pdf', timeout: '1000000' };
 
-            ventaHTML = generarVentaHTML(datosClientes, productosVenta);
+            ventaHTML = generarVentaHTML(datosClientes, productosVenta, datosDeuda);
             pdf.create(ventaHTML, options).toFile('./venta.pdf', function (err, res2) {
               if (err) {
                 console.log(err);
@@ -580,7 +584,7 @@ router.post('/propiedades', async (req, res, next) => {
 Funciones auxiliares
 */
 
-function generarVentaHTML(datosCliente, datosVenta) {
+function generarVentaHTML(datosCliente, datosVenta, datosDeuda) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
@@ -770,8 +774,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				</tr>
           `;
   });
-
-  html =
+  datosDeuda.forEach(deuda => {
+	html =
     html +
     `
 
@@ -786,7 +790,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				</tr>
 
 				<tr class="total">
-				<td>Deuda: </td>
+				<td>Deuda: `+deuda+`</td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -798,6 +802,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
 	</body>
 </html>
 `;
+  });
+
 
   html = html + html;
 
