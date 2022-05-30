@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const conexion = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: '', //'1682951!Abmtoba',
+  password: '1682951!Abmtoba', //'1682951!Abmtoba',
   database: 'distribuidoradhr',
   //port: 3306
 });

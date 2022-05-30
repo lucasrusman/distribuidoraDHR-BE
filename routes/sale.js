@@ -191,7 +191,7 @@ function generarExportarClientesHTML(clientes) {
     '-' +
     year +
     ` <br />
-                 					https://dyg-frontend.herokuapp.com/ <br />
+	https://www.dygcombos.com.ar/ <br />
 								</td>
 							</tr>
 						</table>
@@ -389,7 +389,7 @@ function generarExportarProductosHTML(productos_por_venta) {
     '-' +
     year +
     ` <br />
-                 					https://dyg-frontend.herokuapp.com/ <br />
+	https://www.dygcombos.com.ar/ <br />
 								</td>
 							</tr>
 						</table>
@@ -704,7 +704,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     '-' +
     year +
     ` <br />
-                 					https://dyg-frontend.herokuapp.com/ <br />
+	https://www.dygcombos.com.ar/ <br />
 								</td>
 							</tr>
 						</table>
@@ -928,7 +928,7 @@ function generarListadoVentasHTML(sales) {
     '-' +
     year +
     ` <br />
-                 					https://dyg-frontend.herokuapp.com/ <br />
+	https://www.dygcombos.com.ar/ <br />
 								</td>
 							</tr>
 						</table>

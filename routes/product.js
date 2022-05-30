@@ -320,7 +320,7 @@ function generarProductosHTML(productos) {
     '-' +
     year +
     ` <br />
-                 https://dyg-frontend.herokuapp.com/ <br />
+    https://www.dygcombos.com.ar/ <br />
 								</td>
 							</tr>
 						</table>
