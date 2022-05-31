@@ -30,11 +30,7 @@ router.post('/crear', async (req, res, next) => {
               if (error) {
                 console.log(error);
               } else {
-                res.json(
-					function obtenerDeuda() {
-						return req.body.sale.deuda
-					}
-				)
+                console.log(rows);
               }
             }
           );
@@ -553,10 +549,9 @@ router.post('/propiedades', async (req, res, next) => {
           (err, rows, fields) => {
             let productosVenta = rows;
             //aca debemos generar el pdf
-			let datosDeuda = this.obtenerDeuda()
             var options = { type: 'pdf', timeout: '1000000' };
 
-            ventaHTML = generarVentaHTML(datosClientes, productosVenta, datosDeuda);
+            ventaHTML = generarVentaHTML(datosClientes, productosVenta);
             pdf.create(ventaHTML, options).toFile('./venta.pdf', function (err, res2) {
               if (err) {
                 console.log(err);
@@ -584,7 +579,7 @@ router.post('/propiedades', async (req, res, next) => {
 Funciones auxiliares
 */
 
-function generarVentaHTML(datosCliente, datosVenta, datosDeuda) {
+function generarVentaHTML(datosCliente, datosVenta) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
@@ -747,9 +742,9 @@ function generarVentaHTML(datosCliente, datosVenta, datosDeuda) {
 				<tr class="heading">
 					<td>Producto</td>
 
-					<td>Precio unit.</td>
-					<td>Cantidad</td>
-					<td>Precio Total</td>
+					<td width="10%">Precio unit.</td>
+					<td width="10%">Cantidad</td>
+					<td width="20%">Precio Total</td>
 				</tr>
         `;
 
@@ -774,7 +769,6 @@ function generarVentaHTML(datosCliente, datosVenta, datosDeuda) {
 				</tr>
           `;
   });
-  datosDeuda.forEach(deuda => {
 	html =
     html +
     `
@@ -787,22 +781,13 @@ function generarVentaHTML(datosCliente, datosVenta, datosDeuda) {
 					<td style="font-weight: bold;">Total: $` +
     datosVenta[0].total +
     `</td>
-				</tr>
-
-				<tr class="total">
-				<td>Deuda: `+deuda+`</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				
-		</tr>
-		
+			
 			</table>
 		</div>
 	</body>
 </html>
 `;
-  });
+  ;
 
 
   html = html + html;
