@@ -781,7 +781,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 					<td style="font-weight: bold;">Total: $` +
     datosVenta[0].total +
     `</td>
-			
+		
 			</table>
 		</div>
 	</body>
