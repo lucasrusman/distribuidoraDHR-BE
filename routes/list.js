@@ -74,7 +74,7 @@ router.get('', (req, res, next) => {
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { nombre, telefono, email, zona, direccion, detalle, lista } = req.body;
+  const { nombre, porcentaje } = req.body;
   conexion.query(
     'UPDATE listas SET nombre = ?, porcentaje = ? WHERE id = ?',
     [nombre, porcentaje, id],
