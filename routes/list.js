@@ -1,39 +1,42 @@
 const express = require('express');
+const { format } = require('date-fns');
 const conexion = require('../database');
 const router = express.Router();
-var pdf = require('html-pdf');
+const { Base64Encode } = require('base64-stream');
 const pdf2base64 = require('pdf-to-base64');
+var pdf = require('html-pdf');
+const { query } = require('express');
 
 router.post('/crear', async (req, res, next) => {
-  const { nombre, telefono, email, zona, direccion, detalle, lista} = req.body;
+  const { nombre, porcentaje } = req.body;
   conexion.query(
-    'INSERT INTO clientes (nombre, telefono, email, zona, direccion, detalle, lista) VALUES (?, ?, ?, ?, ?, ?, ?); ',
-    [nombre, telefono, email, zona, direccion, detalle, lista],
+    'INSERT INTO listas (nombre, porcentaje) VALUES (?, ?); ',
+    [nombre, porcentaje],
     (error, rows) => {
       if (error) {
         console.log(error);
       }
-      res.json({ Status: 'Cliente creado' });
+      res.json({ Status: 'Lista creada' });
     }
   );
 });
 
 router.post('/crearPDF', async (req, res, next) => {
-  const arrayClientes = [];
-  clientes = [];
-  clientes = conexion.query('SELECT * FROM clientes', function (err, rows, fields) {
+  const arrayListas = [];
+  listas = [];
+  listas = conexion.query('SELECT * FROM listas', function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
-        allClients = [row.nombre, row.telefono, row.direccion];
-        arrayClientes.push(allClients);
+        allList = [row.nombre, row.porcentaje];
+        arrayListas.push(allList);
       });
 
-      listadoClientesHTML = generarClientesHTML(arrayClientes);
-      pdf.create(listadoClientesHTML).toFile('./clientes.pdf', function (err, res2) {
+      listadoHTML = generarListasHTML(arrayListas);
+      pdf.create(listadoHTML).toFile('./listas.pdf', function (err, res2) {
         if (err) {
           console.log(err);
         } else {
-          pdf2base64('./clientes.pdf')
+          pdf2base64('./listas.pdf')
             .then(response => {
               res.status(200).json({ finalString: response });
             })
@@ -50,7 +53,7 @@ router.post('/crearPDF', async (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  conexion.query('SELECT * FROM clientes WHERE id = ?', [id], (err, rows, fields) => {
+  conexion.query('SELECT * FROM listas WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
@@ -58,8 +61,9 @@ router.get('/:id', (req, res, next) => {
     }
   });
 });
+
 router.get('', (req, res, next) => {
-  conexion.query('SELECT * FROM clientes ORDER BY id DESC', (err, rows, fields) => {
+  conexion.query('SELECT * FROM listas ORDER BY id DESC', (err, rows, fields) => {
     if (!err) {
       res.json(rows);
     } else {
@@ -72,11 +76,11 @@ router.put('/:id', (req, res) => {
   const { id } = req.params;
   const { nombre, telefono, email, zona, direccion, detalle, lista } = req.body;
   conexion.query(
-    'UPDATE clientes SET nombre = ?, telefono = ?, email = ?, zona = ?, direccion = ?, detalle = ?, lista = ? WHERE id = ?',
-    [nombre, telefono, email, zona, direccion, detalle, lista, id],
+    'UPDATE listas SET nombre = ?, porcentaje = ? WHERE id = ?',
+    [nombre, porcentaje, id],
     (err, rows, fields) => {
       if (!err) {
-        res.json({ Status: 'Cliente Actualizado' });
+        res.json({ Status: 'Lista Actualizada' });
       } else {
         console.log(err);
       }
@@ -86,22 +90,16 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  conexion.query('DELETE FROM clientes WHERE id = ?', [id], (err, rows, fields) => {
+  conexion.query('DELETE FROM listas WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
-      res.json({ Status: 'Cliente eliminado' });
+      res.json({ Status: 'Lista eliminada' });
     } else {
       console.log(err);
     }
   });
 });
 
-
-
-/* 
-  Funciones auxiliares
-*/
-
-function generarClientesHTML(clientes) {
+function generarListasHTML(listas) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
@@ -234,24 +232,20 @@ function generarClientesHTML(clientes) {
 				</tr>
 				<tr class="heading">
 					<td>Nombre</td>
-          <td>Telefono</td>
-					<td>Direccion</td>
+                    <td>Porcentaje</td>
 				</tr>
 
           <tr class="item">
           `;
-  clientes.forEach(cliente => {
+  listas.forEach(lista => {
     html =
       html +
       `<tr>
                   <td>` +
-      cliente[0] +
+      lista[0] +
       `</td>
                   <td>` +
-      cliente[1] +
-      `</td>
-      <td>` +
-      cliente[2] +
+      lista[1] +
       `</td>
                   </tr>`;
   });

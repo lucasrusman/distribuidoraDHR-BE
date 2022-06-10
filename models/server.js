@@ -63,6 +63,8 @@ class Servidor {
     this.app.use('/api/product', require('../routes/product'));
     //rutas de ventas
     this.app.use('/api/sale', require('../routes/sale'));
+    //rutas para listas
+    this.app.use('/api/list', require('../routes/list'));
   }
   listen() {
     this.app.listen(this.port, () => {
