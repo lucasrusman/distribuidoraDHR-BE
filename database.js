@@ -6,7 +6,6 @@ const conexion = mysql.createPool({
   password: 'dd261749', //'1682951!Abmtoba',
   database: 'heroku_e537f72d273dba4'
 });
-
 // conexion.connect(error => {
 //   if (error) {
 //     throw error;
