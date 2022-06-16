@@ -693,7 +693,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
 						<table>
 							<tr>
 								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 75px; height: 75px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.jpeg" style="width: 100%; max-width: 50px; height: 50px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 50px; height: 50px" />
+									<p style="font-size: 10px; margin:0;">11-6482-8268</p>
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -703,7 +704,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     '-' +
     year +
     ` <br />
-	https://www.dygcombos.com.ar/ <br />
+	www.dygcombos.com.ar/ <br />
+	Instagram: dygcombos <br />
 								</td>
 							</tr>
 						</table>
@@ -742,9 +744,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				<tr class="heading">
 					<td>Producto</td>
 
-					<td width="10%">Precio unit.</td>
-					<td width="10%">Cantidad</td>
-					<td width="20%">Precio Total</td>
+					<td width="7.5%">Precio unit.</td>
+					<td width="5%">Cantidad</td>
+					<td width="7.5%">Precio Total</td>
 				</tr>
         `;
 
@@ -752,7 +754,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     html =
       html +
       `
-          <tr class="item">
+          <tr class="item" style="heigth: 51px;">
 					<td>` +
       producto.descripcion +
       `</td>
