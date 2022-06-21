@@ -705,7 +705,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     year +
     ` <br />
 	www.dygcombos.com.ar/ <br />
-	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.jpg" style="width: 100px;max-width: 35px; height: 20px;margin-top: 2px"/>
+	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.jpg" style="width: 100px; max-width: 35px; height: 20px;margin-top: 2px"/>
 
 	Instagram: dygcombos <br />
 								</td>
