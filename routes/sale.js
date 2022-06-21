@@ -705,7 +705,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     year +
     ` <br />
 	www.dygcombos.com.ar/ <br />
-	<img src="https://w7.pngwing.com/pngs/69/987/png-transparent-instagram-logo-maker-faire-social-media-logo-instagram-instagram-purple-text-photography.png" style="width: 100px;max-width: 35px; height: 20px;margin-top: 2px"/>
+	<img src="../logo-instagram.jpg" style="width: 100px;max-width: 35px; height: 20px;margin-top: 2px"/>
 
 	Instagram: dygcombos <br />
 								</td>
