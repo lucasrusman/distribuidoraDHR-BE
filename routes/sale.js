@@ -698,7 +698,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
 							<tr style:height:45px;>
 								<td class="title">
                   					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 40px; height: 30px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 40px; height: 30px" />
-									<p style="font-size: 4.5px; margin:0; text-align:end">11-6482-8268</p>
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -712,6 +711,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 100px; max-width: 10px; height: 10px;margin-top: 2px"/>
 
 	dygcombos <br />
+	<p style="font-size: 4.5px; margin:0; text-align:end">11-6482-8268</p>
 								</td>
 							</tr>
 						</table>
