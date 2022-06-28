@@ -179,9 +179,9 @@ function generarExportarClientesHTML(clientes) {
 				<tr class="top">
 					<td colspan="3">
 						<table>
-							<tr>
+							<tr style:height:40px;>
 								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px" />
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -191,7 +191,7 @@ function generarExportarClientesHTML(clientes) {
     '-' +
     year +
     ` <br />
-	https://www.dygcombos.com.ar/ <br />
+	www.dygcombos.com.ar <br />
 								</td>
 							</tr>
 						</table>
@@ -377,9 +377,9 @@ function generarExportarProductosHTML(productos_por_venta) {
 				<tr class="top">
 					<td colspan="3">
 						<table>
-							<tr>
+							<tr style:height:40px;>
 								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px" />
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -389,7 +389,7 @@ function generarExportarProductosHTML(productos_por_venta) {
     '-' +
     year +
     ` <br />
-	https://www.dygcombos.com.ar/ <br />
+	www.dygcombos.com.ar <br />
 								</td>
 							</tr>
 						</table>
@@ -691,10 +691,10 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				<tr class="top">
 					<td colspan="4">
 						<table>
-							<tr>
+							<tr style:height:45px;>
 								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 75px; height: 75px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 50px; height: 50px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 50px; height: 50px" />
-									<p style="font-size: 10px; margin:0;">11-6482-8268</p>
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 40px; height: 30px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 40px; height: 30px" />
+									<p style="font-size: 9px; margin:0;">11-6482-8268</p>
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -704,10 +704,10 @@ function generarVentaHTML(datosCliente, datosVenta) {
     '-' +
     year +
     ` <br />
-	www.dygcombos.com.ar/ <br />
+	www.dygcombos.com.ar <br />
 	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 100px; max-width: 25px; height: 20px;margin-top: 2px"/>
 
-	Instagram: dygcombos <br />
+	dygcombos <br />
 								</td>
 							</tr>
 						</table>
@@ -746,9 +746,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				<tr class="heading">
 					<td>Producto</td>
 
-					<td width="7.5%">Precio unit.</td>
+					<td width="7.5%">Precio</td>
 					<td width="5%">Cant</td>
-					<td width="7.5%">Precio Total</td>
+					<td width="7.5%">Total</td>
 				</tr>
         `;
 
@@ -764,7 +764,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 					<td>$` +
       producto.precio +
       `</td>
-	  <td>` +
+	  <td style="text-align:center;">` +
       producto.cantidad +
       `</td>
 	  <td>$` +
@@ -781,8 +781,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				<tr class="total">
 					<td></td>
 					<td></td>
-					<td></td>
-					<td style="font-weight: bold;">Total: $` +
+					<td style="font-weight: bold;">Total:</td>
+					<td style="font-weight: bold;"> $` +
     datosVenta[0].total +
     `</td>
 		
@@ -908,9 +908,9 @@ function generarListadoVentasHTML(sales) {
 				<tr class="top">
 					<td colspan="3">
 						<table>
-							<tr>
+							<tr style:height:40px;>
 								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
+                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px" />
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -920,7 +920,7 @@ function generarListadoVentasHTML(sales) {
     '-' +
     year +
     ` <br />
-	https://www.dygcombos.com.ar/ <br />
+	www.dygcombos.com.ar <br />
 								</td>
 							</tr>
 						</table>
@@ -933,7 +933,6 @@ function generarListadoVentasHTML(sales) {
         `;
   sales.forEach(sale => {
     let fecha = sale[1].toLocaleDateString('es-AR');
-    console.log(fecha);
     html =
       html +
       `<tr>

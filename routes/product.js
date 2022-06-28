@@ -308,9 +308,9 @@ function generarProductosHTML(productos) {
 				<tr class="top">
 					<td colspan="2">
 						<table>
-							<tr>
+							<tr style=height:40px;>
 								<td class="title">
-                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 60px; height: 50px" />
+                  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px" />
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
@@ -320,7 +320,7 @@ function generarProductosHTML(productos) {
     '-' +
     year +
     ` <br />
-    https://www.dygcombos.com.ar/ <br />
+    www.dygcombos.com.ar <br />
 								</td>
 							</tr>
 						</table>

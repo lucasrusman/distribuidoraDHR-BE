@@ -226,7 +226,7 @@ function generarClientesHTML(clientes) {
     '-' +
     year +
     ` <br />
-    https://www.dygcombos.com.ar/ <br />
+    www.dygcombos.com.ar <br />
 								</td>
 							</tr>
 						</table>
@@ -263,7 +263,6 @@ function generarClientesHTML(clientes) {
 	</body>
 </html>
 `;
-  console.log(html);
   return html;
 }
 
