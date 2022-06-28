@@ -596,7 +596,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
-				margin-button:15px;
 				padding: 10px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -699,7 +698,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 							<tr style:height:45px;>
 								<td class="title">
                   					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 40px; height: 30px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 40px; height: 30px" />
-									<p style="font-size: 4.5px; margin:0;">11-6482-8268</p>
+									<p style="font-size: 4.5px; margin:0; text-align:rigth">11-6482-8268</p>
 								</td>
 							<td style="text-align: end;" >
 									Fecha: ` +
