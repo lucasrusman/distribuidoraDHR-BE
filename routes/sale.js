@@ -596,6 +596,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
+				margin-button:15px;
 				padding: 10px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
