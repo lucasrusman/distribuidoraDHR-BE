@@ -605,6 +605,10 @@ function generarVentaHTML(datosCliente, datosVenta) {
 				color: #555;
 			}
 
+			.invoice-box top{
+				background-color:red;
+			}
+
 			.invoice-box table {
 				width: 100%;
 				line-height: inherit;
@@ -705,7 +709,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     year +
     ` <br />
 	www.dygcombos.com.ar <br />
-	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 100px; max-width: 25px; height: 20px;margin-top: 2px"/>
+	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 100px; max-width: 10px; height: 10px;margin-top: 2px"/>
 
 	dygcombos <br />
 								</td>
