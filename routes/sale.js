@@ -596,11 +596,11 @@ function generarVentaHTML(datosCliente, datosVenta) {
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
-				padding: 30px;
+				padding: 10px;
 				border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 1px;
-				line-height: 24px;
+				font-size: 5px;
+				line-height: 10px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
 			}
@@ -626,7 +626,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
 			.invoice-box table tr.top table td.title {
 				font-size: 4.5px;
-				line-height: 45px;
+				line-height: 15px;
 				color: #333;
 			}
 
@@ -636,7 +636,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
 
 			.invoice-box table tr.heading td {
 				background: #eee;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 0px solid #ddd;
 				font-weight: bold;
 			}
 
