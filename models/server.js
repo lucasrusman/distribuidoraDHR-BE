@@ -65,6 +65,8 @@ class Servidor {
     this.app.use('/api/sale', require('../routes/sale'));
     //rutas para listas
     this.app.use('/api/list', require('../routes/list'));
+    //rutas para los graficos
+    this.app.use('/api/graphics', require('../routes/graphics'));
   }
   listen() {
     this.app.listen(this.port, () => {
