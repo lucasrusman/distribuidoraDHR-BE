@@ -708,7 +708,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     year +
     ` <br />
 	www.dygcombos.com.ar <br />
-	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 3px; height: 3px;"/>dygcombos<br />
+	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 5px; height: 5px;"/>dygcombos<br />
 	<p style="font-size: 6px; margin:0; text-align:end;">11-6482-8268</p>
 								</td>
 							</tr>
