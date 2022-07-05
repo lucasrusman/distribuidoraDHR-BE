@@ -13,4 +13,5 @@ const conexion = mysql.createPool({
 //   console.log('¡Conectado a la base de datos MySQL!');
 // });
 
-module.exports = conexion;
+module.exports = conexion; 
+   

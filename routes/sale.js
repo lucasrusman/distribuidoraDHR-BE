@@ -2,10 +2,9 @@ const express = require('express');
 const { format } = require('date-fns');
 const conexion = require('../database');
 const router = express.Router();
-const { Base64Encode } = require('base64-stream');
 const pdf2base64 = require('pdf-to-base64');
 var pdf = require('html-pdf');
-const { query } = require('express');
+const generarVentaHTML = require('../pdf_routes/generarVentaHTML.ts') ;
 
 router.post('/crear', async (req, res, next) => {
   const { idCliente, total } = req.body.sale;
@@ -579,225 +578,225 @@ router.post('/propiedades', async (req, res, next) => {
 Funciones auxiliares
 */
 
-function generarVentaHTML(datosCliente, datosVenta) {
-  let date_ob = new Date();
-  let date = ('0' + date_ob.getDate()).slice(-2);
-  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
-  let year = date_ob.getFullYear();
-  var html =
-    `
-  <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>A simple, clean, and responsive HTML invoice template</title>
+// function generarVentaHTML(datosCliente, datosVenta) {
+//   let date_ob = new Date();
+//   let date = ('0' + date_ob.getDate()).slice(-2);
+//   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+//   let year = date_ob.getFullYear();
+//   var html =
+//     `
+//   <!DOCTYPE html>
+// <html>
+// 	<head>
+// 		<meta charset="utf-8" />
+// 		<title>A simple, clean, and responsive HTML invoice template</title>
 
-			<style>
-			.invoice-box {
-				max-width: 800px;
-				margin: auto;
-				padding: 10px;
-				border: 1px solid #eee;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 6px;
-				line-height: 10px;
-				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-				color: #555;
-			}
+// 			<style>
+// 			.invoice-box {
+// 				max-width: 800px;
+// 				margin: auto;
+// 				padding: 10px;
+// 				border: 1px solid #eee;
+// 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+// 				font-size: 6px;
+// 				line-height: 10px;
+// 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+// 				color: #555;
+// 			}
 
-			.invoice-box top{
-				background-color:red;
-			}
+// 			.invoice-box top{
+// 				background-color:red;
+// 			}
 
-			.invoice-box table {
-				width: 100%;
-				line-height: inherit;
-				text-align: left;
-			}
+// 			.invoice-box table {
+// 				width: 100%;
+// 				line-height: inherit;
+// 				text-align: left;
+// 			}
 
-			.invoice-box table td {
-				padding: 5px;
-				vertical-align: top;
-			}
+// 			.invoice-box table td {
+// 				padding: 5px;
+// 				vertical-align: top;
+// 			}
 
-			.invoice-box table tr td:nth-child(2) {
-				text-align: right;
-			}
+// 			.invoice-box table tr td:nth-child(2) {
+// 				text-align: right;
+// 			}
 
-			.invoice-box table tr.top table td {
-				padding-bottom: 0px;
-			}
+// 			.invoice-box table tr.top table td {
+// 				padding-bottom: 0px;
+// 			}
 
-			.invoice-box table tr.top table td.title {
-				font-size: 6px;
-				line-height: 15px;
-				color: #333;
-			}
+// 			.invoice-box table tr.top table td.title {
+// 				font-size: 6px;
+// 				line-height: 15px;
+// 				color: #333;
+// 			}
 
-			.invoice-box table tr.information table td {
-				padding-bottom: 0px;
-			}
+// 			.invoice-box table tr.information table td {
+// 				padding-bottom: 0px;
+// 			}
 
-			.invoice-box table tr.heading td {
-				background: #eee;
-				border-bottom: 0px solid #ddd;
-				font-weight: bold;
-			}
+// 			.invoice-box table tr.heading td {
+// 				background: #eee;
+// 				border-bottom: 0px solid #ddd;
+// 				font-weight: bold;
+// 			}
 
-			.invoice-box table tr.details td {
-				padding-bottom: 20px;
-			}
+// 			.invoice-box table tr.details td {
+// 				padding-bottom: 20px;
+// 			}
 
-			.invoice-box table tr.item td {
-				border-bottom: 1px solid #000;
-			}
+// 			.invoice-box table tr.item td {
+// 				border-bottom: 1px solid #000;
+// 			}
 
-			.invoice-box table tr.item.last td {
-				border-bottom: none;
-			}
+// 			.invoice-box table tr.item.last td {
+// 				border-bottom: none;
+// 			}
 
-			.invoice-box table tr.total td:nth-child(2) {
-				border-top: 1px solid #000;
-				font-weight: bold;
-			}
+// 			.invoice-box table tr.total td:nth-child(2) {
+// 				border-top: 1px solid #000;
+// 				font-weight: bold;
+// 			}
 
-			@media only screen and (max-width: 600px) {
-				.invoice-box table tr.top table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
+// 			@media only screen and (max-width: 600px) {
+// 				.invoice-box table tr.top table td {
+// 					width: 100%;
+// 					display: block;
+// 					text-align: center;
+// 				}
 
-				.invoice-box table tr.information table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
-			}
-			.invoice-box.rtl {
-				direction: rtl;
-				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-			}
+// 				.invoice-box table tr.information table td {
+// 					width: 100%;
+// 					display: block;
+// 					text-align: center;
+// 				}
+// 			}
+// 			.invoice-box.rtl {
+// 				direction: rtl;
+// 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+// 			}
 
-			.invoice-box.rtl table {
-				text-align: right;
-			}
+// 			.invoice-box.rtl table {
+// 				text-align: right;
+// 			}
 
-			.invoice-box.rtl table tr td:nth-child(2) {
-				text-align: left;
-			}
-		</style>
-	</head>
+// 			.invoice-box.rtl table tr td:nth-child(2) {
+// 				text-align: left;
+// 			}
+// 		</style>
+// 	</head>
 
-	<body>
-		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0" border="1">
-				<tr class="top">
-					<td colspan="4">
-						<table>
-							<tr style:height:45px;>
-								<td class="title">
-                  					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 40px; height: 30px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 40px; height: 30px" />
-								</td>
-							<td style="text-align: end;" >
-									Fecha: ` +
-    date +
-    '-' +
-    month +
-    '-' +
-    year +
-    ` <br />
-	www.dygcombos.com.ar <br />
-	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 10px; height: 10px;"/>11-6482-8268<br />
-	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 20px; height: 20px;"/>dygcombos
+// 	<body>
+// 		<div class="invoice-box">
+// 			<table cellpadding="0" cellspacing="0" border="1">
+// 				<tr class="top">
+// 					<td colspan="4">
+// 						<table>
+// 							<tr style:height:45px;>
+// 								<td class="title">
+//                   					<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="width: 100%; max-width: 47.5px; height: 40px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 100%; max-width: 40px; height: 30px; margin-right:30px;" /><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 100%; max-width: 40px; height: 30px" />
+// 								</td>
+// 							<td style="text-align: end;" >
+// 									Fecha: ` +
+//     date + 
+//     '-' + 
+//     month +
+//     '-' +
+//     year +
+//     ` <br />
+// 	www.dygcombos.com.ar <br />
+// 	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 10px; height: 10px;"/>11-6482-8268<br />
+// 	<img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 20px; height: 20px;"/>dygcombos
 	
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+// 								</td>
+// 							</tr>
+// 						</table>
+// 					</td>
+// 				</tr>
 
-				<tr class="information">
-					<td colspan="4">
-						<table>
-							<tr>
-								<td>
-								Cliente: ` +
-    datosCliente.nombre +
-    `<br />
-								Telefono: ` +
-    datosCliente.telefono +
-    `<br />
-								</td>
+// 				<tr class="information">
+// 					<td colspan="4">
+// 						<table>
+// 							<tr>
+// 								<td>
+// 								Cliente: ` +
+//     datosCliente.nombre +
+//     `<br />
+// 								Telefono: ` +
+//     datosCliente.telefono +
+//     `<br />
+// 								</td>
 
-								<td>
-                ` +
-    `Direccion: ` +
-    datosCliente.direccion +
-    `<br />
-                ` +
-    `Zona: ` +
-    datosCliente.zona +
-    `
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+// 								<td>
+//                 ` +
+//     `Direccion: ` +
+//     datosCliente.direccion +
+//     `<br />
+//                 ` +
+//     `Zona: ` +
+//     datosCliente.zona +
+//     `
+// 								</td>
+// 							</tr>
+// 						</table>
+// 					</td>
+// 				</tr>
 
 
-				<tr class="heading">
-					<td>Producto</td>
+// 				<tr class="heading">
+// 					<td>Producto</td>
 
-					<td width="7.5%">Precio</td>
-					<td width="5%">Cant</td>
-					<td width="7.5%">Total</td>
-				</tr>
-        `;
+// 					<td width="7.5%">Precio</td>
+// 					<td width="5%">Cant</td>
+// 					<td width="7.5%">Total</td>
+// 				</tr>
+//         `;
 
-  datosVenta.forEach(producto => {
-    html =
-      html +
-      `
-          <tr class="item" style="heigth: 51px;">
-					<td>` +
-      producto.descripcion +
-      `</td>
+//   datosVenta.forEach(producto => {
+//     html =
+//       html +
+//       `
+//           <tr class="item" style="heigth: 51px;">
+// 					<td>` +
+//       producto.descripcion +
+//       `</td>
 
-					<td>$` +
-      producto.precio +
-      `</td>
-	  <td style="text-align:center;">` +
-      producto.cantidad +
-      `</td>
-	  <td>$` +
-      producto.precio * producto.cantidad +
-      `</td>
-				</tr>
-          `;
-  });
-  html =
-    html +
-    `
+// 					<td>$` +
+//       producto.precio +
+//       `</td>
+// 	  <td style="text-align:center;">` +
+//       producto.cantidad +
+//       `</td>
+// 	  <td>$` +
+//       producto.precio * producto.cantidad +
+//       `</td>
+// 				</tr>
+//           `;
+//   });
+//   html =
+//     html +
+//     `
 
 				
-				<tr class="total">
-					<td></td>
-					<td></td>
-					<td style="font-weight: bold;">Total:</td>
-					<td style="font-weight: bold;"> $` +
-    datosVenta[0].total +
-    `</td>
+// 				<tr class="total">
+// 					<td></td>
+// 					<td></td>
+// 					<td style="font-weight: bold;">Total:</td>
+// 					<td style="font-weight: bold;"> $` +
+//     datosVenta[0].total +
+//     `</td>
 		
-			</table>
-		</div>
-	</body>
-</html>
-`;
-  html = html + html;
+// 			</table>
+// 		</div>
+// 	</body>
+// </html>
+// `;
+//   html = html + html;
 
-  return html;
-}
+//   return html;
+// }
 
 function generarListadoVentasHTML(sales) {
   let date_ob = new Date();
