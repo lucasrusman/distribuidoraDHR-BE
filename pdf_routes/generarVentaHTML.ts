@@ -617,10 +617,10 @@ footer p {
     <p >
       <strong>DyG Combos</strong><br>
       Web: www.dygcombos.com.ar<br>
-      Tel: 11-6482-8268<br>
-      Tel: 7509-4514<br>
-      Tel: 7508-8828<br>
-      Instagrm: dygcombos<br>
+       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  11-6482-8268<br>
+       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7509-4514<br>
+       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7508-8828<br>
+       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 20px; height: 17px;">  dygcombos<br>
       
     </p>
   </div><!--.me-->
@@ -635,7 +635,7 @@ footer p {
     year +
   ` </strong>
   <br> Cliente: `+datosCliente.nombre +`<br>
-  Telefono: ` + datosCliente.telefono + `<br>
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;"> ` + datosCliente.telefono + `<br>
   Direccion: ` + datosCliente.direccion + `<br>
   Zona: ` + datosCliente.zona + `
     </p>
