@@ -1,9 +1,10 @@
- function generarVentaHTML(datosCliente, datosVenta) {
+function generarVentaHTML(datosCliente, datosVenta) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
   let year = date_ob.getFullYear();
-  var html = `
+  var html =
+    `
     <style>
 
 
@@ -627,17 +628,25 @@ footer p {
   <div class="bank">
     <p >
       <strong>
-      `+
+      ` +
     date +
     '-' +
     month +
     '-' +
     year +
-  ` </strong>
-  <br> Cliente: `+datosCliente.nombre +`<br>
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;"> ` + datosCliente.telefono + `<br>
-  Direccion: ` + datosCliente.direccion + `<br>
-  Zona: ` + datosCliente.zona + `
+    ` </strong>
+  <br> Cliente: ` +
+    datosCliente.nombre +
+    `<br>
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;"> ` +
+    datosCliente.telefono +
+    `<br>
+  Direccion: ` +
+    datosCliente.direccion +
+    `<br>
+  Zona: ` +
+    datosCliente.zona +
+    `
     </p>
   </div>
 </header>
@@ -652,31 +661,43 @@ footer p {
   </thead>
 </table>
 </div>
-`
-datosVenta.forEach(producto => {
+`;
+  datosVenta.forEach(producto => {
     html =
-    html + `
+      html +
+      `
       <div class="invoicelist-body">
       <table>
         <tbody>
           <tr>
-            <td width='60%' style="font-size: 13px;"><span >` + producto.descripcion + `</span></td>
-            <td class="amount" style="font-size: 13px;width: 10%">` + producto.cantidad + `</td>
-            <td class="rate" style="font-size: 13px;width: 15%">` + producto.precio +  `</td>
-            <td class="sum" style="font-size: 13px;width: 10%">` + producto.precio * producto.cantidad + `</td>
+            <td width='60%' style="font-size: 13px;"><span >` +
+      producto.descripcion +
+      `</span></td>
+            <td class="amount" style="font-size: 13px;width: 10%">` +
+      producto.cantidad +
+      `</td>
+            <td class="rate" style="font-size: 13px;width: 15%">` +
+      producto.precio +
+      `</td>
+            <td class="sum" style="font-size: 13px;width: 10%">` +
+      producto.precio * producto.cantidad +
+      `</td>
           </tr>
         </tbody>
       </table>
       
     </div><!--.invoice-body-->
-    `
- });
- html =
-    html + ` <div class="invoicelist-footer">
+    `;
+  });
+  html =
+    html +
+    ` <div class="invoicelist-footer">
     <table>
       <tr>
         <td  style="font-size:15px;"><strong>Total:</strong></td>
-        <td id="total_price" style="font-size:15px;">` +  datosVenta[0].total +  `</td>
+        <td id="total_price" style="font-size:15px;">` +
+    datosVenta[0].total +
+    `</td>
       </tr>
     </table>
   </div>
@@ -688,9 +709,8 @@ datosVenta.forEach(producto => {
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
   <script src="assets/js/main.js"></script>
   </body>
-  </html> `
+  </html> `;
   html = html + html;
   return html;
 }
-module.exports = 
-    generarVentaHTML
+module.exports = generarVentaHTML;

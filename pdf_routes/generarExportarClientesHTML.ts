@@ -1,9 +1,10 @@
-function generarExportarClientesHTML(clientes){
-    let date_ob = new Date();
-    let date = ('0' + date_ob.getDate()).slice(-2);
-    let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
-    let year = date_ob.getFullYear();
-    var html = `
+function generarExportarClientesHTML(clientes) {
+  let date_ob = new Date();
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+  let year = date_ob.getFullYear();
+  var html =
+    `
     <style>
 
 
@@ -608,7 +609,13 @@ footer p {
 
   <div class="me">
     <p >
-      <strong>Fecha: ` + date + '-' + month + '-' + year + `</strong><br>
+      <strong>Fecha: ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    `</strong><br>
       Web: dygcombos.com.ar<br>
       
     </p>
@@ -624,25 +631,28 @@ footer p {
     </thead>
     </table>
 </div>
-`
-clientes.forEach(cliente => {
-    html = html + `
+`;
+  clientes.forEach(cliente => {
+    html =
+      html +
+      `
     <div class="invoicelist-body">
     <table>
         <tbody>
         <tr>
             <td width='60%'> <span >` +
-            cliente[0] +
-            `</span></td>
+      cliente[0] +
+      `</span></td>
             <td width='20%'><span></span></td>
             <td width='20%'><span></span></td>
         </tr>
         </tbody>
   </table>
-</div>`
-
-})
-html = html + `<footer class="row">
+</div>`;
+  });
+  html =
+    html +
+    `<footer class="row">
 <div class="col-1 text-center">
 
 </div>
@@ -652,10 +662,8 @@ html = html + `<footer class="row">
 <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
 <script src="assets/js/main.js"></script>
 </body>
-</html> `
-return html
-
+</html> `;
+  return html;
 }
-
 
 module.exports = generarExportarClientesHTML;

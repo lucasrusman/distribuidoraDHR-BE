@@ -1,4 +1,4 @@
-function generarExportarProductosHTML(productos_por_venta) {
+function generarListasHTML(listas) {
   let date_ob = new Date();
   let date = ('0' + date_ob.getDate()).slice(-2);
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
@@ -621,49 +621,49 @@ footer p {
     </p>
   </div><!--.me-->
 
-</header>
+  </header>
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="80%">Descripción</th>
-      <th  width="20%">Cantidad</th>
+      <th width="50%">Nombre</th>
+      <th width="50%">Porcentaje</th>
     </thead>
-    </table>
+</table>
 </div>
 `;
-
-  productos_por_venta.forEach(producto => {
-    html =
-      html +
-      `<div class="invoicelist-body">
-      <table>
-        <tbody>
-          <tr>
-            <td width='80%'> <span >` +
-      producto[0] +
+  listas.forEach(lista => {
+    html +=
+      `
+    <div  class="invoicelist-body">
+<table>
+    <tbody>
+      <tr>
+        <td width='50%'> <span >` +
+      lista[0] +
       `</span></td>
-            <td width='20%'><span >` +
-      producto[1] +
+        <td width='50%'><span >` +
+      lista[1] +
       `</span></td>
-          </tr>
-        </tbody>
-      </table>
-      </div><!--.invoice-body-->`;
+      </tr>
+    </tbody>
+  </table>
+</div><!--.invoice-body-->`;
   });
 
-  html += `<footer class="row">
-<div class="col-1 text-center">
+  html += `
+<footer class="row">
+  <div class="col-1 text-center">
 
-</div>
+  </div>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
 <script src="assets/js/main.js"></script>
 </body>
-</html>`;
+</html> `;
 
   return html;
 }
 
-module.exports = generarExportarProductosHTML;
+module.exports = generarListasHTML;
