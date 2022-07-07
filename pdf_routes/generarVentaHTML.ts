@@ -670,16 +670,16 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='60%' style="font-size: 6px;"><span >` +
+            <td width='60%' style="font-size: 7px;"><span >` +
       producto.descripcion +
       `</span></td>
-            <td class="amount" style="font-size: 6px;width: 10%">` +
+            <td class="amount" style="font-size: 7px;width: 10%; text-align:center;">` +
       producto.cantidad +
       `</td>
-            <td class="rate" style="font-size: 6px;width: 15%">` +
+            <td class="rate" style="font-size: 7px;width: 15%; text-align:center;">` +
       producto.precio +
       `</td>
-            <td class="sum" style="font-size: 6px;width: 10%">` +
+            <td class="sum" style="font-size: 7px;width: 10%; text-align:center;">` +
       producto.precio * producto.cantidad +
       `</td>
           </tr>
@@ -695,7 +695,7 @@ footer p {
     <table>
       <tr>
         <td  style="font-size:7px;"><strong>Total:</strong></td>
-        <td id="total_price" style="font-size:6px;">` +
+        <td id="total_price" style="font-size:8px;">` +
     datosVenta[0].total +
     `</td>
       </tr>
