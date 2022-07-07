@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 0.25;
+  line-height: 1.5rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -325,6 +325,7 @@ p {
 
 .col-1 {
   width: 100%
+  paddind-left:20px;
 }
 
 .text-center {
@@ -432,7 +433,7 @@ header a {
 
 .bank {
   width: 26%;
-  margin-top:30px;
+  margin-top:20px;
 }
 
 .section {
