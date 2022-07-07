@@ -292,7 +292,7 @@ p {
 .info,
 .bank,
 [class*="col-"] {
-    vertical-align: top;
+    vertical-align: center;
     display: inline-block;
     font-size: 8px;
     padding: 0 1rem;
@@ -411,7 +411,7 @@ header a {
 }
 
 .logoholder {
-    width: 14%
+    width: 20%
 }
 
 .me {
