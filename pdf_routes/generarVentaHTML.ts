@@ -5,11 +5,18 @@ function generarVentaHTML(datosCliente, datosVenta) {
   let year = date_ob.getFullYear();
   var html =
     `
-    <style>
+    
+<style>
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
 
 body {
-    margin: 0
+  margin: 0
 }
 
 article,
@@ -25,107 +32,107 @@ menu,
 nav,
 section,
 summary {
-    display: block
+  display: block
 }
 
 audio,
 canvas,
 progress,
 video {
-    display: inline-block;
-    vertical-align: baseline
+  display: inline-block;
+  vertical-align: baseline
 }
 
 audio:not([controls]) {
-    display: none;
-    height: 0
+  display: none;
+  height: 0
 }
 
 [hidden],
 template {
-    display: none
+  display: none
 }
 
 a {
-    background-color: transparent
+  background-color: transparent
 }
 
 a:active,
 a:hover {
-    outline: 0
+  outline: 0
 }
 
 abbr[title] {
-    border-bottom: 1px dotted
+  border-bottom: 1px dotted
 }
 
 b,
 strong {
-    font-weight: bold
+  font-weight: bold
 }
 
 dfn {
-    font-style: italic
+  font-style: italic
 }
 
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0
+  font-size: 2em;
+  margin: 0.67em 0
 }
 
 mark {
-    background: #ff0;
-    color: #000
+  background: #ff0;
+  color: #000
 }
 
 small {
-    font-size: 80%
+  font-size: 80%
 }
 
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
 }
 
 sup {
-    top: -0.5em
+  top: -0.5em
 }
 
 sub {
-    bottom: -0.25em
+  bottom: -0.25em
 }
 
 img {
-    border: 0
+  border: 0
 }
 
 svg:not(:root) {
-    overflow: hidden
+  overflow: hidden
 }
 
 figure {
-    margin: 1em 40px
+  margin: 1em 40px
 }
 
 hr {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0
 }
 
 pre {
-    overflow: auto
+  overflow: auto
 }
 
 code,
 kbd,
 pre,
 samp {
-    font-family: monospace, monospace;
-    font-size: 1em
+  font-family: monospace, monospace;
+  font-size: 1em
 }
 
 button,
@@ -133,157 +140,158 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit;
-    font: inherit;
-    margin: 0
+  color: inherit;
+  font: inherit;
+  margin: 0
 }
 
 button {
-    overflow: visible
+  overflow: visible
 }
 
 button,
 select {
-    text-transform: none
+  text-transform: none
 }
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer
+  -webkit-appearance: button;
+  cursor: pointer
 }
 
 button[disabled],
 html input[disabled] {
-    cursor: default
+  cursor: default
 }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    border: 0;
-    padding: 0
+  border: 0;
+  padding: 0
 }
 
 input {
-    line-height: normal
+  line-height: normal
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    height: auto
+  height: auto
 }
 
 input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box
 }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none
+  -webkit-appearance: none
 }
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em
 }
 
 legend {
-    border: 0;
-    padding: 0
+  border: 0;
+  padding: 0
 }
 
 textarea {
-    overflow: auto
+  overflow: auto
 }
 
 optgroup {
-    font-weight: bold
+  font-weight: bold
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0
+  border-collapse: collapse;
+  border-spacing: 0
 }
 
 td,
 th {
-    padding: 0
+  padding: 0
 }
 
 html {
-    font-size: 8px;
-    line-height: 0.5;
-    color: #000;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
+  font-size: 12px;
+  line-height: 1.5;
+  color: #000;
+  background: #ddd;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 2rem auto 0;
-    max-width: 800px;
-    background: white;
-    
-    padding: 2rem
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 6rem auto 0;
+  max-width: 800px;
+  background: white;
+  border: 1px solid #aaa;
+  padding: 2rem
 }
 
 .container {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem
 }
 
 *,
 *:before,
 *:after {
-    -moz-box-sizing: inherit;
-    box-sizing: inherit
+  -moz-box-sizing: inherit;
+  box-sizing: inherit
 }
 
 [contenteditable]:hover,
 [contenteditable]:focus,
 input:hover,
 input:focus {
-    background: rgba(241, 76, 76, 0.1);
-    outline: 1px solid #009688
+  background: rgba(241, 76, 76, 0.1);
+  outline: 1px solid #009688
 }
 
 .group:after,
 .row:after,
 .invoicelist-footer:after {
-    content: "";
-    display: table;
-    clear: both
+  content: "";
+  display: table;
+  clear: both
 }
 
 a {
-    color: #009688;
-    text-decoration: none
+  color: #009688;
+  text-decoration: none
 }
 
 p {
-    margin: 0
+  margin: 0
 }
 
 .row {
-    position: relative;
-    display: block;
-    width: 100%;
-    font-size: 8px
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 0
 }
 
 .col,
@@ -292,180 +300,178 @@ p {
 .info,
 .bank,
 [class*="col-"] {
-    vertical-align: center;
-    display: inline-block;
-    font-size: 8px;
-    padding: 0 1rem;
-    min-height: 1px
+  vertical-align: top;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0 1rem;
+  min-height: 1px
 }
 
 .col-4 {
-    width: 25%
+  width: 25%
 }
 
 .col-3 {
-    width: 33.33%
+  width: 33.33%
 }
 
 .col-2 {
-    width: 50%
+  width: 50%
 }
 
 .col-2-4 {
-    width: 75%
+  width: 75%
 }
 
 .col-1 {
-    width: 100%
+  width: 100%
 }
 
 .text-center {
-    text-align: center
+  text-align: center
 }
 
 .text-right {
-    text-align: right
+  text-align: right
 }
 
 .control-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: #009688;
-    color: white;
-    line-height: 4rem;
-    height: 4rem
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #009688;
+  color: white;
+  line-height: 4rem;
+  height: 4rem
 }
 
 .control-bar .slogan {
-    font-weight: bold;
-    font-size: 0.6rem;
-    display: inline-block;
-    margin-right: 2rem
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-right: 2rem
 }
 
 .control-bar label {
-    margin-right: 1rem
+  margin-right: 1rem
 }
 
 .control-bar a {
-    margin: 0;
-    padding: .5em 1em;
-    background: rgba(255, 255, 255, 0.8)
+  margin: 0;
+  padding: .5em 1em;
+  background: rgba(255, 255, 255, 0.8)
 }
 
 .control-bar a:hover {
-    background: #fff
+  background: #fff
 }
 
 .control-bar input {
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    padding: .5rem 0;
-    max-width: 30px;
-    text-align: center
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: .5rem 0;
+  max-width: 30px;
+  text-align: center
 }
 
 .control-bar input:hover {
-    background: rgba(255, 255, 255, 0.3)
+  background: rgba(255, 255, 255, 0.3)
 }
 
 .hidetax .taxrelated {
-    display: none
+  display: none
 }
 
 .showtax .notaxrelated {
-    display: none
+  display: none
 }
 
 .hidedate .daterelated {
-    display: none
+  display: none
 }
 
 .showdate .notdaterelated {
-    display: none
+  display: none
 }
 
 header {
-    margin: 1rem 0 0;
-    padding: 0 0 2rem 0;
-    border-bottom: 3pt solid #009688
+  margin: 1rem 0 0;
+  padding: 0 0 2rem 0;
+  border-bottom: 3pt solid #009688
 }
 
 header p {
-    font-size: .4rem
+  font-size: .9rem
 }
 
 header a {
-    color: #000
+  color: #000
 }
 
 .logo {
-    margin: 0 auto;
-    width: auto;
-    height: auto;
-    border: none;
-    fill: #009688
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  border: none;
+  fill: #009688
 }
 
 .logoholder {
-    width: 20%
+  width: 14%
 }
 
 .me {
-    width: 30%
-    font-size: 8px;
+  width: 30%
 }
 
 .info {
-    width: 30%
+  width: 30%
 }
 
 .bank {
-    width: 26%
-    font-size: 8px;
+  width: 26%
 }
 
 .section {
-    margin: 2rem 0 0
+  margin: 2rem 0 0
 }
 
 .smallme {
-    display: inline-block;
-    text-transform: uppercase;
-    margin: 0 0 2rem 0;
-    font-size: .4rem
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 0 0 2rem 0;
+  font-size: .9rem
 }
 
 .client {
-    margin: 0 0 3rem 0
+  margin: 0 0 3rem 0
 }
 
 h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 0.5rem;
-    color: #009688
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: #009688
 }
 
 .details input {
-    display: inline;
-    margin: 0 0 0 .5rem;
-    border: none;
-    width: 50px;
-    min-width: 0;
-    background: transparent;
-    text-align: left
+  display: inline;
+  margin: 0 0 0 .5rem;
+  border: none;
+  width: 50px;
+  min-width: 0;
+  background: transparent;
+  text-align: left
 }
 
 
 .invoice_detail{
-	border: solid 1px #009688;
-	padding:10px;
-	height:2px;
-	text-align:center
+  border: solid 1px #009688;
+  padding:10px;
+  height:25px;
+  text-align:center
 }
 
 .rate:before,
@@ -474,184 +480,259 @@ h1 {
 .tax:before,
 #total_price:before,
 #total_tax:before {
-    content: '$'
+  content: '$'
 }
 
 .invoicelist-body {
-    margin: 1rem
+  margin: 1rem
 }
 
 .invoicelist-body table {
-    width: 100%
+  width: 100%
 }
 
 .invoicelist-body thead {
-    text-align: left;
-    border-bottom: 1pt solid #666
+  text-align: left;
+  border-bottom: 1pt solid #666
 }
 
 .invoicelist-body td,
 .invoicelist-body th {
-    position: relative;
-    padding: 1rem
+  position: relative;
+  padding: 1rem
 }
 
 .invoicelist-body tr:nth-child(even) {
-    background: #ccc
+  background: #ccc
 }
 
 .invoicelist-body tr:hover .removeRow {
-    display: block
+  display: block
 }
 
 .invoicelist-body input {
-    display: inline;
-    margin: 0;
-    border: none;
-    width: 80%;
-    min-width: 0;
-    background: transparent;
-    text-align: left
+  display: inline;
+  margin: 0;
+  border: none;
+  width: 80%;
+  min-width: 0;
+  background: transparent;
+  text-align: left
 }
 
 .invoicelist-body .control {
-    display: inline-block;
-    color: white;
-    background: #009688;
-    padding: 3px 7px;
-    font-size: .4rem;
-    text-transform: uppercase;
-    cursor: pointer
+  display: inline-block;
+  color: white;
+  background: #009688;
+  padding: 3px 7px;
+  font-size: .9rem;
+  text-transform: uppercase;
+  cursor: pointer
 }
 
 .invoicelist-body .control:hover {
-    background: #f36464
+  background: #f36464
 }
 
 .invoicelist-body .newRow {
-    margin: .5rem 0;
-    float: left
+  margin: .5rem 0;
+  float: left
 }
 
 .invoicelist-body .removeRow {
-    display: none;
-    position: absolute;
-    top: .1rem;
-    bottom: .1rem;
-    left: -1.3rem;
-    font-size: 8px;
-    border-radius: 3px 0 0 3px;
-    padding: .5rem
+  display: none;
+  position: absolute;
+  top: .1rem;
+  bottom: .1rem;
+  left: -1.3rem;
+  font-size: .7rem;
+  border-radius: 3px 0 0 3px;
+  padding: .5rem
 }
 
 .invoicelist-footer {
-    margin: 1rem
+  margin: 1rem
 }
 
 .invoicelist-footer table {
-    float: right;
-    width: 25%
+  float: right;
+  width: 25%
 }
 
 .invoicelist-footer table td {
-    padding: 1rem 2rem 0 1rem;
-    text-align: right
+  padding: 1rem 2rem 0 1rem;
+  text-align: right
 }
 
 .invoicelist-footer table tr:nth-child(2) td {
-    padding-top: 0
+  padding-top: 0
 }
 
 .invoicelist-footer table #total_price {
-    font-size: 1rem;
-    color: #009688
+  font-size: 2rem;
+  color: #009688
 }
 
 .note {
-    margin: 1rem
+  margin: 1rem
 }
 
 .hidenote .note {
-    display: none
+  display: none
 }
 
 .note h2 {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: bold
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold
 }
 
 footer {
-    display: block;
-    margin: 1rem 0;
-    padding: 1rem 0 0
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem 0 0
 }
 
 footer p {
-    font-size: .8rem
+  font-size: .8rem
+}
+
+@media print {
+  html {
+      margin: 0;
+      padding: 0;
+      background: #fff
+  }
+  body {
+      width: 100%;
+      border: none;
+      background: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0
+  }
+  .control,
+  .control-bar {
+      display: none !important
+  }
+  [contenteditable]:hover,
+  [contenteditable]:focus {
+      outline: none
+  }
 }
 
 
-
 /*# sourceMappingURL=main.css.map */
-
 </style>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <title>Crear facturas con HTML, CSS y JavaScript</title>
 </head>
 <body>
 
 <header class="row">
-  <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">11-6482-8268
-  </div><!--.logoholder-->
-  <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="max-width: 50px; height: 50px; margin-right:30px;"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">7509-4514
-  </div>
-  <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="max-width: 50px; height: 50px"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">7508-8828
-</div>
-  <div class="me">
-    <p >
+<div class="logoholder text-center" >
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 80px; height: 80px; margin-left:30px;">
+</div><!--.logoholder-->
+
+<div class="me">
+  <p >
+    
+  </p>
+</div><!--.me-->
+
+<div class="info">
+  <p >
+
+  </p>
+</div><!-- .info -->
+
+<div class="bank">
+  <p >
+    <div style="  display:flex; align-items:center; justify-content:left;">
       <strong>DyG Combos</strong><br>
+    </div>
+    <div style="  display:flex; align-items:center; justify-content:left;">
       www.dygcombos.com.ar<br>
-       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 8px; height: 8px;">  dygcombos<br>
-      
-    </p>
-  </div><!--.me-->
-  <div class="bank">
-    <p >
-      <strong>
-      ` +
+    </div>
+      <div style="  display:flex; align-items:center; justify-content:left;">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
+         11-6482-8268
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
+         7509-4514
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
+         7508-8828
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 20px;margin-right: 3px;">
+         dygcombos
+      </div>
+  </p>
+</div><!--.bank-->
+<div style="margin-left:30px">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
+</div>
+</header>
+
+
+<div class="row section">
+
+
+
+
+</div><!--.row-->
+
+<div class="row section" style="margin-top:-1rem">
+<div class="col-1">
+  <table style='width:100%'>
+  <thead >
+  <tr class="invoice_detail">
+    <th width="20%">Fecha</th>
+    <th width="20%">Nombre</th>
+    <th width="20%">Telefono</th>
+    <th width="20%">Direccion</th>
+    <th width="20%">Zona</th>
+   </tr> 
+  </thead>
+  <tbody>
+  <tr class="invoice_detail">
+    <td width="20%">` +
     date +
     '-' +
     month +
     '-' +
     year +
-    ` </strong>
-  <br> Cliente: ` +
+    ` </td>
+    <td width="20%">` +
     datosCliente.nombre +
-    `<br>
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;"> ` +
+    `</td>
+    <td width="20%">` +
     datosCliente.telefono +
-    `<br>
-  Direccion: ` +
+    `</td>
+    <td width="20%">` +
     datosCliente.direccion +
-    `<br>
-  Zona: ` +
+    `</td>
+    <td width="20%">` +
     datosCliente.zona +
-    `
-    </p>
-  </div>
-</header>
+    `</td>
+   </tr>
+  </tbody>
+  </table>
+</div>
+
+</div><!--.row-->
+
 <div class="invoicelist-body">
 <table>
   <thead >
     <th width="60%" style="font-size:8px;">Descripción</th>
-    
     <th width="10%" style="font-size:8px;">Cant.</th>
     <th width="15%" style="font-size:8px;">Precio</th>
     <th width="10%" style="font-size:8px;">Total</th>
@@ -686,27 +767,26 @@ footer p {
     </div><!--.invoice-body-->
     `;
   });
+
   html =
     html +
     ` <div class="invoicelist-footer">
-    <table>
-      <tr>
-        <td  style="font-size:7px;"><strong>Total:</strong></td>
-        <td id="total_price" style="font-size:8px;">` +
+<table>
+  <tr>
+    <td  style="font-size:7px;"><strong>Total:</strong></td>
+    <td id="total_price" style="font-size:8px;">` +
     datosVenta[0].total +
     `</td>
-      </tr>
-    </table>
-  </div>
-  <footer class="row">
-    <div class="col-1 text-center">
-    </div>
-  </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
-  <script src="assets/js/main.js"></script>
-  </body>
-  </html> `;
+  </tr>
+</table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+    `;
   html = html + html;
   return html;
 }
