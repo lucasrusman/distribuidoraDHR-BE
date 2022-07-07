@@ -283,7 +283,7 @@ p {
     position: relative;
     display: block;
     width: 100%;
-    font-size: 0
+    font-size: 8px
 }
 
 .col,
@@ -294,7 +294,7 @@ p {
 [class*="col-"] {
     vertical-align: top;
     display: inline-block;
-    font-size: 0.5rem;
+    font-size: 8px;
     padding: 0 1rem;
     min-height: 1px
 }
@@ -416,7 +416,7 @@ header a {
 
 .me {
     width: 30%
-    font-size: 7px;
+    font-size: 8px;
 }
 
 .info {
@@ -539,7 +539,7 @@ h1 {
     top: .1rem;
     bottom: .1rem;
     left: -1.3rem;
-    font-size: .3rem;
+    font-size: 8px;
     border-radius: 3px 0 0 3px;
     padding: .5rem
 }
@@ -607,21 +607,21 @@ footer p {
 <header class="row">
   <div class="logoholder text-center" >
     <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  11-6482-8268
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  11-6482-8268
   </div><!--.logoholder-->
   <div class="logoholder text-center" >
     <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="max-width: 50px; height: 50px; margin-right:30px;">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7509-4514
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  7509-4514
   </div>
   <div class="logoholder text-center" >
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="max-width: 50px; height: 50px" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7508-8828
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  7508-8828
 </div>
   <div class="me">
     <p >
       <strong>DyG Combos</strong><br>
       www.dygcombos.com.ar<br>
-       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 20px; height: 17px;">  dygcombos<br>
+       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 8px; height: 8px;">  dygcombos<br>
       
     </p>
   </div><!--.me-->
