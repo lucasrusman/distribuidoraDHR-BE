@@ -223,8 +223,8 @@ th {
 }
 
 html {
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 8px;
+    line-height: 0.5;
     color: #000;
     -moz-box-sizing: border-box;
     box-sizing: border-box
@@ -294,7 +294,7 @@ p {
 [class*="col-"] {
     vertical-align: top;
     display: inline-block;
-    font-size: 1rem;
+    font-size: 0.5rem;
     padding: 0 1rem;
     min-height: 1px
 }
@@ -341,7 +341,7 @@ p {
 
 .control-bar .slogan {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     display: inline-block;
     margin-right: 2rem
 }
@@ -395,7 +395,7 @@ header {
 }
 
 header p {
-    font-size: .9rem
+    font-size: .4rem
 }
 
 header a {
@@ -416,7 +416,7 @@ header a {
 
 .me {
     width: 30%
-    font-size: 12px;
+    font-size: 7px;
 }
 
 .info {
@@ -425,7 +425,7 @@ header a {
 
 .bank {
     width: 26%
-    font-size: 12px;
+    font-size: 7px;
 }
 
 .section {
@@ -436,7 +436,7 @@ header a {
     display: inline-block;
     text-transform: uppercase;
     margin: 0 0 2rem 0;
-    font-size: .9rem
+    font-size: .4rem
 }
 
 .client {
@@ -446,7 +446,7 @@ header a {
 h1 {
     margin: 0;
     padding: 0;
-    font-size: 2rem;
+    font-size: 0.5rem;
     color: #009688
 }
 
@@ -519,7 +519,7 @@ h1 {
     color: white;
     background: #009688;
     padding: 3px 7px;
-    font-size: .9rem;
+    font-size: .4rem;
     text-transform: uppercase;
     cursor: pointer
 }
@@ -539,7 +539,7 @@ h1 {
     top: .1rem;
     bottom: .1rem;
     left: -1.3rem;
-    font-size: .5rem;
+    font-size: .3rem;
     border-radius: 3px 0 0 3px;
     padding: .5rem
 }
@@ -563,7 +563,7 @@ h1 {
 }
 
 .invoicelist-footer table #total_price {
-    font-size: 2rem;
+    font-size: 1rem;
     color: #009688
 }
 
@@ -607,20 +607,20 @@ footer p {
 <header class="row">
   <div class="logoholder text-center" >
     <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  11-6482-8268
   </div><!--.logoholder-->
   <div class="logoholder text-center" >
     <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="max-width: 50px; height: 50px; margin-right:30px;">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7509-4514
   </div>
   <div class="logoholder text-center" >
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="max-width: 50px; height: 50px" >
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7508-8828
 </div>
   <div class="me">
     <p >
       <strong>DyG Combos</strong><br>
-      Web: www.dygcombos.com.ar<br>
-       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  11-6482-8268<br>
-       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7509-4514<br>
-       <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 20px; height: 17px;">  7508-8828<br>
+      www.dygcombos.com.ar<br>
        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="max-width: 20px; height: 17px;">  dygcombos<br>
       
     </p>
@@ -653,11 +653,11 @@ footer p {
 <div class="invoicelist-body">
 <table>
   <thead >
-    <th width="60%" style="font-size:14px;">Descripción</th>
+    <th width="60%" style="font-size:8px;">Descripción</th>
     
-    <th width="10%" style="font-size:14px;">Cant.</th>
-    <th width="15%" style="font-size:14px;">Precio</th>
-    <th width="10%" style="font-size:14px;">Total</th>
+    <th width="10%" style="font-size:8px;">Cant.</th>
+    <th width="15%" style="font-size:8px;">Precio</th>
+    <th width="10%" style="font-size:8px;">Total</th>
   </thead>
 </table>
 </div>
@@ -670,16 +670,16 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='60%' style="font-size: 13px;"><span >` +
+            <td width='60%' style="font-size: 6px;"><span >` +
       producto.descripcion +
       `</span></td>
-            <td class="amount" style="font-size: 13px;width: 10%">` +
+            <td class="amount" style="font-size: 6px;width: 10%">` +
       producto.cantidad +
       `</td>
-            <td class="rate" style="font-size: 13px;width: 15%">` +
+            <td class="rate" style="font-size: 6px;width: 15%">` +
       producto.precio +
       `</td>
-            <td class="sum" style="font-size: 13px;width: 10%">` +
+            <td class="sum" style="font-size: 6px;width: 10%">` +
       producto.precio * producto.cantidad +
       `</td>
           </tr>
@@ -694,8 +694,8 @@ footer p {
     ` <div class="invoicelist-footer">
     <table>
       <tr>
-        <td  style="font-size:15px;"><strong>Total:</strong></td>
-        <td id="total_price" style="font-size:15px;">` +
+        <td  style="font-size:7px;"><strong>Total:</strong></td>
+        <td id="total_price" style="font-size:6px;">` +
     datosVenta[0].total +
     `</td>
       </tr>
