@@ -431,7 +431,8 @@ header a {
 }
 
 .bank {
-  width: 26%
+  width: 26%;
+  margin-top:20px;
 }
 
 .section {
@@ -675,9 +676,9 @@ footer p {
       </div>
   </p>
 </div><!--.bank-->
-<div style="margin-left:30px">
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
+<div style="margin-left:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px; margin-left:20px">
 </div>
 </header>
 
