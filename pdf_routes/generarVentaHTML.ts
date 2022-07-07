@@ -425,7 +425,7 @@ header a {
 
 .bank {
     width: 26%
-    font-size: 7px;
+    font-size: 8px;
 }
 
 .section {
@@ -606,16 +606,13 @@ footer p {
 
 <header class="row">
   <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  11-6482-8268
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">11-6482-8268
   </div><!--.logoholder-->
   <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="max-width: 50px; height: 50px; margin-right:30px;">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  7509-4514
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="max-width: 50px; height: 50px; margin-right:30px;"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">7509-4514
   </div>
   <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="max-width: 50px; height: 50px" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">  7508-8828
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="max-width: 50px; height: 50px"><img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="max-width: 8px; height: 8px;">7508-8828
 </div>
   <div class="me">
     <p >
