@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 0.25;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -696,32 +696,32 @@ footer p {
   <table style='width:100%'>
   <thead >
   <tr class="invoice_detail">
-    <th width="20%">Fecha</th>
-    <th width="20%">Nombre</th>
-    <th width="20%">Telefono</th>
-    <th width="20%">Direccion</th>
-    <th width="20%">Zona</th>
+    <th width="20%" style="font-size:8px;">Fecha</th>
+    <th width="20%" style="font-size:8px;">Nombre</th>
+    <th width="20%" style="font-size:8px;">Telefono</th>
+    <th width="20%" style="font-size:8px;">Direccion</th>
+    <th width="20%" style="font-size:8px;">Zona</th>
    </tr> 
   </thead>
   <tbody>
   <tr class="invoice_detail">
-    <td width="20%">` +
+    <td width="20%" style="font-size:7px;">` +
     date +
     '-' +
     month +
     '-' +
     year +
     ` </td>
-    <td width="20%">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.nombre +
     `</td>
-    <td width="20%">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.telefono +
     `</td>
-    <td width="20%">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.direccion +
     `</td>
-    <td width="20%">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.zona +
     `</td>
    </tr>
