@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 0.25rem;
+  line-height: 0.50rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -636,7 +636,7 @@ footer p {
 
 <header class="row">
 <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 80px; height: 80px; margin-left:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 50px; height: 50px; margin-left:30px;">
 </div><!--.logoholder-->
 
 <div class="me">
