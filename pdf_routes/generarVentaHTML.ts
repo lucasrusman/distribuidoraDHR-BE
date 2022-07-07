@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 1.5rem;
+  line-height: 0.25rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -325,7 +325,6 @@ p {
 
 .col-1 {
   width: 100%
-  paddind-left:20px;
 }
 
 .text-center {
