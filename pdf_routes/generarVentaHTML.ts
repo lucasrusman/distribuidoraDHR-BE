@@ -432,7 +432,7 @@ header a {
 
 .bank {
   width: 26%;
-  margin-top:20px;
+  margin-top:30px;
 }
 
 .section {
@@ -473,6 +473,7 @@ h1 {
   padding:10px;
   height:25px;
   text-align:center
+  font-size:8px;
 }
 
 .rate:before,
@@ -676,7 +677,7 @@ footer p {
       </div>
   </p>
 </div><!--.bank-->
-<div style="margin-left:30px;">
+<div style="margin-left:30px;margin-button:0px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px; margin-left:20px">
 </div>
