@@ -432,8 +432,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   .bank {
     width: 26%
+    heigth: 3rem;
   }
-  
+
   .section {
     margin: 2rem 0 0
   }
