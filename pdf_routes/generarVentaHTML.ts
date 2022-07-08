@@ -673,7 +673,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p>
-    <div style="  display:flex; align-items:center; justify-content:left;font-size:13px; margin-top:0.25rem">
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:10px; margin-top:0.2rem">
       <strong>
         ` +
         date +
