@@ -397,8 +397,6 @@ p {
 }
 
 header {
-  margin: 1rem 0 0;
-  padding: 0 0 2rem 0;
   height: 125px;
   border-bottom: 3pt solid #009688;
 }
