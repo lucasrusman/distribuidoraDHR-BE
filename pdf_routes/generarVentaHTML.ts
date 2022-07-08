@@ -655,6 +655,15 @@ function generarVentaHTML(datosCliente, datosVenta) {
         <strong>DyG Combos</strong><br>
       </div>
       <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      ` +
+      date +
+      '-' +
+      month +
+      '-' +
+      year +
+      `
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
         www.dygcombos.com.ar<br>
       </div>
         <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
@@ -694,32 +703,24 @@ function generarVentaHTML(datosCliente, datosVenta) {
     <table style='width:100%'>
     <thead >
     <tr class="invoice_detail">
-      <th width="20%" style="font-size: 7px;">Fecha</th>
-      <th width="20%" style="font-size: 7px;">Nombre</th>
-      <th width="20%" style="font-size: 7px;">Telefono</th>
-      <th width="20%" style="font-size: 7px;">Direccion</th>
-      <th width="20%" style="font-size: 7px;">Zona</th>
+      <th width="25%" style="font-size: 7px;">Nombre</th>
+      <th width="25%" style="font-size: 7px;">Telefono</th>
+      <th width="25%" style="font-size: 7px;">Direccion</th>
+      <th width="25%" style="font-size: 7px;">Zona</th>
      </tr> 
     </thead>
     <tbody>
     <tr class="invoice_detail">
-      <td width="20%" style="font-size: 6px;">` +
-      date +
-      '-' +
-      month +
-      '-' +
-      year +
-      ` </td>
-      <td width="20%" style="font-size: 6px;">` +
+      <td width="25%" style="font-size: 6px;">` +
       datosCliente.nombre +
       `</td>
-      <td width="20%" style="font-size: 6px;">` +
+      <td width="25%" style="font-size: 6px;">` +
       datosCliente.telefono +
       `</td>
-      <td width="20%" style="font-size: 6px;">` +
+      <td width="25%" style="font-size: 6px;">` +
       datosCliente.direccion +
       `</td>
-      <td width="20%" style="font-size: 6px;">` +
+      <td width="25%" style="font-size: 6px;">` +
       datosCliente.zona +
       `</td>
      </tr>
