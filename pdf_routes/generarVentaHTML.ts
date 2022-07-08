@@ -397,7 +397,7 @@ p {
 }
 
 header {
-  height: 125px;
+  height: 100px;
   margin: 1rem 0 0;
   padding: 0 0 2rem 0;
 }
