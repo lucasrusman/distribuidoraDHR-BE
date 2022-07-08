@@ -397,9 +397,10 @@ p {
 }
 
 header {
-  height: 100px;
+//   height: 100px;
   margin: 1rem 0 0;
   padding: 0 0 2rem 0;
+  border-bottom: 3pt solid #009688
 }
 
 header p {
@@ -408,10 +409,6 @@ header p {
 
 header a {
   color: #000
-}
-.linea{
-    border-bottom: 3pt solid #009688;
-    margin-button:10px;
 }
 .logo {
   margin: 0 auto;
@@ -688,12 +685,8 @@ footer p {
 </div>
 </header>
 
-
-<div class="linea">
-
-</div><!--.row-->
-
-<div class="row section" style="">
+<div class="row section"></div><!--.row-->
+<div class="row section" style="margin-top:-1rem">
 <div class="col-1">
   <table style='width:100%'>
   <thead >
@@ -707,23 +700,23 @@ footer p {
   </thead>
   <tbody>
   <tr class="invoice_detail">
-    <td width="20%" style="font-size:7px; padding-left:5px;">` +
+    <td width="20%" style="font-size:7px;">` +
     date +
     '-' +
     month +
     '-' +
     year +
     ` </td>
-    <td width="20%" style="font-size:7px; padding-left:5px;">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.nombre +
     `</td>
-    <td width="20%" style="font-size:7px; padding-left:5px;">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.telefono +
     `</td>
-    <td width="20%" style="font-size:7px; padding-left:5px;">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.direccion +
     `</td>
-    <td width="20%" style="font-size:7px; padding-left:5px;">` +
+    <td width="20%" style="font-size:7px;">` +
     datosCliente.zona +
     `</td>
    </tr>
