@@ -437,7 +437,6 @@ header a {
 
 .section {
   margin: 2rem 0 0
-  margin-top:0px;
 }
 
 .smallme {
@@ -475,6 +474,7 @@ h1 {
   height:25px;
   text-align:center
   font-size:8px;
+  margin-top:0;
 }
 
 .rate:before,
@@ -688,7 +688,7 @@ footer p {
 <div class="row section">
 
 
-
+fsdfsdfsd
 
 </div><!--.row-->
 
