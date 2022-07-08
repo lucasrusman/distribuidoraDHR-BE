@@ -651,7 +651,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p >
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
         <strong>DyG Combos</strong><br>
       </div>
       <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
@@ -733,9 +733,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
   <table>
     <thead >
       <th width="60%" style="font-size:8px;">Descripción</th>
-      <th width="10%" style="font-size:8px;text-align:right;">Cant.</th>
-      <th width="15%" style="font-size:8px;text-align:right;">Precio</th>
-      <th width="10%" style="font-size:8px;text-align:right;">Total</th>
+      <th width="10%" style="font-size:8px;text-align:center;">Cant.</th>
+      <th width="15%" style="font-size:8px;text-align:center;">Precio</th>
+      <th width="10%" style="font-size:8px;text-align:center;">Total</th>
     </thead>
   </table>
   </div>
