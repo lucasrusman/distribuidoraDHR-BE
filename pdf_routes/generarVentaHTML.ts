@@ -651,7 +651,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p >
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:3px">
         <strong>DyG Combos</strong><br>
       </div>
       <div style="  display:flex; align-items:center; justify-content:left;">
