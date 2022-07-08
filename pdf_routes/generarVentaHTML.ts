@@ -693,32 +693,32 @@ footer p {
   <table style='width:100%'>
   <thead >
   <tr class="invoice_detail">
-    <th width="20%" style="font-size:8px; padding-left:5px;">Fecha</th>
-    <th width="20%" style="font-size:8px; padding-left:5px;">Nombre</th>
-    <th width="20%" style="font-size:8px; padding-left:5px;">Telefono</th>
-    <th width="20%" style="font-size:8px; padding-left:5px;">Direccion</th>
+    <th width="20%" style="font-size:8px;">Fecha</th>
+    <th width="20%" style="font-size:8px;">Nombre</th>
+    <th width="20%" style="font-size:8px;">Telefono</th>
+    <th width="20%" style="font-size:8px;">Direccion</th>
     <th width="20%" style="font-size:8px;">Zona</th>
    </tr> 
   </thead>
   <tbody>
   <tr class="invoice_detail">
-    <td width="20%" style="font-size:7px;">` +
+    <td width="20%" style="font-size:7px; padding-left:5px;">` +
     date +
     '-' +
     month +
     '-' +
     year +
     ` </td>
-    <td width="20%" style="font-size:7px;">` +
+    <td width="20%" style="font-size:7px; padding-left:5px;">` +
     datosCliente.nombre +
     `</td>
-    <td width="20%" style="font-size:7px;">` +
+    <td width="20%" style="font-size:7px; padding-left:5px;">` +
     datosCliente.telefono +
     `</td>
-    <td width="20%" style="font-size:7px;">` +
+    <td width="20%" style="font-size:7px; padding-left:5px;">` +
     datosCliente.direccion +
     `</td>
-    <td width="20%" style="font-size:7px;">` +
+    <td width="20%" style="font-size:7px; padding-left:5px;">` +
     datosCliente.zona +
     `</td>
    </tr>
