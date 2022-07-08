@@ -499,7 +499,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 1rem
+    padding: 0.5rem
   }
   
   .invoicelist-body tr:nth-child(even) {
