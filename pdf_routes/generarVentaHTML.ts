@@ -423,11 +423,11 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   .me {
-    width: 30%
+    width: 50%
   }
   
   .info {
-    width: 30%
+    width: 20%
   }
   
   .bank {
