@@ -674,13 +674,15 @@ function generarVentaHTML(datosCliente, datosVenta) {
   <div class="bank">
     <p>
     <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-    ` +
-    date +
-    '-' +
-    month +
-    '-' +
-    year +
-    `
+      <strong>
+        ` +
+        date +
+        '-' +
+        month +
+        '-' +
+        year +
+        `
+    </strong>
     </div>
     </p>
   </div><!--.bank-->
