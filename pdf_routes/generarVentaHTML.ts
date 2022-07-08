@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 0.50rem;
+  line-height: 0.75rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -437,6 +437,7 @@ header a {
 
 .section {
   margin: 2rem 0 0
+  margin-top:0px;
 }
 
 .smallme {
