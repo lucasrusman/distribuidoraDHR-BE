@@ -634,7 +634,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <header class="row">
   <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 50px; height: 50px; margin-left:30px;">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-left:30px;">
   </div><!--.logoholder-->
   
   <div class="me">
@@ -651,7 +651,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p >
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:8px">
         <strong>DyG Combos</strong><br>
       </div>
       <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
@@ -780,7 +780,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     </tr>
   </table>
   </div>
-  
+  <hr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
   <script src="assets/js/main.js"></script>
