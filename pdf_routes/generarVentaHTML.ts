@@ -231,7 +231,7 @@ th {
 
 html {
   font-size: 12px;
-  line-height: 0.75rem;
+  line-height: 0.625rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
@@ -437,6 +437,7 @@ header a {
 
 .section {
   margin: 2rem 0 0
+  padding-left:10px;
 }
 
 .smallme {
@@ -686,9 +687,6 @@ footer p {
 
 
 <div class="row section">
-
-
-fsdfsdfsd
 
 </div><!--.row-->
 
