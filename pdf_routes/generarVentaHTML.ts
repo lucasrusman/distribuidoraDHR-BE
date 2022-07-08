@@ -229,6 +229,15 @@ th {
   padding: 0
 }
 
+html {
+  font-size: 12px;
+  line-height: 0.75rem;
+  color: #000;
+  background: #ddd;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+  margin-button:0px;
+}
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -239,15 +248,6 @@ body {
     padding: 2rem
 }
 
-html {
-  font-size: 12px;
-  line-height: 0.75rem;
-  color: #000;
-  background: #ddd;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box
-  margin-button:0px;
-}
 .container {
   max-width: 800px;
   margin-left: auto;
