@@ -432,7 +432,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   .bank {
     width: 26%
-    heigth: 3rem;
   }
 
   .section {
@@ -652,7 +651,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p >
-      <div style="  display:flex; align-items:center; justify-content:left;">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
         <strong>DyG Combos</strong><br>
       </div>
       <div style="  display:flex; align-items:center; justify-content:left;">
