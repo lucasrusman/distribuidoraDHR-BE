@@ -398,12 +398,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   header {
     margin: 0.5rem 0 0;
-    padding: 0 0 1rem 0;
+    padding: 0 0 0.5rem 0;
     border-bottom: 3pt solid #009688
   }
   
-  header p {
-    font-size: .9rem
+    header p {
+      font-size: .9rem
   }
   
   header a {
