@@ -506,7 +506,7 @@ h1 {
 .invoicelist-body td,
 .invoicelist-body th {
   position: relative;
-  padding: 1rem
+  padding: 0.5rem
 }
 
 .invoicelist-body tr:nth-child(even) {
@@ -542,7 +542,7 @@ h1 {
 }
 
 .invoicelist-body .newRow {
-  margin: .5rem 0;
+  margin: .25rem 0;
   float: left
 }
 
