@@ -733,9 +733,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
   <table>
     <thead >
       <th width="60%" style="font-size:8px;">Descripción</th>
-      <th width="10%" style="font-size:8px;">Cant.</th>
-      <th width="15%" style="font-size:8px;">Precio</th>
-      <th width="10%" style="font-size:8px;">Total</th>
+      <th width="10%" style="font-size:8px;text-align:right;">Cant.</th>
+      <th width="15%" style="font-size:8px;text-align:right;">Precio</th>
+      <th width="10%" style="font-size:8px;text-align:right;">Total</th>
     </thead>
   </table>
   </div>
