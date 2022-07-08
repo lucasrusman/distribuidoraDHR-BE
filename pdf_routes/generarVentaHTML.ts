@@ -229,24 +229,25 @@ th {
   padding: 0
 }
 
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 6rem auto 0;
+    max-width: 800px;
+    background: white;
+    border: 1px solid #aaa;
+    padding: 2rem
+}
+
 html {
   font-size: 12px;
-  line-height: 0.50rem;
+  line-height: 0.75rem;
   color: #000;
   background: #ddd;
   -moz-box-sizing: border-box;
   box-sizing: border-box
+  margin-button:0px;
 }
-
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 6rem auto 0;
-  max-width: 800px;
-  background: white;
-  border: 1px solid #aaa;
-  padding: 2rem
-}
-
 .container {
   max-width: 800px;
   margin-left: auto;
@@ -636,7 +637,7 @@ footer p {
 
 <header class="row">
 <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 50px; height: 50px; margin-left:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 60px; height: 60px; margin-left:30px;">
 </div><!--.logoholder-->
 
 <div class="me">
