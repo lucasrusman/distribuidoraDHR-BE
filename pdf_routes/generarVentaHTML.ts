@@ -677,7 +677,7 @@ footer p {
       </div>
   </p>
 </div><!--.bank-->
-<div style="margin-left:30px;margin-top:-10px;">
+<div style="margin-left:30px;margin-top:-10px;margin-button:0px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px; margin-left:20px">
 </div>
