@@ -399,7 +399,7 @@ p {
 header {
   margin: 1rem 0 0;
   padding: 0 0 2rem 0;
-  height: 135px;
+  height: 125px;
   border-bottom: 3pt solid #009688;
 }
 
@@ -678,7 +678,7 @@ footer p {
       </div>
   </p>
 </div><!--.bank-->
-<div style="margin-left:30px;margin-top:-10px;margin-button:0px;">
+<div style="margin-left:30px;margin-top:-15px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px;">
   <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px; margin-left:20px">
 </div>
