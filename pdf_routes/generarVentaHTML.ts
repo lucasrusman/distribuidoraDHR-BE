@@ -654,22 +654,22 @@ function generarVentaHTML(datosCliente, datosVenta) {
       <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
         <strong>DyG Combos</strong><br>
       </div>
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
         www.dygcombos.com.ar<br>
       </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
            11-6482-8268
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
            7509-4514
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
            7508-8828
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:5px">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 10px;margin-right: 3px;">
            dygcombos
         </div>
@@ -694,32 +694,32 @@ function generarVentaHTML(datosCliente, datosVenta) {
     <table style='width:100%'>
     <thead >
     <tr class="invoice_detail">
-      <th width="20%" style="font-size: 5px;">Fecha</th>
-      <th width="20%" style="font-size: 5px;">Nombre</th>
-      <th width="20%" style="font-size: 5px;">Telefono</th>
-      <th width="20%" style="font-size: 5px;">Direccion</th>
-      <th width="20%" style="font-size: 5px;">Zona</th>
+      <th width="20%" style="font-size: 7px;">Fecha</th>
+      <th width="20%" style="font-size: 7px;">Nombre</th>
+      <th width="20%" style="font-size: 7px;">Telefono</th>
+      <th width="20%" style="font-size: 7px;">Direccion</th>
+      <th width="20%" style="font-size: 7px;">Zona</th>
      </tr> 
     </thead>
     <tbody>
     <tr class="invoice_detail">
-      <td width="20%" style="font-size: 4px;">` +
+      <td width="20%" style="font-size: 6px;">` +
       date +
       '-' +
       month +
       '-' +
       year +
       ` </td>
-      <td width="20%" style="font-size: 4px;">` +
+      <td width="20%" style="font-size: 6px;">` +
       datosCliente.nombre +
       `</td>
-      <td width="20%" style="font-size: 4px;">` +
+      <td width="20%" style="font-size: 6px;">` +
       datosCliente.telefono +
       `</td>
-      <td width="20%" style="font-size: 4px;">` +
+      <td width="20%" style="font-size: 6px;">` +
       datosCliente.direccion +
       `</td>
-      <td width="20%" style="font-size: 4px;">` +
+      <td width="20%" style="font-size: 6px;">` +
       datosCliente.zona +
       `</td>
      </tr>
