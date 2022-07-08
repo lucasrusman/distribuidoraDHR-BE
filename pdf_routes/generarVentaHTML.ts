@@ -560,7 +560,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   .invoicelist-footer table td {
-    padding: 1rem 2rem 0 1rem;
+    padding: 0.5rem 2rem 0 1rem;
     text-align: right
   }
   
