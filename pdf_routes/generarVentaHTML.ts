@@ -398,6 +398,8 @@ p {
 
 header {
   height: 125px;
+  margin: 1rem 0 0;
+  padding: 0 0 2rem 0;
 }
 
 header p {
@@ -409,6 +411,7 @@ header a {
 }
 .linea{
     border-bottom: 3pt solid #009688;
+    margin-button:10px;
 }
 .logo {
   margin: 0 auto;
@@ -474,6 +477,8 @@ h1 {
   height:25px;
   text-align:center
   font-size:8px;
+  display:flex;
+  justify-content:center;
 }
 
 .rate:before,
