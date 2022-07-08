@@ -693,7 +693,7 @@ footer p {
 
 </div><!--.row-->
 
-<div class="row section" style="margin-top:-1rem">
+<div class="row section" style="">
 <div class="col-1">
   <table style='width:100%'>
   <thead >
