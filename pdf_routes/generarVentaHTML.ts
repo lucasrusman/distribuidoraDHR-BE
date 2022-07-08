@@ -437,7 +437,6 @@ header a {
 
 .section {
   margin: 2rem 0 0
-  padding-left:10px;
 }
 
 .smallme {
@@ -475,7 +474,6 @@ h1 {
   height:25px;
   text-align:center
   font-size:8px;
-  margin-top:0;
 }
 
 .rate:before,
@@ -695,10 +693,10 @@ footer p {
   <table style='width:100%'>
   <thead >
   <tr class="invoice_detail">
-    <th width="20%" style="font-size:8px;">Fecha</th>
-    <th width="20%" style="font-size:8px;">Nombre</th>
-    <th width="20%" style="font-size:8px;">Telefono</th>
-    <th width="20%" style="font-size:8px;">Direccion</th>
+    <th width="20%" style="font-size:8px; padding-left:5px;">Fecha</th>
+    <th width="20%" style="font-size:8px; padding-left:5px;">Nombre</th>
+    <th width="20%" style="font-size:8px; padding-left:5px;">Telefono</th>
+    <th width="20%" style="font-size:8px; padding-left:5px;">Direccion</th>
     <th width="20%" style="font-size:8px;">Zona</th>
    </tr> 
   </thead>
