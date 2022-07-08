@@ -398,7 +398,6 @@ p {
 
 header {
   height: 125px;
-  border-bottom: 3pt solid #009688;
 }
 
 header p {
@@ -408,7 +407,9 @@ header p {
 header a {
   color: #000
 }
-
+.linea{
+    border-bottom: 3pt solid #009688;
+}
 .logo {
   margin: 0 auto;
   width: auto;
@@ -683,7 +684,7 @@ footer p {
 </header>
 
 
-<div class="row section">
+<div class="linea">
 
 </div><!--.row-->
 
