@@ -634,7 +634,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <header class="row">
   <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 80px; height: 80px; margin-left:30px;">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 50px; height: 50px; margin-left:30px;">
   </div><!--.logoholder-->
   
   <div class="me">
@@ -651,25 +651,25 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   <div class="bank">
     <p >
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:3px">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
         <strong>DyG Combos</strong><br>
       </div>
-      <div style="  display:flex; align-items:center; justify-content:left;">
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
         www.dygcombos.com.ar<br>
       </div>
-        <div style="  display:flex; align-items:center; justify-content:left;">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
            11-6482-8268
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
            7509-4514
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 20px;margin-right: 3px;">
            7508-8828
         </div>
-        <div style="  display:flex; align-items:center; justify-content:left;">
+        <div style="  display:flex; align-items:center; justify-content:left;font-size:10px">
           <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 20px;margin-right: 3px;">
            dygcombos
         </div>
