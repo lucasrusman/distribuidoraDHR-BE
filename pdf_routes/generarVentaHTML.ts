@@ -399,8 +399,8 @@ p {
 header {
   margin: 1rem 0 0;
   padding: 0 0 2rem 0;
-  border-bottom: 3pt solid #009688
   height: 50px;
+  border-bottom: 3pt solid #009688;
 }
 
 header p {
