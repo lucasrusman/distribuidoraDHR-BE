@@ -1,10 +1,10 @@
 function generarVentaHTML(datosCliente, datosVenta) {
-    let date_ob = new Date();
-    let date = ('0' + date_ob.getDate()).slice(-2);
-    let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
-    let year = date_ob.getFullYear();
-    var html =
-      `
+  let date_ob = new Date();
+  let date = ('0' + date_ob.getDate()).slice(-2);
+  let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+  let year = date_ob.getFullYear();
+  var html =
+    `
       
   <style>
   /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -397,13 +397,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   header {
-    margin: 0.5rem 0 0;
-    padding: 0 0 0.5rem 0;
+    margin: 1rem 0 0;
+    padding: 0 0 2rem 0;
     border-bottom: 3pt solid #009688
   }
   
-    header p {
-      font-size: .9rem
+  header p {
+    font-size: .9rem
   }
   
   header a {
@@ -499,7 +499,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 0.25rem
+    padding: 0.5rem
   }
   
   .invoicelist-body tr:nth-child(even) {
@@ -644,44 +644,44 @@ function generarVentaHTML(datosCliente, datosVenta) {
   </div><!--.me-->
   
   <div class="info">
-    <p >
-  
-    </p>
+  <p >
+  <div style="  display:flex; align-items:center; justify-content:left;font-size:12px">
+    <strong>DyG Combos</strong><br>
+  </div>
+
+  <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+    www.dygcombos.com.ar<br>
+  </div>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+       11-6482-8268
+    </div>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+       7509-4514
+    </div>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+       7508-8828
+    </div>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 10px;margin-right: 3px;">
+       dygcombos
+    </div>
+</p>
   </div><!-- .info -->
   
   <div class="bank">
-    <p >
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-        <strong>DyG Combos</strong><br>
-      </div>
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-      ` +
-      date +
-      '-' +
-      month +
-      '-' +
-      year +
-      `
-      </div>
-      <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-        www.dygcombos.com.ar<br>
-      </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-          <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-           11-6482-8268
-        </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-          <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-           7509-4514
-        </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-          <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-           7508-8828
-        </div>
-        <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
-          <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 10px;margin-right: 3px;">
-           dygcombos
-        </div>
+    <p>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:7px">
+    ` +
+    date +
+    '-' +
+    month +
+    '-' +
+    year +
+    `
+    </div>
     </p>
   </div><!--.bank-->
   <div style="margin-left:30px">
@@ -712,17 +712,17 @@ function generarVentaHTML(datosCliente, datosVenta) {
     <tbody>
     <tr class="invoice_detail">
       <td width="25%" style="font-size: 6px;">` +
-      datosCliente.nombre +
-      `</td>
+    datosCliente.nombre +
+    `</td>
       <td width="25%" style="font-size: 6px;">` +
-      datosCliente.telefono +
-      `</td>
+    datosCliente.telefono +
+    `</td>
       <td width="25%" style="font-size: 6px;">` +
-      datosCliente.direccion +
-      `</td>
+    datosCliente.direccion +
+    `</td>
       <td width="25%" style="font-size: 6px;">` +
-      datosCliente.zona +
-      `</td>
+    datosCliente.zona +
+    `</td>
      </tr>
     </tbody>
     </table>
@@ -741,43 +741,43 @@ function generarVentaHTML(datosCliente, datosVenta) {
   </table>
   </div>
   `;
-    datosVenta.forEach(producto => {
-      html =
-        html +
-        `
+  datosVenta.forEach(producto => {
+    html =
+      html +
+      `
         <div class="invoicelist-body">
         <table>
           <tbody>
             <tr>
               <td width='60%' style="font-size: 7px;"><span >` +
-        producto.descripcion +
-        `</span></td>
+      producto.descripcion +
+      `</span></td>
               <td class="amount" style="font-size: 7px;width: 10%; text-align:center;">` +
-        producto.cantidad +
-        `</td>
+      producto.cantidad +
+      `</td>
               <td class="rate" style="font-size: 7px;width: 15%; text-align:center;">` +
-        producto.precio +
-        `</td>
+      producto.precio +
+      `</td>
               <td class="sum" style="font-size: 7px;width: 10%; text-align:center;">` +
-        producto.precio * producto.cantidad +
-        `</td>
+      producto.precio * producto.cantidad +
+      `</td>
             </tr>
           </tbody>
         </table>
         
       </div><!--.invoice-body-->
       `;
-    });
-  
-    html =
-      html +
-      ` <div class="invoicelist-footer">
+  });
+
+  html =
+    html +
+    ` <div class="invoicelist-footer">
   <table>
     <tr>
       <td  style="font-size:7px;"><strong>Total:</strong></td>
       <td id="total_price" style="font-size:8px;">` +
-      datosVenta[0].total +
-      `</td>
+    datosVenta[0].total +
+    `</td>
     </tr>
   </table>
   </div>
@@ -788,7 +788,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   </body>
   </html>
       `;
-    html = html + html;
-    return html;
-  }
-  module.exports = generarVentaHTML;
+  html = html + html;
+  return html;
+}
+module.exports = generarVentaHTML;
