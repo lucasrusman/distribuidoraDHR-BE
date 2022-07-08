@@ -694,32 +694,32 @@ function generarVentaHTML(datosCliente, datosVenta) {
     <table style='width:100%'>
     <thead >
     <tr class="invoice_detail">
-      <th width="20%">Fecha</th>
-      <th width="20%">Nombre</th>
-      <th width="20%">Telefono</th>
-      <th width="20%">Direccion</th>
-      <th width="20%">Zona</th>
+      <th width="20%" style="font-size: 5px;">Fecha</th>
+      <th width="20%" style="font-size: 5px;">Nombre</th>
+      <th width="20%" style="font-size: 5px;">Telefono</th>
+      <th width="20%" style="font-size: 5px;">Direccion</th>
+      <th width="20%" style="font-size: 5px;">Zona</th>
      </tr> 
     </thead>
     <tbody>
     <tr class="invoice_detail">
-      <td width="20%">` +
+      <td width="20%" style="font-size: 4px;">` +
       date +
       '-' +
       month +
       '-' +
       year +
       ` </td>
-      <td width="20%">` +
+      <td width="20%" style="font-size: 4px;">` +
       datosCliente.nombre +
       `</td>
-      <td width="20%">` +
+      <td width="20%" style="font-size: 4px;">` +
       datosCliente.telefono +
       `</td>
-      <td width="20%">` +
+      <td width="20%" style="font-size: 4px;">` +
       datosCliente.direccion +
       `</td>
-      <td width="20%">` +
+      <td width="20%" style="font-size: 4px;">` +
       datosCliente.zona +
       `</td>
      </tr>
