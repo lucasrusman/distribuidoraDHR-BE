@@ -636,7 +636,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
   <div class="logoholder text-center" >
     <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 50px; height: 50px; margin-left:30px;">
   </div><!--.logoholder-->
-  
+  <div class="logoholder text-center">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
+  </div>
+  <div class="logoholder text-center">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
+    </div>
   <div class="me">
     <p >
       
@@ -675,10 +680,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
         </div>
     </p>
   </div><!--.bank-->
-  <div style="margin-left:30px">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
-  </div>
+//   <div style="margin-left:30px">
+    
+//   </div>
   </header>
   
   
