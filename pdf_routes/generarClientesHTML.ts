@@ -604,7 +604,7 @@ function generarClientesHTML(clientes) {
   
   <header class="row">
     <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-left:30px;">
+    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-right:30px;">
     </div><!--.logoholder-->
   
     <div class="me">
