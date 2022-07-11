@@ -625,9 +625,9 @@ function generarClientesHTML(clientes) {
   <div class="invoicelist-body">
     <table>
       <thead >
-        <th width="30%">Nombre</th>
-        <th width="40%">Telefono</th>
-        <th width="30%">Dirección</th>
+        <th width="30%" style="font-size: 10px">Nombre</th>
+        <th width="40%" style="font-size: 10px">Teléfono</th>
+        <th width="30%" style="font-size: 10px">Dirección</th>
       </thead>
   </table>
   </div>
@@ -640,13 +640,13 @@ function generarClientesHTML(clientes) {
         <table>
       <tbody>
         <tr>
-          <td width='30%'> <span >` +
+          <td width='30%' style="font-size: 8px"> <span >` +
         cliente[0] +
         `</span></td>
-          <td width='40%'><span >` +
+          <td width='40%' style="font-size: 8px"><span >` +
         cliente[1] +
         `</span></td>
-        <td width='30%'><span >` +
+        <td width='30%' style="font-size: 8px"><span >` +
         cliente[2] +
         `</span></td>
         </tr>
