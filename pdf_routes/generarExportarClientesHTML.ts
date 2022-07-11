@@ -604,7 +604,7 @@ footer p {
 
 <header class="row">
   <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-right:30px;">
   </div><!--.logoholder-->
 
   <div class="me">
@@ -625,9 +625,9 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="60%">Nombre</th>
-      <th  width="20%">-</th>
-      <th width="20%">-</th>
+      <th width="60%" style="font-size:10px; text-align:center">Nombre</th>
+      <th width="20%" style="font-size:10px; text-align:center">-</th>
+      <th width="20%" style="font-size:10px; text-align:center">-</th>
     </thead>
     </table>
 </div>
@@ -640,11 +640,11 @@ footer p {
     <table>
         <tbody>
         <tr>
-            <td width='60%'> <span >` +
+            <td width='60%' style="text-align:center; font-size:8px"> <span >` +
       cliente[0] +
       `</span></td>
-            <td width='20%'><span></span></td>
-            <td width='20%'><span></span></td>
+            <td width='20%' style="text-align:center; font-size:8px"><span></span></td>
+            <td width='20%' style="text-align:center; font-size:8px"><span></span></td>
         </tr>
         </tbody>
   </table>
