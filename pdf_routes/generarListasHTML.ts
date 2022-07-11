@@ -616,7 +616,7 @@ footer p {
     '-' +
     year +
     `</strong><br>
-      Web: dygcombos.com.ar<br>
+      dygcombos.com.ar<br>
       
     </p>
   </div><!--.me-->
