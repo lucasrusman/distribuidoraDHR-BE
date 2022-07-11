@@ -639,10 +639,10 @@ footer p {
       <table>
     <tbody>
       <tr>
-        <td width='80%' style="text-align:center;font-size:8px;> <span >` +
+        <td width='80%' style="text-align:center;font-size:8px;"> <span >` +
       producto[0] +
       `</span></td>
-        <td width='20%' style="text-align:center;font-size:8px;><span >` +
+        <td width='20%' style="text-align:center;font-size:8px;"><span >` +
       producto[1] +
       `</span></td>
       </tr>
