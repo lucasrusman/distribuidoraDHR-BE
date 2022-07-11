@@ -604,7 +604,7 @@ footer p {
 
 <header class="row">
   <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-right:30px;">
   </div><!--.logoholder-->
 
   <div class="me">
@@ -625,13 +625,12 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="80%">Descripción</th>
-      <th  width="20%">Cantidad</th>
+      <th width="80%" style="text-align:center;font-size:10px;">Descripción</th>
+      <th width="20%" style="text-align:center;font-size:10px;">Cantidad</th>
     </thead>
     </table>
 </div>
 `;
-
   productos_por_venta.forEach(producto => {
     html =
       html +
@@ -639,10 +638,10 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='80%'> <span >` +
+            <td width='80%' style="text-align:center;font-size:8px;"> <span >` +
       producto[0] +
       `</span></td>
-            <td width='20%'><span >` +
+            <td width='20%' style="text-align:center;font-size:8px;"><span >` +
       producto[1] +
       `</span></td>
           </tr>

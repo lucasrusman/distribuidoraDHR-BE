@@ -604,7 +604,7 @@ footer p {
 
 <header class="row">
   <div class="logoholder text-center" >
-  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 55px; height: 50px; margin-right:30px;">
+  <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-right:30px;">
   </div><!--.logoholder-->
 
   <div class="me">
@@ -625,8 +625,8 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="50%">Fecha</th>
-      <th width="50%">Monto</th>
+      <th width="50%" style="text-align:center;font-size:10px">Fecha</th>
+      <th width="50%" style="text-align:center;font-size:10px">Monto</th>
     </thead>
     </table>
 </div>
@@ -641,10 +641,10 @@ footer p {
     <table>
       <tbody>
         <tr>
-          <td width='50%'><span>` +
+          <td width='50%' style="text-align:center;font-size:8px;"><span>` +
       fecha.slice(0, 10) +
       `</span></td>
-          <td width='50%'><span>` +
+          <td width='50%' style="text-align:center;font-size:8px;"><span>` +
       sale[2] +
       `</span></td>
         </tr>
