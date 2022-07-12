@@ -397,8 +397,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   header {
-    margin: 0.5rem 0 0;
-    padding: 0 0 1rem 0;
+    margin: 0.125rem 0 0;
+    padding: 0 0 0.5rem 0;
     border-bottom: 3pt solid #009688
   }
   
@@ -499,7 +499,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 0.25rem
+    padding: 0.125rem
   }
   
   .invoicelist-body tr:nth-child(even) {
