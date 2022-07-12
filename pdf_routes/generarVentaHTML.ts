@@ -306,6 +306,10 @@ function generarVentaHTML(datosCliente, datosVenta) {
     padding: 0 1rem;
     min-height: 1px
   }
+
+  .logoholder{
+    padding:0px;
+  }
   
   .col-4 {
     width: 25%
