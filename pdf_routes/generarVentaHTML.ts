@@ -13,7 +13,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    height: 50vh;
+    min-height:50vh;
   }
   
   body {
@@ -236,7 +236,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     color: #000;
     background: #ddd;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
+    min-height:50vh;
   }
   
   body {
