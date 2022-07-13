@@ -14,6 +14,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     min-height: 50vh;
+    background-color:red;
   }
   
   body {
