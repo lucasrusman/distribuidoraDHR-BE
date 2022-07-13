@@ -13,13 +13,21 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+<<<<<<< HEAD
     
+=======
+    min-height:50vh;
+>>>>>>> 85a6a9b566ab977b4c17088c200ec03601ef260e
   }
   
   body {
     margin: 0;
+<<<<<<< HEAD
     margin:1rem;
     border: 1px solid red;
+=======
+    min-height:50vh;
+>>>>>>> 85a6a9b566ab977b4c17088c200ec03601ef260e
   }
   
   article,
@@ -237,7 +245,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     color: #000;
     background: #ddd;
     -moz-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
+    min-height:50vh;
   }
   
   body {
@@ -245,9 +254,15 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin: 6rem auto 0;
     max-width: 800px;
     background: white;
+<<<<<<< HEAD
     border: 1px solid #000;
     margin: 1rem;
     padding: 2rem
+=======
+    border: 1px solid #aaa;
+    padding: 2rem;
+    min-height:50vh;
+>>>>>>> 85a6a9b566ab977b4c17088c200ec03601ef260e
   }
   
   .container {
@@ -507,7 +522,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 0.1rem
   }
   
   .invoicelist-body tr:nth-child(even) {
