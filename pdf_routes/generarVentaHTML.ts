@@ -16,7 +16,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   body {
-    margin: 0
+    margin: 0;
+    min-height = 50vh;
   }
   
   article,
