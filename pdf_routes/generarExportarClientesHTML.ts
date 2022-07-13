@@ -626,9 +626,9 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="60%" style="font-size:10px; text-align:center">Nombre</th>
-      <th width="20%" style="font-size:10px; text-align:center">Pago</th>
-      <th width="20%" style="font-size:10px; text-align:center">Descripción</th>
+      <th width="60%" style="font-size:10px; text-align:left">Nombre</th>
+      <th width="20%" style="font-size:10px; text-align:left">Pago</th>
+      <th width="20%" style="font-size:10px; text-align:left">Descripción</th>
     </thead>
     </table>
 </div>
