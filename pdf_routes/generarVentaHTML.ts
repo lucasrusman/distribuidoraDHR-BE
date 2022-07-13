@@ -121,7 +121,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
-    height: 0
+    height: 50vh;
   }
   
   pre {
