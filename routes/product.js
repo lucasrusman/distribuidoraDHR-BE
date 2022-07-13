@@ -101,28 +101,79 @@ router.put('/aumentarPrecios', (req, res, next) => {
         }
       }
     );
-  });
-});
-
-router.put('/aumentarValor', (req, res, next) => {
-  const { productos } = req.body;
-  let { valorNum } = req.body
-  productos.forEach(producto => {
-    let precioFinal = Number(Number(producto.precio_base) + Number(valorNum))
     conexion.query(
-      'UPDATE productos SET precio_base = ? WHERE id = ?',
-      [precioFinal, producto.id],
+      'SELECT * FROM precio_espeicla_cliente WHERE idProducto = ?',
+      [producto.id],
       (error, rows) => {
         if (error) {
           console.log(error);
         } else {
-          res.json({ Status: "Precio de los productos actualizados correctamente" });
+          rows.forEach(element => {
+            let precioEspecial = Number((element.precio * valor) / 100);
+            precioEspecial += element.precio;
+            conexion.query(
+              'UPDATE precio_espeicla_cliente SET precio = ? WHERE idCliente = ?',
+              [precioEspecial, element.idCliente],
+              (error, rows) => {
+                if (error) {
+                  console.log(error);
+                } else {
+                  res.json({ Status: 'Precio de los productos actualizados correctamente' });
+                }
+              }
+            );
+          });
         }
       }
     );
-  }
-  );
+  });
 });
+//TODO hay que seguir con esto
+// router.put('/aumentarValor', (req, res, next) => {
+//   const { productos } = req.body;
+//   let { valorNum } = req.body;
+//   productos.forEach(producto => {
+//     let precioFinal = Number(Number(producto.precio_base) + Number(valorNum));
+//     conexion.query(
+//       'UPDATE productos SET precio_base = ? WHERE id = ?',
+//       [precioFinal, producto.id],
+//       (error, rows) => {
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           res.json({ Status: 'Precio de los productos actualizados correctamente' });
+//         }
+//       }
+//     );
+//     conexion.query(
+//       'SELECT * FROM precio_espeicla_cliente WHERE idProducto = ?',
+//       [producto.id],
+//       (error, rows) => {
+//         if (error) {
+//           console.log(error);
+//         } else {
+//           rows.forEach(element => {
+//             let precioEspecial = element.precio + valorNum;
+//             console.log(precioEspecial);
+//             console.log(precioEspecial);
+//             console.log(element.precio);
+//             conexion.query(
+//               'UPDATE precio_espeicla_cliente SET precio = ? WHERE idCliente = ?',
+//               [precioEspecial, element.idCliente],
+//               (error, rows) => {
+//                 if (error) {
+//                   console.log(error);
+//                 } else {
+//                   res.json({ Status: 'Precio de los productos actualizados correctamente' });
+//                 }
+//               }
+//             );
+//           });
+//         }
+//       }
+//     );
+//   });
+// });
 
 router.get('/byClient/:id', (req, res, next) => {
   const { id } = req.params;

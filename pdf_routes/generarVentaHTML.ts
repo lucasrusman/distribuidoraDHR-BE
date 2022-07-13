@@ -13,11 +13,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    min-height: 50vh;
+    
   }
   
   body {
     margin: 0;
+    margin:1rem;
+    border: 1px solid red;
   }
   
   article,
@@ -243,7 +245,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin: 6rem auto 0;
     max-width: 800px;
     background: white;
-    border: 1px solid #aaa;
+    border: 1px solid #000;
+    margin: 1rem;
     padding: 2rem
   }
   

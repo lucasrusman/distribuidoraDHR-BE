@@ -41,6 +41,7 @@ router.post('/crearPDF', async (req, res, next) => {
               res.status(200).json({ finalString: response });
             })
             .catch(error => {
+              log
               console.log(error);
             });
         }
