@@ -19,6 +19,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   body {
     margin: 0;
+    border-bottom: 1px solid #000
   }
   
   article,
@@ -789,6 +790,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     </tr>
   </table>
   </div>
+  <hr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
   <script src="assets/js/main.js"></script>
