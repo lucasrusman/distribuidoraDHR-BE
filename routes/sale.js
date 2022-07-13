@@ -112,7 +112,7 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   console.log(ventas);
   const arraySale = [];
   let query =
-    'SELECT p.descripcion, COUNT(*) as cantidad FROM productos_por_venta ppv inner join productos p on ppv.idProducto = p.id where ppv.idVenta in (';
+    'SELECT p.descripcion, sum(ppv.cantidad) as cantidad FROM productos_por_venta ppv inner join productos p on ppv.idProducto = p.id where ppv.idVenta in (';
   ventas.forEach(venta => {
     query = query + ' ' + venta.id + ',';
   });
