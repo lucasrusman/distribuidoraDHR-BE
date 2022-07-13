@@ -575,7 +575,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   .invoicelist-footer table #total_price {
     font-size: 2rem;
-    color: #009688
   }
   
   .note {
@@ -718,7 +717,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     </thead>
     <tbody>
     <tr class="invoice_detail">
-      <td width="25%" style="font-size: 6px;">` +
+      <td width="25%" style="font-size: 8px;">` +
     datosCliente.nombre +
     `</td>
       <td width="25%" style="font-size: 6px;">` +
@@ -782,9 +781,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
   <table>
     <tr>
       <td  style="font-size:7px;"><strong>Total:</strong></td>
-      <td id="total_price" style="font-size:8px;">` +
+      <td id="total_price" style="font-size:10px;"><strong>` +
     datosVenta[0].total +
-    `</td>
+    `</strong></td>
     </tr>
   </table>
   </div>
