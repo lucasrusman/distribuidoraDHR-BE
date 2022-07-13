@@ -230,12 +230,11 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   html {
-    font-size: 12px;
-    line-height: 1.5;
-    color: #000;
-    background: #ddd;
-    -moz-box-sizing: border-box;
-    min-height: 5vh;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    border-bottom: 1px solid #000;
+    min-height: 50vh;
   }
   
   body {
