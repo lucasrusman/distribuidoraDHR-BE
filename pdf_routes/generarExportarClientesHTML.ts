@@ -492,6 +492,7 @@ h1 {
 .invoicelist-body th {
     position: relative;
     padding: 1rem
+    border-bottom: 1pt solid #000
 }
 
 .invoicelist-body tr:nth-child(even) {
@@ -626,8 +627,8 @@ footer p {
   <table>
     <thead >
       <th width="60%" style="font-size:10px; text-align:center">Nombre</th>
-      <th width="20%" style="font-size:10px; text-align:center">-</th>
-      <th width="20%" style="font-size:10px; text-align:center">-</th>
+      <th width="20%" style="font-size:10px; text-align:center">Pago</th>
+      <th width="20%" style="font-size:10px; text-align:center">Descripción</th>
     </thead>
     </table>
 </div>
@@ -640,7 +641,7 @@ footer p {
     <table>
         <tbody>
         <tr>
-            <td width='60%' style="text-align:center; font-size:8px"> <span >` +
+            <td width='60%' style="text-align:left; font-size:8px"> <span >` +
       cliente[0] +
       `</span></td>
             <td width='20%' style="text-align:center; font-size:8px"><span></span></td>
