@@ -12,12 +12,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
   html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    min-height: 50vh;
   }
   
   body {
     margin: 0;
-    min-height: 50vh;
   }
   
   article,
