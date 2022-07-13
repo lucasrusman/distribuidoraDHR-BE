@@ -18,6 +18,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   body {
     margin: 0;
+    min-height:50vh;
   }
   
   article,
@@ -244,7 +245,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     max-width: 800px;
     background: white;
     border: 1px solid #aaa;
-    padding: 2rem
+    padding: 2rem;
+    min-height:50vh;
   }
   
   .container {
