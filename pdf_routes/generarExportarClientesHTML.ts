@@ -219,7 +219,7 @@ table {
 
 td,
 th {
-    padding: 0
+    padding: 0;
 }
 
 html {
@@ -491,7 +491,7 @@ h1 {
 .invoicelist-body td,
 .invoicelist-body th {
     position: relative;
-    padding: 1rem
+    padding: 1rem;
     border-bottom: 1pt solid #000
 }
 
@@ -626,8 +626,8 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="60%" style="font-size:10px; text-align:left">Nombre</th>
-      <th width="20%" style="font-size:10px; text-align:left">Pago</th>
+      <th width="50%" style="font-size:10px; text-align:left">Nombre</th>
+      <th width="30%" style="font-size:10px; text-align:left">Pago</th>
       <th width="20%" style="font-size:10px; text-align:left">Descripción</th>
     </thead>
     </table>

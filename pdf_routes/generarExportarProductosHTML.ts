@@ -644,7 +644,7 @@ footer p {
             <td width='20%' style="text-align:center;font-size:8px;"><span >` +
       producto[1] +
       `</span></td>
-          </tr>
+          </tr> 
         </tbody>
       </table>
       </div><!--.invoice-body-->`;
