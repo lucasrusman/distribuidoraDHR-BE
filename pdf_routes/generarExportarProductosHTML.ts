@@ -491,7 +491,7 @@ h1 {
 .invoicelist-body td,
 .invoicelist-body th {
     position: relative;
-    padding: 1rem
+    padding: 0.125rem
 }
 
 .invoicelist-body tr:nth-child(even) {
@@ -625,7 +625,7 @@ footer p {
 <div class="invoicelist-body">
   <table>
     <thead >
-      <th width="80%" style="text-align:center;font-size:10px;">Descripción</th>
+      <th width="80%" style="text-align:left;font-size:10px;">Descripción</th>
       <th width="20%" style="text-align:center;font-size:10px;">Cantidad</th>
     </thead>
     </table>
@@ -638,7 +638,7 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='80%' style="text-align:center;font-size:8px;"> <span >` +
+            <td width='80%' style="text-align:left;font-size:8px;"> <span >` +
       producto[0] +
       `</span></td>
             <td width='20%' style="text-align:center;font-size:8px;"><span >` +
