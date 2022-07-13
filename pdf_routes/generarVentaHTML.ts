@@ -235,7 +235,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
     color: #000;
     background: #ddd;
     -moz-box-sizing: border-box;
-    box-sizing: border-
     min-height: 5vh;
   }
   
