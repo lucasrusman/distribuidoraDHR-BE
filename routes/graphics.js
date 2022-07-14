@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const conexion = require('../database');
 
 const router = express.Router();
-
+ 
 router.get('', (req, res, next) => {
   conexion.query(
     'SELECT zona, count(*) as cantidad FROM ventas v inner join clientes c on v.idCliente = c.id GROUP BY zona',
