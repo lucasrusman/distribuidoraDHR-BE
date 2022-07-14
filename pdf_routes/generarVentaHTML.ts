@@ -407,7 +407,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin: 0.125rem 0 0;
     margin-bottom:0px;
     padding: 0 0 0.25rem 0;
-    border-bottom: 3pt solid #009688
+    border-bottom: 3pt solid #009688;
+    background-color: red;
   }
   
   header p {
