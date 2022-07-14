@@ -607,13 +607,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
     html {
         margin: 0;
         padding: 0;
-        background: #fff;
+        background: pink;
         min-height: 50vh;
     }
     body {
         width: 100%;
         border: none;
-        background: #fff;
         color: #000;
         margin: 0;
         padding: 0;
