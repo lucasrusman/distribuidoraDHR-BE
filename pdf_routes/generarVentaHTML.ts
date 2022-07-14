@@ -608,7 +608,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         background: #fff;
-        min-height: 50vh;
     }
     body {
         width: 100%;
@@ -617,7 +616,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
         color: #000;
         margin: 0;
         padding: 0;
-        min-height: 50vh;
     }
     .control,
     .control-bar {
@@ -633,7 +631,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   /*# sourceMappingURL=main.css.map */
   </style>
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" style="min-height:50vh;">
   <head>
     <meta charset="UTF-8">
     <title>Crear facturas con HTML, CSS y JavaScript</title>
