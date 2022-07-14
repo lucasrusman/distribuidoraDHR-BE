@@ -798,7 +798,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   </body>
   </html>
       `;
-  html = html + html;
+  //html = html + html;
   return html;
 }
 module.exports = generarVentaHTML;
