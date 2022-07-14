@@ -631,7 +631,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   /*# sourceMappingURL=main.css.map */
   </style>
   <!DOCTYPE html>
-  <html lang="en" style="min-height:50vh;">
+  <html lang="en" style="min-height:50vh; background:red;">
   <head>
     <meta charset="UTF-8">
     <title>Crear facturas con HTML, CSS y JavaScript</title>
