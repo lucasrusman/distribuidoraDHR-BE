@@ -608,18 +608,16 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         background: #fff;
-        border: 2px solid #000;
-        max-height: 50vh;
+        min-height: 50vh;
     }
     body {
         width: 100%;
         border: none;
-        background: pink;
+        background: #fff;
         color: #000;
         margin: 0;
         padding: 0;
-        max-height: 50vh;
-        border: 2px solid #000;
+        min-height: 50vh;
     }
     .control,
     .control-bar {
@@ -793,6 +791,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     </tr>
   </table>
   </div>
+  <hr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
   <script src="assets/js/main.js"></script>
