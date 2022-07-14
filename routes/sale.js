@@ -10,7 +10,7 @@ const generarExportarClientesHTML = require('../pdf_routes/generarExportarClient
 const generarExportarProductosHTML = require('../pdf_routes/generarExportarProductosHTML.ts')
 router.post('/crear', async (req, res, next) => {
   const { idCliente, total, deuda } = req.body.sale;
-  console.log(req.body);
+  console.log(req.body.sale.deuda);
   let ventaCreada;
   conexion.query(
     'INSERT INTO ventas (idCliente, fecha, total, deuda) VALUES (?, ?, ?, ?);',
