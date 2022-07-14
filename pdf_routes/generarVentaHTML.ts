@@ -13,11 +13,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    
+    min-height:50vh;
   }
   
   body {
     margin: 0;
+    min-height:50vh;
   }
   
   article,
@@ -235,16 +236,18 @@ function generarVentaHTML(datosCliente, datosVenta) {
     color: #000;
     background: #ddd;
     -moz-box-sizing: border-box;
-    box-sizing: border-
-    min-height: 5vh;
+    box-sizing: border-box;
+    min-height:50vh;
   }
   
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 6rem auto 0;
     max-width: 800px;
-    background: white;
-    padding: 2rem
+    background: pink;
+    border: 1px solid #aaa;
+    padding: 2rem;
+    min-height:50vh;
   }
   
   .container {
@@ -404,7 +407,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin: 0.125rem 0 0;
     margin-bottom:0px;
     padding: 0 0 0.25rem 0;
-    border-bottom: 3pt solid #009688
+    border-bottom: 3pt solid #009688;
   }
   
   header p {
@@ -504,7 +507,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 0.1rem
   }
   
   .invoicelist-body tr:nth-child(even) {
@@ -556,7 +558,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   .invoicelist-footer {
-    margin: 1rem
+    margin: 1rem;
   }
   
   .invoicelist-footer table {
@@ -605,7 +607,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
     html {
         margin: 0;
         padding: 0;
-        background: #fff
+        background: #fff;
+        min-height: 50vh;
     }
     body {
         width: 100%;
@@ -613,7 +616,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
         background: #fff;
         color: #000;
         margin: 0;
-        padding: 0
+        padding: 0;
+        min-height: 50vh;
     }
     .control,
     .control-bar {
@@ -780,6 +784,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
     ` <div class="invoicelist-footer">
   <table>
     <tr>
+      <td  style="font-size:7px;"><strong>Deuda:</strong></td>
+      <td id="total_price" style="font-size:10px;"><strong>` +
+    datosVenta[0].deuda +
+    `</strong></td>
+    </tr>
+    <tr>
       <td  style="font-size:7px;"><strong>Total:</strong></td>
       <td id="total_price" style="font-size:10px;"><strong>` +
     datosVenta[0].total +
@@ -787,6 +797,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     </tr>
   </table>
   </div>
+  <hr>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
   <script src="assets/js/main.js"></script>

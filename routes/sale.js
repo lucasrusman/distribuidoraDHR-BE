@@ -4,16 +4,16 @@ const conexion = require('../database');
 const router = express.Router();
 const pdf2base64 = require('pdf-to-base64');
 var pdf = require('html-pdf');
-const generarVentaHTML = require('../pdf_routes/generarVentaHTML.ts') ;
+const generarVentaHTML = require('../pdf_routes/generarVentaHTML.ts');
 const generarListadoVentasHTML = require('../pdf_routes/generarListadoVentasHTML.ts')
 const generarExportarClientesHTML = require('../pdf_routes/generarExportarClientesHTML.ts')
 const generarExportarProductosHTML = require('../pdf_routes/generarExportarProductosHTML.ts')
 router.post('/crear', async (req, res, next) => {
-  const { idCliente, total } = req.body.sale;
+  const { idCliente, total, deuda } = req.body.sale;
   let ventaCreada;
   conexion.query(
-    'INSERT INTO ventas (idCliente, fecha, total) VALUES (?, ?, ?);',
-    [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total],
+    'INSERT INTO ventas (idCliente, fecha, total, deuda) VALUES (?, ?, ?, ?);',
+    [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total, deuda],
     (error, rows) => {
       if (error) {
         console.log(error);
@@ -233,7 +233,8 @@ router.post('/propiedades', async (req, res, next) => {
             //aca debemos generar el pdf
             var options = { type: 'pdf', timeout: '1000000' };
 
-            ventaHTML = generarVentaHTML(datosClientes, productosVenta);
+            ventaHTML = generarVentaHTML(datosClientes, productosVenta);  
+            console.log(productosVenta);
             pdf.create(ventaHTML, options).toFile('./venta.pdf', function (err, res2) {
               if (err) {
                 console.log(err);

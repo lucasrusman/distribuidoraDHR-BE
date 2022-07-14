@@ -492,7 +492,7 @@ h1 {
 .invoicelist-body th {
     position: relative;
     padding: 0.125rem;
-    border-bottom: 0.75px solid #000
+    border-bottom: 1px solid #A1A1A1;
 }
 
 .invoicelist-body tr:nth-child(even) {
