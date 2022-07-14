@@ -614,7 +614,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     body {
         width: 100%;
         border: none;
-        background: #fff;
+        background: pink;
         color: #000;
         margin: 0;
         padding: 0
