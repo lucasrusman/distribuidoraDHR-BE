@@ -13,11 +13,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    
+    min-height:50vh;
   }
   
   body {
     margin: 0;
+    min-height:50vh;
   }
   
   article,
@@ -230,11 +231,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    border-bottom: 1px solid #000;
-    min-height: 50vh;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #000;
+    background: #ddd;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height:50vh;
   }
   
   body {
@@ -242,7 +245,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin: 6rem auto 0;
     max-width: 800px;
     background: white;
-    padding: 2rem
+    border: 1px solid #aaa;
+    padding: 2rem;
+    min-height:50vh;
   }
   
   .container {
@@ -502,7 +507,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   .invoicelist-body td,
   .invoicelist-body th {
     position: relative;
-    padding: 0.1rem
   }
   
   .invoicelist-body tr:nth-child(even) {
