@@ -231,6 +231,7 @@ router.post('/propiedades', async (req, res, next) => {
           [idVenta],
           (err, rows, fields) => {
             let productosVenta = rows;
+            console.log(rows);
             //aca debemos generar el pdf
             var options = { type: 'pdf', timeout: '1000000' };
 
