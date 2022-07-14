@@ -408,7 +408,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin-bottom:0px;
     padding: 0 0 0.25rem 0;
     border-bottom: 3pt solid #009688;
-    background-color: red;
   }
   
   header p {
@@ -560,7 +559,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
   
   .invoicelist-footer {
     margin: 1rem;
-    background-color: blue;
   }
   
   .invoicelist-footer table {
@@ -609,15 +607,17 @@ function generarVentaHTML(datosCliente, datosVenta) {
     html {
         margin: 0;
         padding: 0;
-        background: #fff
+        background: #fff;
+        min-height: 50vh;
     }
     body {
         width: 100%;
         border: none;
-        background: pink;
+        background: #fff;
         color: #000;
         margin: 0;
-        padding: 0
+        padding: 0;
+        min-height: 50vh;
     }
     .control,
     .control-bar {
