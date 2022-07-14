@@ -157,7 +157,7 @@ router.put('/aumentarValor', (req, res, next) => {
             conexion.query(
               'UPDATE precio_espeicla_cliente SET precio = ? WHERE idCliente = ?',
               [precioEspecial, element.idCliente],
-              (error, rows) => {
+              (error, rows) =>{
                 if (error) {
                   console.log(error);
                 } else {
