@@ -609,6 +609,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
         padding: 0;
         background: #fff;
         border: 2px solid #000;
+        max-height: 50vh;
     }
     body {
         width: 100%;
@@ -798,7 +799,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   </body>
   </html>
       `;
-  //html = html + html;
+  html = html + html;
   return html;
 }
 module.exports = generarVentaHTML;
