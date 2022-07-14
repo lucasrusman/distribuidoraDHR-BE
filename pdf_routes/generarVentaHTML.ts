@@ -784,6 +784,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     ` <div class="invoicelist-footer">
   <table>
     <tr>
+      <td  style="font-size:7px;text-align:left;"><strong>Deuda:</strong></td>
       <td  style="font-size:7px;"><strong>Total:</strong></td>
       <td id="total_price" style="font-size:10px;"><strong>` +
     datosVenta[0].total +
