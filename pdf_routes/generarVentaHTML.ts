@@ -608,7 +608,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         background: #fff;
-        min-height: 50vh;
     }
     body {
         width: 100%;
@@ -618,6 +617,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         min-height: 50vh;
+        border: 2px solid #000;
     }
     .control,
     .control-bar {
