@@ -244,7 +244,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 6rem auto 0;
     max-width: 800px;
-    background: white;
+    background: pink;
     border: 1px solid #aaa;
     padding: 2rem;
     min-height:50vh;
@@ -559,7 +559,8 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   
   .invoicelist-footer {
-    margin: 1rem
+    margin: 1rem;
+    background-color: blue;
   }
   
   .invoicelist-footer table {
