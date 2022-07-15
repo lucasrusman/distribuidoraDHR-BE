@@ -38,7 +38,7 @@ router.post('/login', (req, res, next) => {
           const rol = rows[0].rol;
           // se crea el token
           const token = jwt.sign({ email, password }, 'secret_this_should_be_longer', {
-            expiresIn: '24h'
+            expiresIn: '1d'
           });
           res.status(200).json({
             token,
