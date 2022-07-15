@@ -248,7 +248,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     background: #ddd;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    min-height:50vh;
+
   }
   
   body {
@@ -258,7 +258,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
     background: pink;
     border: 1px solid #aaa;
     padding: 2rem;
-    min-height:50vh;
   }
   
   .container {
@@ -419,7 +418,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
     margin-bottom:0px;
     padding: 0 0 0.25rem 0;
     border-bottom: 3pt solid #009688;
-    height: min-content; !important
   }
   
   header p {
