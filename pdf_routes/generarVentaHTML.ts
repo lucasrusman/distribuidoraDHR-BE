@@ -13,7 +13,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    min-height:100vh;
+    min-height:50vh;
   }
   .invoice-box {
     margin: auto;
