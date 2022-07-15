@@ -25,7 +25,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
     line-height: 24px;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     color: #555;
-    min-height: 50vh;
   }
   body {
     margin: 0;
