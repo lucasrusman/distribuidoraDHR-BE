@@ -22,9 +22,9 @@ function generarVentaHTML(datosCliente, datosVenta) {
     border: 1px solid #eee;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     font-size: 10px;
-    line-height: 24px;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     color: #555;
+    min-height:50vh;
   }
   body {
     margin: 0;
