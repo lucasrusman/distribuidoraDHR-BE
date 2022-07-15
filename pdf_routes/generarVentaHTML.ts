@@ -17,10 +17,13 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   .invoice-box {
     max-width: 800px;
-    border: 1px solid #A29F9F;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     font-size: 10px;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    color: #555;
     min-height:50vh;
   }
   body {
