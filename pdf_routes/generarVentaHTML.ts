@@ -15,7 +15,18 @@ function generarVentaHTML(datosCliente, datosVenta) {
     -webkit-text-size-adjust: 100%;
     min-height:50vh;
   }
-  
+  .invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 10px;
+    line-height: 24px;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    color: #555;
+    min-height: 50vh;
+  }
   body {
     margin: 0;
     min-height:50vh;
@@ -639,168 +650,168 @@ function generarVentaHTML(datosCliente, datosVenta) {
     <title>Crear facturas con HTML, CSS y JavaScript</title>
   </head>
   <body>
-  
-  <header class="row">
-  <div class="logoholder text-center" >
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-left:30px;">
-  </div><!--.logoholder-->
-  
-  <div class="me">
+  <div class="invoice-box">
+    <header class="row">
+    <div class="logoholder text-center" >
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-dygcombos.png" style="max-width: 70px; height: 70px; margin-left:30px;">
+    </div><!--.logoholder-->
+    
+    <div class="me">
+      <p >
+        
+      </p>
+    </div><!--.me-->
+    
+    <div class="info">
     <p >
-      
-    </p>
-  </div><!--.me-->
-  
-  <div class="info">
-  <p >
-  <div style="  display:flex; align-items:center; justify-content:left;font-size:13px">
-    <strong>DyG Combos</strong><br>
-  </div>
+    <div style="  display:flex; align-items:center; justify-content:left;font-size:13px">
+      <strong>DyG Combos</strong><br>
+    </div>
 
-  <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-    www.dygcombos.com.ar<br>
-  </div>
     <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-       11-6482-8268
+      www.dygcombos.com.ar<br>
     </div>
-    <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-       7509-4514
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+        11-6482-8268
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+        7509-4514
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
+        7508-8828
+      </div>
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
+        <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 10px;margin-right: 3px;">
+        dygcombos
+      </div>
+  </p>
+    </div><!-- .info -->
+    
+    <div class="bank">
+      <p>
+      <div style="  display:flex; align-items:center; justify-content:left;font-size:10px; margin-top:0.2rem">
+        <strong>
+          ` +
+      date +
+      '-' +
+      month +
+      '-' +
+      year +
+      `
+      </strong>
+      </div>
+      </p>
+    </div><!--.bank-->
+    <div style="margin-left:30px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
+      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
     </div>
-    <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-whatsapp.png" style="width: 10px;margin-right: 3px;">
-       7508-8828
+    </header>
+    
+    
+    <div class="row section">
+    
+    
+    
+    
+    </div><!--.row-->
+    
+    <div class="row section" style="margin-top:-1rem">
+    <div class="col-1">
+      <table style='width:100%'>
+      <thead >
+      <tr class="invoice_detail">
+        <th width="25%" style="font-size: 7px;">Nombre</th>
+        <th width="25%" style="font-size: 7px;">Telefono</th>
+        <th width="25%" style="font-size: 7px;">Direccion</th>
+        <th width="25%" style="font-size: 7px;">Zona</th>
+      </tr> 
+      </thead>
+      <tbody>
+      <tr class="invoice_detail">
+        <td width="25%" style="font-size: 8px;">` +
+      datosCliente.nombre +
+      `</td>
+        <td width="25%" style="font-size: 6px;">` +
+      datosCliente.telefono +
+      `</td>
+        <td width="25%" style="font-size: 6px;">` +
+      datosCliente.direccion +
+      `</td>
+        <td width="25%" style="font-size: 6px;">` +
+      datosCliente.zona +
+      `</td>
+      </tr>
+      </tbody>
+      </table>
     </div>
-    <div style="  display:flex; align-items:center; justify-content:left;font-size:9px">
-      <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-instagram.png" style="width: 10px;margin-right: 3px;">
-       dygcombos
-    </div>
-</p>
-  </div><!-- .info -->
-  
-  <div class="bank">
-    <p>
-    <div style="  display:flex; align-items:center; justify-content:left;font-size:10px; margin-top:0.2rem">
-      <strong>
-        ` +
-        date +
-        '-' +
-        month +
-        '-' +
-        year +
-        `
-    </strong>
-    </div>
-    </p>
-  </div><!--.bank-->
-  <div style="margin-left:30px">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-unionganadera.png" style="width: 40px">
-    <img src="https://dyg-frontend.herokuapp.com/assets/images/logo-paty.png" style="width: 40px">
-  </div>
-  </header>
-  
-  
-  <div class="row section">
-  
-  
-  
-  
-  </div><!--.row-->
-  
-  <div class="row section" style="margin-top:-1rem">
-  <div class="col-1">
-    <table style='width:100%'>
-    <thead >
-    <tr class="invoice_detail">
-      <th width="25%" style="font-size: 7px;">Nombre</th>
-      <th width="25%" style="font-size: 7px;">Telefono</th>
-      <th width="25%" style="font-size: 7px;">Direccion</th>
-      <th width="25%" style="font-size: 7px;">Zona</th>
-     </tr> 
-    </thead>
-    <tbody>
-    <tr class="invoice_detail">
-      <td width="25%" style="font-size: 8px;">` +
-    datosCliente.nombre +
-    `</td>
-      <td width="25%" style="font-size: 6px;">` +
-    datosCliente.telefono +
-    `</td>
-      <td width="25%" style="font-size: 6px;">` +
-    datosCliente.direccion +
-    `</td>
-      <td width="25%" style="font-size: 6px;">` +
-    datosCliente.zona +
-    `</td>
-     </tr>
-    </tbody>
+    
+    </div><!--.row-->
+    
+    <div class="invoicelist-body">
+    <table>
+      <thead >
+        <th width="60%" style="font-size:8px;">Descripción</th>
+        <th width="10%" style="font-size:8px;text-align:center;">Cant.</th>
+        <th width="15%" style="font-size:8px;text-align:center;">Precio</th>
+        <th width="10%" style="font-size:8px;text-align:center;">Total</th>
+      </thead>
     </table>
-  </div>
-  
-  </div><!--.row-->
-  
-  <div class="invoicelist-body">
-  <table>
-    <thead >
-      <th width="60%" style="font-size:8px;">Descripción</th>
-      <th width="10%" style="font-size:8px;text-align:center;">Cant.</th>
-      <th width="15%" style="font-size:8px;text-align:center;">Precio</th>
-      <th width="10%" style="font-size:8px;text-align:center;">Total</th>
-    </thead>
-  </table>
-  </div>
-  `;
-  datosVenta.forEach(producto => {
+    </div>
+    `;
+    datosVenta.forEach(producto => {
+      html =
+        html +
+        `
+          <div class="invoicelist-body">
+          <table>
+            <tbody>
+              <tr>
+                <td width='60%' style="font-size: 7px;"><span >` +
+        producto.descripcion +
+        `</span></td>
+                <td class="amount" style="font-size: 7px;width: 10%; text-align:center;">` +
+        producto.cantidad +
+        `</td>
+                <td class="rate" style="font-size: 7px;width: 15%; text-align:center;">` +
+        producto.precio +
+        `</td>
+                <td class="sum" style="font-size: 7px;width: 10%; text-align:center;">` +
+        producto.precio * producto.cantidad +
+        `</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div><!--.invoice-body-->
+        `;
+    });
+
     html =
       html +
-      `
-        <div class="invoicelist-body">
-        <table>
-          <tbody>
-            <tr>
-              <td width='60%' style="font-size: 7px;"><span >` +
-      producto.descripcion +
-      `</span></td>
-              <td class="amount" style="font-size: 7px;width: 10%; text-align:center;">` +
-      producto.cantidad +
-      `</td>
-              <td class="rate" style="font-size: 7px;width: 15%; text-align:center;">` +
-      producto.precio +
-      `</td>
-              <td class="sum" style="font-size: 7px;width: 10%; text-align:center;">` +
-      producto.precio * producto.cantidad +
-      `</td>
-            </tr>
-          </tbody>
-        </table>
-        
-      </div><!--.invoice-body-->
-      `;
-  });
-
-  html =
-    html +
-    ` <div class="invoicelist-footer">
-  <table>
-    <tr>
-      <td  style="font-size:7px;"><strong>Deuda:</strong></td>
-      <td id="total_price" style="font-size:8px;"><strong>` +
-    datosVenta[0].deuda +
-    `</strong></td>
-    </tr>
-    <tr>
-      <td  style="font-size:7px;"><strong>Total:</strong></td>
-      <td id="total_price" style="font-size:10px;"><strong>` +
-    datosVenta[0].total +
-    `</strong></td>
-    </tr>
-  </table>
+      ` <div class="invoicelist-footer">
+    <table>
+      <tr>
+        <td  style="font-size:7px;"><strong>Deuda:</strong></td>
+        <td id="total_price" style="font-size:8px;"><strong>` +
+      datosVenta[0].deuda +
+      `</strong></td>
+      </tr>
+      <tr>
+        <td  style="font-size:7px;"><strong>Total:</strong></td>
+        <td id="total_price" style="font-size:10px;"><strong>` +
+      datosVenta[0].total +
+      `</strong></td>
+      </tr>
+    </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
+    <script src="assets/js/main.js"></script>
   </div>
-  <hr>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script></script>
-  <script src="assets/js/main.js"></script>
   </body>
   </html>
       `;
