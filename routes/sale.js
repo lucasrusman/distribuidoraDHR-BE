@@ -119,6 +119,7 @@ router.post('/crearPDF/exportarProductos', async (req, res, next) => {
   });
   query = query.slice(0, -1);
   query = query + ') GROUP BY ppv.idProducto;';
+  console.log(query);
   conexion.query(query, function (err, rows, fields) {
     if (!err) {
       rows.forEach(row => {
