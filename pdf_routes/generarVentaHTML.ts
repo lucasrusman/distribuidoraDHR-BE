@@ -13,20 +13,17 @@ function generarVentaHTML(datosCliente, datosVenta) {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    min-height:50vh;
   }
   .invoice-box {
     max-width: 800px;
     margin: auto;
-    border-top: 1px solid #CECECE;
+    border-top: 1px solid #AFAFAF;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     font-size: 10px;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    min-height: 50%;
   }
   body {
     margin: 0;
-    min-height:50vh;
   }
   
   article,
@@ -615,7 +612,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         background: #fff;
-        min-height: 50vh;
     }
     body {
         width: 100%;
@@ -624,7 +620,6 @@ function generarVentaHTML(datosCliente, datosVenta) {
         color: #000;
         margin: 0;
         padding: 0;
-        min-height: 50vh;
     }
     .control,
     .control-bar {
