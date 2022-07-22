@@ -202,11 +202,10 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('', (req, res, next) => {
-  const { fecha_inicial, fecha_final } = req.body;
-  console.log(req.body)
+  const { fecha_inicial_pipe, fecha_final_pipe } = req.body;
   conexion.query(
     'SELECT *, v.id FROM ventas v inner join clientes c on v.idCliente = c.id WHERE fecha BETWEEN ? and ? ORDER BY v.id DESC ',
-    [fecha_inicial, fecha_final],
+    [fecha_inicial_pipe, fecha_final_pipe],
     (err, rows, fields) => {
       if (!err) {
         res.json(rows);
