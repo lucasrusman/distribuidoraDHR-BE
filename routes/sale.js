@@ -203,6 +203,7 @@ router.delete('/:id', (req, res) => {
 
 router.post('', (req, res, next) => {
   const { fecha_inicial, fecha_final } = req.body;
+  console.log(fecha_inicial, fecha_final)
   conexion.query(
     'SELECT *, v.id FROM ventas v inner join clientes c on v.idCliente = c.id WHERE fecha BETWEEN ? and ? ORDER BY v.id DESC ',
     [fecha_inicial, fecha_final],
