@@ -491,7 +491,7 @@ h1 {
 .invoicelist-body td,
 .invoicelist-body th {
     position: relative;
-    padding: 0.125rem;
+    padding: 0rem;
     border-bottom: 1px solid #A1A1A1;
 }
 
@@ -582,7 +582,7 @@ h1 {
 
 footer {
     display: block;
-    margin: 1rem 0;
+    margin: 1rem 0 3rem 0;
     padding: 1rem 0 0
 }
 
@@ -639,10 +639,10 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='80%' style="text-align:left;font-size:8px;"> <span >` +
+            <td width='80%' style="text-align:left;font-size:6px;"> <span >` +
       producto[0] +
       `</span></td>
-            <td width='20%' style="text-align:center;font-size:8px;"><span >` +
+            <td width='20%' style="text-align:center;font-size:6px;"><span >` +
       producto[1] +
       `</span></td>
           </tr> 
