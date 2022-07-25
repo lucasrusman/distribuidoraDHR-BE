@@ -236,7 +236,7 @@ body {
     max-width: 800px;
     background: white;
     
-    padding: 2rem
+    padding: 1rem 2rem;
 }
 
 .container {
