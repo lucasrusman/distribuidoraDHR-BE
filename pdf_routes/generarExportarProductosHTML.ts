@@ -389,8 +389,9 @@ p {
 }
 
 header {
-    margin: 1rem 0 0;
-    padding: 0 0 2rem 0;
+    margin: 0.125rem 0 0;
+    margin-bottom:0px;
+    padding: 0 0 0.25rem 0;
     border-bottom: 3pt solid #009688
 }
 
