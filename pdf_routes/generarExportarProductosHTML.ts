@@ -232,7 +232,7 @@ html {
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 0.5rem auto 0;
+    margin: 0.125rem auto 0;
     max-width: 800px;
     background: white;
     
