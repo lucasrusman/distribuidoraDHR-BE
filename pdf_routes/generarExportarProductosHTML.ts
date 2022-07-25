@@ -224,7 +224,7 @@ th {
 
 html {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 0rem;
     color: #000;
     -moz-box-sizing: border-box;
     box-sizing: border-box
@@ -235,7 +235,6 @@ body {
     margin: 2rem auto 0;
     max-width: 800px;
     background: white;
-    
     padding: 2rem
 }
 
@@ -389,8 +388,8 @@ p {
 }
 
 header {
-    margin: 1rem 0 0;
-    padding: 0 0 2rem 0;
+    margin: 0.5rem 0 0;
+    padding: 0 0 1rem 0;
     border-bottom: 3pt solid #009688
 }
 
@@ -582,7 +581,7 @@ h1 {
 
 footer {
     display: block;
-    margin: 1rem 0 3rem 0;
+    margin: 1rem 0 1rem 0;
     padding: 1rem 0 0
 }
 
@@ -639,10 +638,10 @@ footer p {
       <table>
         <tbody>
           <tr>
-            <td width='80%' style="text-align:left;font-size:6px;"> <span >` +
+            <td width='80%' style="text-align:left;font-size:4px;"> <span >` +
       producto[0] +
       `</span></td>
-            <td width='20%' style="text-align:center;font-size:6px;"><span >` +
+            <td width='20%' style="text-align:center;font-size:4px;"><span >` +
       producto[1] +
       `</span></td>
           </tr> 
