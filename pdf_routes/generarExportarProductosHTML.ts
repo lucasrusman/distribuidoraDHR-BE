@@ -493,6 +493,7 @@ h1 {
 .invoicelist-body th {
     position: relative;
     padding: 0rem;
+    margin: 0rem;
     border-bottom: 1px solid #A1A1A1;
 }
 
