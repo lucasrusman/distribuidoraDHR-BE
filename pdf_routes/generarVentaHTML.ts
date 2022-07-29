@@ -21,6 +21,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     font-size: 10px;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    max-height: 50%;
   }
   body {
     margin: 0;
@@ -410,7 +411,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   header {
     margin: 0.125rem 0 0;
     margin-bottom:0px;
-    padding: 0.5rem 0 0.25rem 0;
+    padding: 0.75rem 0 0.25rem 0;
     border-bottom: 3pt solid #009688;
   }
   
