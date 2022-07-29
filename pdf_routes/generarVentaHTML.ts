@@ -410,7 +410,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   header {
     margin: 0.125rem 0 0;
     margin-bottom:0px;
-    padding: 0 0 0.25rem 0;
+    padding: 0.5rem 0 0.25rem 0;
     border-bottom: 3pt solid #009688;
   }
   
