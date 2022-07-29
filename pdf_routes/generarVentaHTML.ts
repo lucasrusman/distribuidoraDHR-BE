@@ -26,6 +26,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
   }
   body {
     margin: 0;
+    max-heigth: 1page
   }
   
   article,
@@ -617,6 +618,12 @@ function generarVentaHTML(datosCliente, datosVenta) {
         background: #fff;
         max-height: 40%;
     }
+    @page :first {
+      height: 100%;
+     }
+     @page :second {
+      height: 0%;
+     }
     body {
         width: 100%;
         border: none;
@@ -625,6 +632,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
     }
+    .invoicelist-footer {page-break-after: always;}
     .control,
     .control-bar {
         display: none !important
