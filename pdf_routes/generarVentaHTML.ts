@@ -615,7 +615,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
         margin: 0;
         padding: 0;
         background: #fff;
-        max-height: 50%;
+        max-height: 40%;
     }
     body {
         width: 100%;
