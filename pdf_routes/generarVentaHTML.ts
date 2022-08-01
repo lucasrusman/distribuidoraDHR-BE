@@ -801,7 +801,7 @@ function generarVentaHTML(datosCliente, datosVenta) {
         <td  style="font-size:7px;"><strong>Deuda:</strong></td>
         <td id="total_price" style="font-size:8px;"><strong>` +
       datosVenta[0].deuda +
-      `</strong></td>
+      ` </strong></td>
       </tr>
       <tr>
         <td  style="font-size:7px;"><strong>Total:</strong></td>

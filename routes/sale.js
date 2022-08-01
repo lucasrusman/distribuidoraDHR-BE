@@ -232,10 +232,13 @@ router.post('/propiedades', async (req, res, next) => {
           [idVenta],
           (err, rows, fields) => {
             let productosVenta = rows;
-            console.log(rows);
+            console.log( rows);
             //aca debemos generar el pdf
             var options = { type: 'pdf', timeout: '1000000' };
-
+            if (!productosVenta[0].deuda) {
+              productosVenta[0].deuda = 0;
+            }
+            console.log(productosVenta[0] );
             ventaHTML = generarVentaHTML(datosClientes, productosVenta);  
             console.log(productosVenta);
             pdf.create(ventaHTML, options).toFile('./venta.pdf', function (err, res2) {
