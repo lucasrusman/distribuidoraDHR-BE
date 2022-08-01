@@ -12,6 +12,9 @@ router.post('/crear', async (req, res, next) => {
   const { idCliente, total, deuda } = req.body.sale;
   console.log(req.body.sale.fecha);
   let ventaCreada;
+  if (!deuda) {
+    deuda = 0;
+  }
   conexion.query(
     'INSERT INTO ventas (idCliente, fecha, total, deuda) VALUES (?, ?, ?, ?);',
     [idCliente, format(Date.parse(req.body.sale.fecha), 'yyyy-MM-dd'), total, deuda],
@@ -218,9 +221,6 @@ router.post('', (req, res, next) => {
 
 router.post('/propiedades', async (req, res, next) => {
   const { idCliente, idVenta } = req.body;
-
-  let exportSale = [];
-  let array = [];
   conexion.query(
     'SELECT nombre, telefono, direccion, zona FROM clientes WHERE id = ?',
     [idCliente],
