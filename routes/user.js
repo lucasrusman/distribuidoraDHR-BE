@@ -42,7 +42,7 @@ router.post('/login', (req, res, next) => {
           });
           res.status(200).json({
             token,
-            expiresIn: 3600,
+            expiresIn: token.expiresIn,
             rol,
             Status: 'Login correcto'
           });
