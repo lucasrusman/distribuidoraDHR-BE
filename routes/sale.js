@@ -9,7 +9,7 @@ const generarListadoVentasHTML = require('../pdf_routes/generarListadoVentasHTML
 const generarExportarClientesHTML = require('../pdf_routes/generarExportarClientesHTML.ts')
 const generarExportarProductosHTML = require('../pdf_routes/generarExportarProductosHTML.ts')
 router.post('/crear', async (req, res, next) => {
-  const { idCliente, total, deuda } = req.body.sale;
+  let { idCliente, total, deuda } = req.body.sale;
   console.log(req.body.sale.fecha);
   let ventaCreada;
   if (!deuda) {
